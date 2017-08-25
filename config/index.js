@@ -12,17 +12,17 @@ module.exports = {
     port: 5000,
     autoOpenBrowser: true,
     proxyTable: {
-      '/api':{
-        //http://localhost:5000/api/
-        //转换成如下效果
-        //http://pianke.me/
-        target : 'http://pianke.me/version5.0',
-        changeOrigin : true,
-        pathRewrite:{
+      '/api': {
+        // http://localhost:5000/api/
+        // 转换成如下效果
+        // http://pianke.me/
+        target: 'http://pianke.me/version5.0',
+        changeOrigin: true,
+        pathRewrite: {
           '/api': ''
         }
       }
-    },
+    }
 
   },
     // 生产环境配置

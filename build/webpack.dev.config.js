@@ -10,7 +10,7 @@ const utils = require('../build/utils')
 // 修改webpack配置的 entry
 // baseWebpackConfig.entry = ['./build/dev-client'].concat(baseWebpackConfig.entry)
 Object.keys(baseWebpackConfig.entry).forEach(function (item) {
-  baseWebpackConfig.entry[item] = ['whatwg-fetch','./build/dev-client'].concat(baseWebpackConfig.entry[item])
+  baseWebpackConfig.entry[item] = ['whatwg-fetch', './build/dev-client'].concat(baseWebpackConfig.entry[item])
 })
 // 合并base 与dev 的配置
 module.exports = merge(baseWebpackConfig, {
