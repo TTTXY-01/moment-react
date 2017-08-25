@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#container {
+  border: 1px solid #000;
+  width: 1200px;
+  margin: 0 auto;
+}
+.publish {
+  border: 1px solid #000;
+  width: 100%;
+  height: 380px;
+}
+.hotLabel {
+  border: 1px solid #000;
+  margin-top: 100px;
+}
+.hotLabel-title {
+  background: url("../images/label-img.png") no-repeat left;
+  padding-left: 30px;
+}
+.hotLabel-content-one {
+  width: 191px;
+  height: 84px;
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+  overflow: hidden;
+}
+.hotLabel-content-one img {
+  width: 100%;
+  height: 100%;
+}
+.hotLabel-content-one-text {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+}
+.hotLabel-content-one-text div {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+.hotLabel-content-one-text div:last-child {
+  font-weight: lighter;
+  font-size: 13px;
+}
+.img {
+  animation: dd 1s;
+}
+@-moz-keyframes dd {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes dd {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@-o-keyframes dd {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes dd {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}

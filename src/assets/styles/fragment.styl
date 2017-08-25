@@ -1,0 +1,56 @@
+* //通配
+  padding 0
+  margin 0
+
+$border = 1px solid black
+
+#container //中间最的容器
+  border $border
+  width 1200px
+  margin 0 auto
+
+.publish //发布碎片
+  border $border
+  width 100%
+  height 380px
+
+.hotLabel  //热门标签
+  border $border
+  margin-top 100px
+
+.hotLabel-title //标签前的小黑色方图片
+  background url('../images/label-img.png') no-repeat left
+  padding-left 30px
+.hotLabel-content-one  //热门标签下的每一个
+  width 191px
+  height 84px
+  position relative
+  display inline-block
+  margin-left 8px
+  overflow hidden
+.hotLabel-content-one img //热门标签下每一个图片
+  width 100%
+  height 100%
+.hotLabel-content-one-text //热门标签下每一个中的文字
+  position absolute
+  top 25%
+  width 100%
+
+.hotLabel-content-one-text div //热门标签下每一个文字的内容
+  color white
+  text-align center
+  font-weight bold
+  font-size 18px
+.hotLabel-content-one-text div:last-child
+  font-weight lighter
+  font-size 13px
+@keyframes dd
+  0%
+    transform scale(1)
+  100%
+    transform scale(1.1)
+
+.img
+  animation dd 1s
+
+.hotLabel-content-one:hover

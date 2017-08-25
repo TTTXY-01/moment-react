@@ -1,7 +1,7 @@
 {
   "name": "webpack-react-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "史诗巨作片刻",
   "main": "index.js",
   "scripts": {
     "start": "node build/dev-server.js",
@@ -54,5 +54,13 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "whatwg-fetch": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcfreestyle/moment-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zcfreestyle/moment-react/issues"
+  },
+  "homepage": "https://github.com/zcfreestyle/moment-react#readme"
 }
