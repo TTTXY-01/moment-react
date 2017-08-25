@@ -6,7 +6,7 @@ import React, {Component} from 'react'
 class Header extends Component {
   render () {
     return (
-      <div>
+      <div id='nav-fixed'>
         <nav>
           <div id='head'>
             <a href='###' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
@@ -14,8 +14,8 @@ class Header extends Component {
               <a href="###"><li className='clickLi'>首页</li></a>
               <a href="###"><li>阅读</li></a>
               <a href="###"><li>电台</li></a>
-              <li>碎片</li>
-              <li>客户端</li>
+              <a href="###"><li>碎片</li></a>
+              <a href="###"><li>客户端</li></a>
             </ul>
             <div id='login'>
               <div id='outside'>
