@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background: url("https://qnstatic.pianke.me/public/assets/img/bgImg.png");
+  background-repeat: repeat-x;
+  background-color: #fbfbfb;
+}
+nav {
+  width: 100%;
+  background: #fff;
+  height: 90px;
+  box-shadow: 0 0 8px #dcdcdc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.95;
+  z-index: 1;
+}
+#head {
+  width: 1200px;
+  height: 90px;
+  margin: 0 auto;
+}
+#logo {
+  line-height: 123px;
+  float: left;
+  height: 90px;
+}
+#navUL {
+  float: left;
+  width: 420px;
+  margin: 0 100px;
+}
+#navUL li {
+  text-align: center;
+  line-height: 87px;
+  list-style: none;
+  float: left;
+  height: 87px;
+  width: 84px;
+  cursor: pointer;
+}
+#navUL li a {
+  text-decoration: none;
+  color: #000;
+}
+#navUL li:hover {
+  background: #fbfbfb;
+}
+.clickLi {
+  font-weight: bolder;
+  border-bottom: 3px solid #000;
+  background: #fbfbfb;
+}
+#login {
+  float: right;
+  width: 200px;
+  height: 65px;
+  padding-top: 25px;
+}
+#inside {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #5cb76e;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+#inside:hover {
+  box-shadow: 0 0 10px #fff inset;
+}
+#inside img {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 10px;
+  top: 10px;
+}
+#outside {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  border: 1px solid #5cb76e;
+}
+#loginBtn {
+  float: right;
+  width: 120px;
+  height: 45px;
+  border: 1px solid #5cb76e;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 45px;
+  color: #5cb76e;
+}
+#loginBtn:hover {
+  background: #57ad68;
+  color: #fff;
+}
+/*以上是导航栏样式*/

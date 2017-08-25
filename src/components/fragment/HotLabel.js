@@ -2,35 +2,60 @@
  * Created by dllo on 17/8/24.
  */
 import React, {Component} from 'react'
+const md5 = require('md5')
+const dateformat = require('dateformat')
+const base64 = require('Base64')
 
 class HotLabel extends Component {
-  constructor (porps) {
-    super(porps)
+  constructor (poprs) {
+    super(poprs)
     this.state = {
-      scale: 'scale(1)'
+      data: []
     }
   }
-
-  onmouseover = (ev) => {
-    ev.target.style.transform = 'scale(1.1)'
-    console.log(ev.target)
+  ajaxData = (interFace) => {
+    const time = new Date()
+    // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
+    const timestamp = dateformat(time.getTime(), 'yyyymmddHHMMss')
+    // 3.将字符串 0+''+timestamp 转成MD5, 并变为全大写
+    const sig = md5('0' + '' + timestamp).toUpperCase()
+    const Authorization = base64.btoa('' + ':' + timestamp)
+    const url = '/api' + interFace + '&sig=' + sig
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: Authorization
+      }
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(response => {
+        // console.log(response)
+        this.setState({
+          data: response.data
+        })
+      })
+  }
+  componentDidMount () {
+    this.ajaxData('/newTimeLine/tagList.php?num=12')
+    // console.log(this.state.data)
   }
 
   render () {
-    const arr = []
-    for (var i = 0; i < 12; i++) {
-      arr.push(
-        <div onMouseOver={this.onmouseover} className='hotLabel-content-one'>
+    const dataArray = this.state.data.map((item, index) => {
+      return (
+        <div key={index.toString()} className='hotLabel-content-one'>
           <a>
-            <img className='img' src={require('./../../assets/images/timg.jpg')} />
+            <img className='img' src={item.img} />
             <div className='hotLabel-content-one-text'>
-              <div>悄悄话</div>
-              <div>75931个</div>
+              <div>{item.tag}</div>
+              <div>{item.count}</div>
             </div>
           </a>
         </div>
       )
-    }
+    })
 
     return (
       <div className='hotLabel'>
@@ -38,7 +63,7 @@ class HotLabel extends Component {
           热门标签
         </div>
         <div className='hotLabel-content'>
-          {arr}
+          {dataArray}
         </div>
       </div>
     )

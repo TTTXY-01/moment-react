@@ -1,0 +1,12 @@
+/**
+ * Created by dllo on 17/8/24.
+ */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import '../../assets/styles/read.styl'
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
