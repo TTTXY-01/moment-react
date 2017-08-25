@@ -12,23 +12,20 @@ class AllFragment extends Component {
     this.state = {
       data: [],
       page: 20,
-      heart: '♡',
       tf: false
     }
   }
 
-  mouseover = () => {
-    this.setState({
-      heart: '♥'
-    })
+  mouseover = (ev) => {
+    ev.target.innerHTML = '♥'
   }
-  mouseout = () => {
-    this.setState({
-      heart: '♡'
-    })
+  mouseout = (ev) => {
+    ev.target.innerHTML = '♡'
   }
   heartClick = (ev) => {
-
+    this.setState({
+      tf: !this.state.tf
+    })
   }
 
   ajaxData = (interFace) => {
@@ -63,6 +60,7 @@ class AllFragment extends Component {
   }
 
   render () {
+    let heart = this.state.tf ? '♥' : '♡'
     let fragmentArray = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className='fragment-one'>
@@ -79,7 +77,7 @@ class AllFragment extends Component {
                 </span>
               </di >
               <div onClick={this.heartClick} onMouseOver={this.mouseover} onMouseOut={this.mouseout} className='user-right float-right'>
-                {this.state.heart}
+                {heart}
               </div >
             </div >
           </div >
