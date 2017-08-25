@@ -43,10 +43,10 @@ class Recommendation extends Component {
         {
           this.state.data.map(function (item, index) {
             return (
-              <div>
-                <p key={index.toString()}>{item.title}</p>
+              <div key={index.toString()}>
+                <p>{item.title}</p>
               </div>
-          )
+            )
           })
         }
       </div>

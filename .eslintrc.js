@@ -24,6 +24,8 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'eol-last': 0,
-    'space-before-function-paren': 0
+    'space-before-function-paren': 0,
+    //忽略单引号的格式
+    "jsx-quotes": 0
   }
 }
