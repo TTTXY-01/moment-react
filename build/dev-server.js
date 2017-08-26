@@ -67,8 +67,6 @@ app.use(hotMiddleware)
 // console.log(!!a)//false
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
-
-
 const  url = 'http://localhost:' + port + '/read.html'
 
 let _resolve
@@ -86,7 +84,6 @@ devMiddleware.waitUntilValid(() => {
 })
 
 const server = app.listen(port);
-
 module.exports = {
     ready : readyPromise,
     close : () => {
