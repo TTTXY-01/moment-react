@@ -3,7 +3,7 @@ const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class Recommendation extends Component {
+class HotRadio extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -35,23 +35,26 @@ class Recommendation extends Component {
       })
   }
   componentDidMount () {
-    this.ajaxData('/ting/listOfRecommend.php?pageSize=3')
+    this.ajaxData('/ting/listOfRadio.php?pageSize=3&sort=2&pageNum=1')
   }
   render() {
+    let Array = this.state.data.map((item, index) => {
+      return (
+        <div key={index.toString()}>
+          <p>{item.title}</p>
+        </div>
+      )
+    })
     return (
-      <div>
-        {
-          this.state.data.map(function (item, index) {
-            return (
-              <div key={index.toString()}>
-                <p>{item.title}</p>
-              </div>
-            )
-          })
-        }
+      <div className="top_wrap">
+        <div className="recommend_title">
+          <span>热门电台 | Hot Radio</span>
+        </div>
+        <div>
+          {Array}
+        </div>
       </div>
     )
   }
 }
-
-export default Recommendation
+export default HotRadio
