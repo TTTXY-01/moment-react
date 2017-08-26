@@ -1,26 +1,26 @@
+/**
+ * Created by dllo on 17/8/24.
+ */
 import React, {Component} from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class App extends Component {
-  constructor (props) {
-    super(props)
+class HotLabel extends Component {
+  constructor (poprs) {
+    super(poprs)
     this.state = {
       data: []
     }
   }
-
-  // http://pianke.me/version5.0/pub/ad.php?type=3&sig=0E35C28AD161573F2E81ACF51B671ED8
-  componentDidMount () {
+  ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
     const timestamp = dateformat(time.getTime(), 'yyyymmddHHMMss')
     // 3.将字符串 0+''+timestamp 转成MD5, 并变为全大写
     const sig = md5('0' + '' + timestamp).toUpperCase()
     const Authorization = base64.btoa('' + ':' + timestamp)
-    const url = '/api/pub/ad.php?type=3&sig=' + sig
-
+    const url = '/api' + interFace + '&sig=' + sig
     fetch(url, {
       method: 'GET',
       headers: {
@@ -29,34 +29,44 @@ class App extends Component {
     })
       .then(response => {
         return response.json()
-      }
-      )
-
+      })
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({
           data: response.data
         })
       })
   }
+  componentDidMount () {
+    this.ajaxData('/newTimeLine/tagList.php?num=12')
+    // console.log(this.state.data)
+  }
 
   render () {
     const dataArray = this.state.data.map((item, index) => {
       return (
-        <p key={index.toString()}>
-          {item.title}
-        </p >
+        <div key={index.toString()} className='hotLabel-content-one'>
+          <a>
+            <img className='img' src={item.img} />
+            <div className='hotLabel-content-one-text'>
+              <div>{item.tag}</div>
+              <div>{item.count}</div>
+            </div>
+          </a>
+        </div>
       )
     })
+
     return (
-      <div>
-        <h1> 梁佳军好帅, 窝唉泥记得找我哦, 包小姐:13983726593 </h1>
-        {dataArray}
-        <img src={require('./../../assets/images/timg.jpg')} />
-        <a href='about.html'> 关于我们 </a>
+      <div className='hotLabel'>
+        <div className='hotLabel-title'>
+          热门标签
+        </div>
+        <div className='hotLabel-content'>
+          {dataArray}
+        </div>
       </div>
     )
   }
 }
-
-export default App
+export default HotLabel

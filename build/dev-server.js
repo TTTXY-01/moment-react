@@ -68,6 +68,7 @@ app.use(hotMiddleware)
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
 
+
 const  url = 'http://localhost:' + port + '/read.html'
 
 let _resolve

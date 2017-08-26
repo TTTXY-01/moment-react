@@ -5,6 +5,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import '../../assets/styles/read.styl'
+import '../../assets/styles/Classification.styl'
+import '../../assets/styles/HotArticles.styl'
+import '../../assets/styles/Footer.styl'
 
 ReactDOM.render(
   <App />,
