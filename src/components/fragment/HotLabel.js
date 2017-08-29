@@ -7,12 +7,14 @@ const dateformat = require('dateformat')
 const base64 = require('Base64')
 
 class HotLabel extends Component {
-  constructor (poprs) {
-    super(poprs)
+  constructor (props) {
+    super(props)
     this.state = {
-      data: []
+      data: [],
+      index: 0
     }
   }
+
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -37,26 +39,25 @@ class HotLabel extends Component {
         })
       })
   }
+
   componentDidMount () {
     this.ajaxData('/newTimeLine/tagList.php?num=12')
-    // console.log(this.state.data)
   }
 
   render () {
     const dataArray = this.state.data.map((item, index) => {
       return (
-        <div key={index.toString()} className='hotLabel-content-one'>
-          <a>
-            <img className='img' src={item.img} />
-            <div className='hotLabel-content-one-text'>
-              <div>{item.tag}</div>
-              <div>{item.count}</div>
+        <div name={item.tag} key={index.toString()} className='hotLabel-content-one'>
+          <a name={item.tag}>
+            <img name={item.tag} className='img' src={item.img} />
+            <div name={item.tag} className='hotLabel-content-one-text'>
+              <div name={item.tag}>{item.tag}</div>
+              <div name={item.tag}>{item.count}</div>
             </div>
           </a>
         </div>
       )
     })
-
     return (
       <div className='hotLabel'>
         <div className='hotLabel-title'>

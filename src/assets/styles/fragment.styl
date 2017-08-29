@@ -4,86 +4,280 @@
 
 $border = 1px solid black
 
-#container //中间最的容器
+#fragment-container //中间最的容器
   //border $border
   width 1200px
   margin 0 auto
   background url('../images/back.png') no-repeat
 
-.publish //发布碎片
-  border $border
-  width 100%
-  height 380px
-
-.hotLabel-title //标签前的小黑色方图片
-  background url('../images/label-img.png') no-repeat left
-  padding-left 30px
-  margin 100px 0 30px 0
-  background-position-x 10px
-.hotLabel-content-one  //热门标签下的每一个
-  width 191px
-  height 84px
-  position relative
-  display inline-block
-  margin-left 8px
-  overflow hidden
-.hotLabel-content-one img //热门标签下每一个图片
-  width 100%
-  height 100%
-.hotLabel-content-one-text //热门标签下每一个中的文字
-  position absolute
-  top 0
-  width 100%
-  height 100%
-  background rgba(0,0,0,0.2)
-
-.hotLabel-content-one-text div //热门标签下每一个文字的内容
-  color white
-  text-align center
-  font-weight 500
-  font-size 18px
-.hotLabel-content-one div:first-child //热门标签下第一个的内容
-  margin-top 25px
-
-.hotLabel-content-one-text div:last-child//热门标签下最后一个文字的内容
-  font-weight lighter
-  font-size 13px
-.hotLabel-content-one:hover .img  //悬停之后让里面的图片响应
-  transform scale(1.1)
-  transition 1s ease
-.allFragment //全部碎片
-  border $border
-.fragment-one //全部碎片中的每一个
-  width 280px
-  margin-left 10px
-  border 4px solid rgb(232,232,232)
-  img //下面的图片
+  .publish //发布碎片
+  //box-shadow 0 0 3px 3px lightgray
+    padding-top 20px
     width 100%
-.fragment-one:hover //悬停每一个出现的效果
-  box-shadow 2px 2px 2px 2px gray
-.fragment-one-content //每一个的内容
-  padding 10px
-.float-right  //全部都可以用 浮动右
-  float right
-.float-left  //全部都可以用 浮动左
-  float left
-.clear-float::after //清除浮动
-  content ''
-  clear both
-  display table
-.green-hover:hover
-  color rgb(87,173,104)
-.fragment-one-one-user //碎片下的用户
-  margin 20px 0
-.user-left //用户中的左边
-  color grey
-  font-size 14px
-  img  //用户头像
-    width 30px
-    height 30px
-    border-radius 50%
-    vertical-align middle
-    margin-right 7px
-.user-right  //用户的右边  点赞
-  font-size 20px
-  color rgb(248,141,121)
+    height 220px
+
+  .publish-time //发布碎片时间
+    width 220px
+    height 220px
+    background url('../images/download.png') no-repeat
+    background-size cover
+    position: relative
+
+  .publish-time span:first-child //发布碎片下的时间
+    font-size 120px
+    position absolute
+    top -30px
+
+  .publish-time span:last-child //发布碎片下的月份
+    font-size 20px
+    position absolute
+    top 55%
+    right 20%
+
+  .publish-content //发布碎片文本框
+    width 70%
+    height 100%
+    background-color white
+    padding 10px 20px
+    //padding 10px 0
+    text-align center
+
+  .publish-textarea //文本输入框
+    border 2px solid #e8e8e8
+    max-width 90%
+    min-width 90%
+    min-height 60%
+    max-height 60%
+    outline none
+    padding 20px 25px 0
+    font-size 15px
+
+  .publish-button //文本下的所有按钮
+    width 90%
+    padding 0 25px
+    margin-top 10px
+    font-size 15px
+    font-weight 300
+    position relative
+
+  .publicity //公开私密按钮的父级
+    border 2px solid rgb(120, 188, 133)
+    border-radius 5px
+    padding 3px
+
+  .publicity //公开或私密按钮
+    span
+       padding 1px 10px
+
+  .publicity-btn //加在他们身上的类
+    border-radius 5px
+    color white
+    background-color rgb(120, 188, 133)
+
+  .publish-btn //发布碎片按钮
+    background-color rgb(120, 188, 133)
+    color white
+    padding 5px 15px
+    border-radius 20px
+    margin-left 20px
+
+  .up-img //上传图片
+    position relative
+    margin-left 40px
+    margin-top 5px
+
+    input //文件类型
+      width 60px
+      position absolute
+      z-index 5
+      opacity 0
+
+  .publish-img //上传的图片文字
+    outline none
+    width 40px
+    background url('../images/image.png') no-repeat left
+    background-size contain
+    position absolute
+    padding-left 30px
+    z-index 4
+
+  .publish-label //上传的标签内容
+    margin-left 80px
+    margin-top 4px
+
+  .add-label //添加标签
+    background url('../images/imgjing.png') no-repeat
+    background-size contain
+    padding-left 30px
+
+  .all-label //全部标签
+    width 300px
+    background-color white
+    box-shadow 0 0 3px 3px lightgray
+    position absolute
+    padding 10px
+    top 50px
+    left 120px
+    z-index 5
+    border-radius 10px
+    display none
+    span
+      display inline-block
+      font-weight 300
+      width 25%
+      font-size 10px
+      white-space nowrap
+      text-overflow ellipsis
+      margin 10px
+      overflow hidden
+  .all-label span:hover
+    color rgb(130,183,157)
+  .publish-alert
+    background url('../images/alert.png') no-repeat white top
+    background-size 30%
+    position fixed
+    height 40px
+    padding 60px 40px 0
+    border-radius 10px
+    top 45%
+    left 40%
+    z-index 5
+    box-shadow 0 1px 2px 2px lightgray
+    font-size 20px
+    width 100px
+    display none
+
+  .hotLabel-title //标签前的小黑色方图片
+    background url('../images/label-img.png') no-repeat left
+    padding-left 30px
+    margin 100px 0 30px 0
+    background-position-x 10px
+
+  .hotLabel-content-one //热门标签下的每一个
+    width 191px
+    height 84px
+    position relative
+    display inline-block
+    margin-left 8px
+    overflow hidden
+
+  .hotLabel-content-one img //热门标签下每一个图片
+   .publish //发布碎片
+    border $border
+    width 100%
+    height 380px
+  .hotLabel-title //标签前的小黑色方图片
+    background url('../images/label-img.png') no-repeat left
+    padding-left 30px
+    margin 100px 0 30px 0
+    background-position-x 10px
+  .hotLabel-content-one  //热门标签下的每一个
+    width 191px
+    height 84px
+    position relative
+    display inline-block
+    margin-left 8px
+    overflow hidden
+  .hotLabel-content-one img //热门标签下每一个图片
+    width 100%
+    height 100%
+  .hotLabel-content-one-text //热门标签下每一个中的文字
+    position absolute
+    top 0
+    width 100%
+    height 100%
+    background rgba(0,0,0,0.2)
+
+  .hotLabel-content-one-text div //热门标签下每一个文字的内容
+    color white
+    text-align center
+    font-weight 500
+    font-size 18px
+  .hotLabel-content-one div:first-child //热门标签下第一个的内容
+    margin-top 25px
+
+  .hotLabel-content-one-text div:last-child//热门标签下最后一个文字的内容
+    font-weight lighter
+    font-size 13px
+  .hotLabel-content-one:hover .img  //悬停之后让里面的图片响应
+    transform scale(1.1)
+    transition 1s ease
+  .allFragment-all
+    position relative
+    border 1px solid red
+    //overflow hidden
+    height auto
+  .fragment-one //全部碎片中的每一个
+    position absolute
+    //overflow hidden
+    top 0
+    left 0
+    width 280px
+    border 4px solid rgb(232,232,232)
+    img //下面的图片
+      width 100%
+      height 100%
+  .hotLabel-content-one-text //热门标签下每一个中的文字
+    //overflow hidden
+    position absolute
+    top 0
+    width 100%
+    height 100%
+    background rgba(0, 0, 0, 0.2)
+
+  .hotLabel-content-one-text
+    div //热门标签下每一个文字的内容
+     color white
+     text-align center
+     font-weight 500
+     font-size 18px
+
+  .hotLabel-content-one
+    div:first-child //热门标签下第一个的内容
+     margin-top 25px
+
+  .hotLabel-content-one-text
+    div:last-child //热门标签下最后一个文字的内容
+     font-weight lighter
+     font-size 13px
+
+  .hotLabel-content-one:hover
+    .img //悬停之后让里面的图片响应
+      transform scale(1.1)
+      transition 1s ease
+  .fragment-one:hover //悬停每一个出现的效果
+    box-shadow 1px 1px 1px 2px lightgrey
+
+  .fragment-one-content //每一个的内容
+    padding 10px
+
+  .float-right //全部都可以用 浮动右
+    float right
+
+  .float-left //全部都可以用 浮动左
+    float left
+
+  .clear-float::after //清除浮动
+    content ''
+    clear both
+    display table
+
+  .green-hover:hover
+    color rgb(87, 173, 104)
+
+  .fragment-one-one-user //碎片下的用户
+    margin 20px 0
+
+  .user-left //用户中的左边
+    color grey
+    font-size 14px
+    img //用户头像
+      width 30px
+      height 30px
+      border-radius 50%
+      vertical-align middle
+      margin-right 7px
+
+  .user-right //用户的右边  点赞
+    font-size 20px
+    color rgb(248, 141, 121)
