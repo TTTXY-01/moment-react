@@ -5,17 +5,69 @@
 #container {
   width: 1200px;
   margin: 0 auto;
-  background: url("../images/back.png");
+  background: url("../images/back.png") no-repeat;
 }
 .publish {
   border: 1px solid #000;
   width: 100%;
-  height: 380px;
+  height: 220px;
+}
+.publish-time {
+  width: 220px;
+  height: 220px;
+  background: url("../images/download.png") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.publish-time span:first-child {
+  font-size: 120px;
+  position: absolute;
+  top: -30px;
+}
+.publish-time span:last-child {
+  font-size: 20px;
+  position: absolute;
+  top: 55%;
+  right: 20%;
+}
+.publish-content {
+  border: 1px solid #000;
+  width: 70%;
+  height: 100%;
+}
+.publish-textarea {
+  border: 1px solid #e8e8e8;
+  max-width: 90%;
+  min-width: 90%;
+  min-height: 70%;
+  max-height: 70%;
+  outline: none;
+  padding: 20px 25px 0;
+  font-size: 15px;
+}
+.publish-button {
+  border: 1px solid #000;
+  width: 90%;
+  padding: 8px 25px;
+}
+.publicity {
+  border: 2px solid #78bc85;
+  border-radius: 5px;
+  padding: 3px;
+}
+.publicity span {
+  padding: 1px 10px;
+}
+.publicity-btn {
+  border-radius: 5px;
+  color: #fff;
+  background-color: #78bc85;
 }
 .hotLabel-title {
   background: url("../images/label-img.png") no-repeat left;
   padding-left: 30px;
   margin: 100px 0 30px 0;
+  background-position-x: 10px;
 }
 .hotLabel-content-one {
   width: 191px;

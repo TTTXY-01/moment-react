@@ -22,12 +22,6 @@ class AllFragment extends Component {
   mouseout = (ev) => {
     ev.target.innerHTML = '♡'
   }
-  heartClick = (ev) => {
-    this.setState({
-      tf: !this.state.tf
-    })
-  }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -46,7 +40,7 @@ class AllFragment extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({
           data: response.data
         })
@@ -56,14 +50,11 @@ class AllFragment extends Component {
   componentDidMount () {
     const url = 'newTimeLine/list.php?pageSize=' + this.state.page + '&tag=&minId='
     this.ajaxData(url)
-    console.log(this.state.data)
   }
-
   render () {
-    let heart = this.state.tf ? '♥' : '♡'
     let fragmentArray = this.state.data.map((item, index) => {
       return (
-        <div key={index.toString()} className='fragment-one'>
+        <li key={index.toString()} className='fragment-one'>
           <img src={item.coverimg} />
           <div className='fragment-one-content'>
             <p className='fragment-one-text'>
@@ -76,12 +67,12 @@ class AllFragment extends Component {
                   {item.userinfo.uname}
                 </span>
               </di >
-              <div onClick={this.heartClick} onMouseOver={this.mouseover} onMouseOut={this.mouseout} className='user-right float-right'>
-                {heart}
+              <div onMouseOver={this.mouseover} onMouseOut={this.mouseout} className='user-right float-right'>
+                ♡
               </div >
             </div >
           </div >
-        </div >
+        </li>
       )
     })
     return (
