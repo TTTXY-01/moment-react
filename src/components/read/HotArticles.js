@@ -28,7 +28,7 @@ class HotArticles extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         this.setState({
           data: response.data
         })
@@ -56,6 +56,12 @@ class HotArticles extends Component {
                       </div>
                       <div className='article-content'>
                         {item.text}
+                        <span className='view-all'>
+                          <a href="###">
+                            VIEW ALL
+                            <img src={require('../../assets/images/viewall.png')} alt="" />
+                          </a>
+                        </span>
                       </div>
                       <div className='article-others'>
                         {(item.views / 1000).toFixed(1)}&nbsp;k次阅读&nbsp;&nbsp;|&nbsp;&nbsp;
