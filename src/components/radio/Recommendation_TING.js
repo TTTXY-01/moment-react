@@ -3,14 +3,13 @@ const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class NewVoice extends Component {
+class Recommendation extends Component {
   constructor (props) {
     super(props)
     this.state = {
       data: []
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -29,16 +28,14 @@ class NewVoice extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response)
         this.setState({
           data: response.data
         })
       })
   }
   componentDidMount () {
-    this.ajaxData('/ting/list.php?pageSize=3&sort=1')
+    this.ajaxData('/ting/listOfRecommend.php?pageSize=3')
   }
-
   render () {
     let Array = this.state.data.map((item, index) => {
       return (
@@ -58,9 +55,9 @@ class NewVoice extends Component {
       )
     })
     return (
-      <div className="new_wrap">
+      <div className="recommend_wrap">
         <div className="recommend_title">
-          <span >最新发声 | New Voice</span>
+          <span >推荐TING | Recommendation TING</span>
         </div>
         <div className="recommend_ting_wrap">
           {Array}
@@ -70,4 +67,4 @@ class NewVoice extends Component {
   }
 }
 
-export default NewVoice
+export default Recommendation

@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import Recommendation from '../../components/recommend/Recommendation_TING'
+import React, { Component } from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -30,18 +29,16 @@ class App extends Component {
       .then(response => {
         return response.json()
       })
+
       .then(response => {
         this.setState({
           data: response.data
         })
       })
   }
-
   render () {
     return (
-      <div>
-        <Recommendation />
-      </div>
+      <h1>aaa</h1>
     )
   }
 }

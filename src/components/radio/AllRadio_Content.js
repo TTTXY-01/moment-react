@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
-
-class TopTing extends Component {
+class AllRadioContent extends Component {
   constructor (props) {
     super(props)
     this.state = {
       data: []
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -29,45 +27,38 @@ class TopTing extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response)
         this.setState({
           data: response.data
         })
       })
   }
   componentDidMount () {
-    this.ajaxData('/ting/list.php?pageSize=3&sort=2')
+    this.ajaxData('/ting/listOfRadio.php?pageSize=12&sort=2' + this.state.pageNum + '&pageNum=1')
   }
-
-  render () {
-    let Array = this.state.data.map((item, index) => {
+  render() {
+    let hotArray = this.state.data.map((item, index) => {
       return (
-        <div key={index.toString()} className="recommend_ting">
-          <div className="recommend_img_wrap">
-            <img src={item.imgUrl} className="recommend_img" />
-            <div className="coverDiv" />
+        <div key={index.toString()} className="All_radio">
+          <div className="hot_img_wrap">
+            <img src={item.userimg} className="hot_img1" />
+            <img src={item.userimg} className="hot_img2" />
+            <img src={item.userimg} className="hot_img3" />
+            <div className="hot_coverDiv" />
+            <p className="hot_coverDiv_title">{item.desc}</p>
           </div>
-          <div className="recommend_ting_introduce">
-            <p className="recommend_ting_name">{item.title}</p>
-            <p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p>
-            <span>1次播放 |</span>
-            <span> 评论:1 | </span>
-            <span> 喜欢:1</span>
+          <div className="hot_radio_introduce">
+            <p><a href="###" className="hot_radio_name">{item.title}</a></p>
+            <p><a href="###" className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
+            <p className="hot_radio_playCount">2.5m次播放</p>
           </div>
         </div>
       )
     })
     return (
-      <div className="top_wrap">
-        <div className="recommend_title">
-          <span>TOP TING</span>
-        </div>
-        <div className="recommend_ting_wrap">
-          {Array}
-        </div>
+      <div className="All_wrap">
+        {hotArray}
       </div>
     )
   }
 }
-
-export default TopTing
+export default AllRadioContent

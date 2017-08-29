@@ -67,9 +67,7 @@ app.use(hotMiddleware)
 // console.log(!!a)//false
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
-
-const  url = 'http://localhost:' + port + '/transceiver.html'
-
+const  url = 'http://localhost:' + port + '/radio.html'
 let _resolve
 let readyPromise = new Promise(resolve => {
     _resolve = resolve
@@ -85,7 +83,6 @@ devMiddleware.waitUntilValid(() => {
 })
 
 const server = app.listen(port);
-
 module.exports = {
     ready : readyPromise,
     close : () => {

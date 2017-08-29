@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
-
 class HotRadio extends Component {
   constructor (props) {
     super(props)
@@ -28,7 +27,6 @@ class HotRadio extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response)
         this.setState({
           data: response.data
         })
@@ -38,20 +36,31 @@ class HotRadio extends Component {
     this.ajaxData('/ting/listOfRadio.php?pageSize=3&sort=2&pageNum=1')
   }
   render() {
-    let Array = this.state.data.map((item, index) => {
+    let hotArray = this.state.data.map((item, index) => {
       return (
-        <div key={index.toString()}>
-          <p>{item.title}</p>
+        <div key={index.toString()} className="hot_radio">
+          <div className="hot_img_wrap">
+            <img src={item.userimg} className="hot_img1" />
+            <img src={item.userimg} className="hot_img2" />
+            <img src={item.userimg} className="hot_img3" />
+            <div className="hot_coverDiv" />
+            <p className="hot_coverDiv_title">{item.desc}</p>
+          </div>
+          <div className="hot_radio_introduce">
+            <p><a href="###" className="hot_radio_name">{item.title}</a></p>
+            <p><a href="###" className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
+            <p className="hot_radio_playCount">2.5m次播放</p>
+          </div>
         </div>
       )
     })
     return (
-      <div className="top_wrap">
-        <div className="recommend_title">
+      <div className="hot_wrap">
+        <div className="hot_title">
           <span>热门电台 | Hot Radio</span>
         </div>
-        <div>
-          {Array}
+        <div className="hot_radio_wrap">
+          {hotArray}
         </div>
       </div>
     )
