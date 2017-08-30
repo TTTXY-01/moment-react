@@ -1,0 +1,82 @@
+.index-content
+  width 962px
+  margin 0 auto
+  overflow hidden
+  .article-type-info
+    background-position center
+    margin-top 50px
+    width 100%
+    height 278px
+    background-repeat no-repeat
+    background-size cover
+    text-align center
+    color #fff
+    font-size 14px
+    font-weight 200
+    position relative
+    span
+      display inline-block
+      width 100%
+      height 278px
+      background black
+      opacity 0.1
+      position absolute
+      left 0
+      top 0
+    .article-type-title
+      font-weight 400
+      font-size 30px
+      padding-top 74px
+    .article-type-others
+      font-weight 100
+      position relative
+      padding-bottom 28px
+    .article-type-others::before
+      opacity .8
+      content ''
+      position absolute
+      background-color #fff
+      width 48px
+      height 1px
+      top 60%
+      left 50%
+      margin-left -24px
+    .article-type-des
+      font-weight 100
+      padding 0 20px
+
+  .type-title-cpt
+    clear both
+    padding-bottom 34px
+    padding-top 40px
+    color #999
+    font-size 16px
+    span
+      cursor pointer
+      position relative
+    span::before
+      content ''
+      position absolute
+      width 100%
+      height 2px
+      background-color #333
+      top 30px
+      left 0
+      display none
+    span:hover::before
+      display block
+    span:hover
+      color #333
+    span:first-child
+      margin-right 30px
+    .type-active
+      color #333 !important
+    .type-active::before
+      content ''
+      position absolute
+      width 100%
+      height 2px
+      background-color #333
+      top 30px
+      left 0
+      display block !important
