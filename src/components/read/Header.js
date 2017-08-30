@@ -11,11 +11,11 @@ class Header extends Component {
           <div id='head'>
             <a href='###' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
             <ul id='navUL'>
-              <a href="###"><li className='clickLi'>首页</li></a>
-              <a href="###"><li>阅读</li></a>
-              <a href="###"><li>电台</li></a>
-              <a href="###"><li>碎片</li></a>
-              <a href="###"><li>客户端</li></a>
+              <a href='###'><li className='clickLi'>首页</li></a>
+              <a href='###'><li>阅读</li></a>
+              <a href='###'><li>电台</li></a>
+              <a href='###'><li>碎片</li></a>
+              <a href='###'><li>客户端</li></a>
             </ul>
             <div id='login'>
               <div id='outside'>
