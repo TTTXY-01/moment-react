@@ -87,6 +87,13 @@ class UserAll extends Component {
     document.body.onscroll = this.scroll
   }
   componentDidUpdate() {
+    let cardTopImg = document.getElementsByClassName('card-top-img')
+    for (let i = 0; i < cardTopImg.length; i++) {
+      // console.log(cardTopImg[i].children[0].children[0].src)
+      if (cardTopImg[i].children[0].children[0].src === 'http://localhost:5000/user.html' + location.search) {
+        cardTopImg[i].style.height = 0
+      }
+    }
     this.waterfall('card-read-cpt')
   }
   render () {
@@ -97,18 +104,18 @@ class UserAll extends Component {
             return (
               <div className='card-read-cpt' key={index.toString()}>
                 <div className='card-top-img'>
-                  <a href="###">
+                  <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
                     <img src={item.content.imageInfo.img} alt="" />
                   </a>
                 </div>
                 <div className='card-item'>
                   <div className='card-title'>
-                    <a href="###" target='_blank'>{item.content.title}</a>
+                    <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>{item.content.title}</a>
                   </div>
                   <div className='card-content'>
                     {item.content.desc}
                     <span className='view-all'>
-                      <a href="###" target='_blank'>VIEW&nbsp;ALL<img src={require('../../assets/images/viewall.png')} alt="" /></a>
+                      <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>VIEW&nbsp;ALL<img src={require('../../assets/images/viewall.png')} alt="" /></a>
                     </span>
                   </div>
                   <div className='card-others'>

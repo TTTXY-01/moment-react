@@ -52,7 +52,7 @@ class HotArticles extends Component {
                         <a href={'articleInfo.html?contentid=' + item.id} target='_blank'>{item.title}</a>
                       </div>
                       <div className='article-author'>
-                        <a href="###" target='_blank'>By&nbsp;/&nbsp;{item.userinfo.uname}</a>
+                        <a href={'user.html?uid=' + item.userinfo.uid} target='_blank'>By&nbsp;/&nbsp;{item.userinfo.uname}</a>
                       </div>
                       <div className='article-content'>
                         {item.text}

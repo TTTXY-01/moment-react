@@ -86,6 +86,13 @@ class UserFragment extends Component {
     document.body.onscroll = this.scroll
   }
   componentDidUpdate() {
+    let cardTopImg = document.getElementsByClassName('card-top-img')
+    for (let i = 0; i < cardTopImg.length; i++) {
+      // console.log(cardTopImg[i].children[0].children[0].src)
+      if (cardTopImg[i].children[0].children[0].src === 'http://localhost:5000/user.html' + location.search) {
+        cardTopImg[i].style.height = 0
+      }
+    }
     this.waterfall('card-read-cpt')
   }
   render () {
@@ -96,20 +103,20 @@ class UserFragment extends Component {
             return (
               <div className='card-read-cpt' key={index.toString()}>
                 <div className='card-top-img'>
-                  <a href="###">
+                  <a href={'articleInfo.html?contentid=' + item.content.contentId}>
                     <img src={item.content.oriImgUrl} alt="" />
                   </a>
-                  <div className='play-icon' />
+                  <a href={'radioinfo.html?id=' + item.content.contentId} target='_blank'><div className='play-icon' /></a>
                 </div>
                 <div className='card-item'>
                   <div className='card-ting-title'>
-                    <a href="###" target='_blank'>{item.content.title}</a>
+                    <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>{item.content.title}</a>
                   </div>
                   <div className='user-sign'>
-                    <a href="###">主播&nbsp;/&nbsp;{item.userInfo.uname}</a>
+                    <a href={'user.html?uid=' + item.userInfo.uid} target='_blank'>主播&nbsp;/&nbsp;{item.userInfo.uname}</a>
                   </div>
                   <div className='card-others'>
-                    <span className='card-type'><a href='read.html' target='_blank'>Ting</a></span>
+                    <span className='card-type'><a href='radio.html' target='_blank'>Ting</a></span>
                     <span>{item.statistics.view}次阅读&nbsp;&nbsp;|&nbsp;&nbsp;评论:{item.statistics.comments}&nbsp;&nbsp;|&nbsp;&nbsp;喜欢:{item.statistics.like}</span>
                   </div>
                 </div>
