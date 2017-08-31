@@ -19,7 +19,7 @@ class Header extends Component {
             <a href='###' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
             <ul id='navUL'>
               <a href="###"><li onClick={this.click}>首页</li></a>
-              <a href="###"><li className='clickLi' onClick={this.click}>阅读</li></a>
+              <a href="read.html"><li className='clickLi' onClick={this.click}>阅读</li></a>
               <a href="###"><li onClick={this.click}>电台</li></a>
               <a href="###"><li onClick={this.click}>碎片</li></a>
               <a href="###"><li onClick={this.click}>客户端</li></a>

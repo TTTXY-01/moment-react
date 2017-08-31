@@ -99,7 +99,7 @@ class Slideshow extends Component {
             {
               this.state.data.map((item, index) => {
                 return <li key={index.toString()} className={this.state.className[index]} style={this.state.styles[index]} data-index={index}>
-                  <a href="###"><img src={item.img} /></a>
+                  <a href="###" target='_blank'><img src={item.img} /></a>
                 </li>
               })
             }

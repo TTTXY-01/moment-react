@@ -49,15 +49,15 @@ class HotArticles extends Component {
                   <div className='article-info'>
                     <div className='article-info-box'>
                       <div className='article-title'>
-                        <a href="###">{item.title}</a>
+                        <a href={'articleInfo.html?contentid=' + item.id} target='_blank'>{item.title}</a>
                       </div>
                       <div className='article-author'>
-                        <a href="###">By&nbsp;/&nbsp;{item.userinfo.uname}</a>
+                        <a href="###" target='_blank'>By&nbsp;/&nbsp;{item.userinfo.uname}</a>
                       </div>
                       <div className='article-content'>
                         {item.text}
                         <span className='view-all'>
-                          <a href="###">
+                          <a href={'articleInfo.html?contentid=' + item.id} target='_blank'>
                             VIEW ALL
                             <img src={require('../../assets/images/viewall.png')} alt="" />
                           </a>
@@ -75,17 +75,17 @@ class HotArticles extends Component {
           }
         </div>
         <div className='free-writing'>
-          <a href="###">
+          <a href="readNote.html" target='_blank'>
             <img src="http://qnstatic.pianke.me/public/assets/img/24hours.jpg" />
           </a>
         </div>
         <div className='topic'>
-          <a href="###">
+          <a href="http://old.pianke.me/collect/" target='_blank'>
             <img src="http://qnstatic.pianke.me/public/assets/img/topic.jpg" />
           </a>
         </div>
         <div className='topic' style={{marginTop: 0}}>
-          <a href="###">
+          <a href="http://old.pianke.me/wordcard/" target='_blank'>
             <img src="http://qnstatic.pianke.me/public/assets/img/wordcard.jpg" />
           </a>
         </div>

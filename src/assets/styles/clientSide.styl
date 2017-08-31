@@ -1,0 +1,227 @@
+$border = 1px solid black
+*
+ padding 0
+ margin 0
+.float-left
+  float left
+.float-right
+  float right
+.clear-float::after
+  clear both
+  display table
+  content ''
+  visibility hidden
+.clientSide //最大的内容
+  font-family: "PingFang SC","微软雅黑"
+  color #333
+  .clientSide-header //头部中的文字部分
+    position relative
+    background url('../../assets/images/client-img/client-bg.png') no-repeat
+    background-size cover
+    height 410px
+    width 100%
+    .clientSide-header-content
+      position absolute
+      width 70%
+      top 20%
+      left 20%
+
+    p:first-child //最大字 世界最美
+      font-size 50px
+      font-weight bold
+      text-align left
+    .clientSide-header-p2 //最大字下面的小字
+      font-weight 400
+      font-size 14px
+      opacity .45
+      color #31343d
+      text-align left
+    .clientSide-header-btn //下载按钮
+      margin-top 10px
+      position relative
+      text-align left
+      a //下载按钮中的每一个
+        display inline-block
+        height 40px
+        width 100px
+        background-color rgb(117,201,131)
+        color white
+        border-radius 20px
+        margin-right 15px
+        font-size 16px
+        text-decoration none
+        line-height 40px
+        text-align center
+        padding-left 30px
+      .clientSide-ios //ios下载
+        background url('../../assets/images/client-img/client-ios.png') no-repeat 20px 2px rgb(117,201,131)
+        background-size 18%
+      .clientSide-android //Android 下载
+        background url('../../assets/images/client-img/client-andorid.png') no-repeat 20px 5px rgb(117,201,131)
+        background-size 18%
+      a:hover //悬停下载按钮
+        opacity .8
+      .clientSide-code // 小二维码
+        width 47px
+        vertical-align middle
+      .clientSide-codeH  //大二维码
+        display none
+        width 150px
+        position absolute
+        bottom 0
+        left 360px
+  .clientSide-content //中间的大内容开始
+    width 100%
+    .clientSide-center // 中间大内容的中间
+      width 70%
+      margin 0 auto
+      .clientSide-content1 //中间第一个内容
+        width 100%
+        margin-top 100px
+        background url('../images/client-img/client-one-bg.png') no-repeat 50%
+        background-size contain
+        .clientSide-content1-title //中间第一个内容的标题
+          width 30%
+          font-size 30px
+          text-align center
+          margin 20px auto
+          height 200px
+          position relative
+          .clientSide-content1-title-p1
+            span
+              display inline-block
+              background url('../images/client-img/client-title-bg.png') no-repeat
+              background-size 70%
+              font-size 80px
+              padding-top 25px
+              padding-left 80px
+          .clientSide-content1-title-p2
+            position absolute
+            font-weight lighter
+            text-align left
+            width 250px
+            font-size 16px
+            color #9b9b9b
+            left 50%
+        .clientSide-content1-img//中间第一个内容的图片
+          text-align center
+          img
+            width 841px
+            height 672px
+      .clientSide-content2 //中间的第二个内容和第四个内容
+        width 100%
+        margin-top 50px
+        background url('../images/client-img/client-two-bg.png') no-repeat 50%
+        background-size contain
+        img
+          width 360px
+          margin-left 180px
+        .clientSide-content2-right //浮动的右边内容
+          width 50%
+          margin-top 15%
+          .clientSide-content2-title //标题
+            font-size 30px
+            margin 20px auto
+            height 200px
+            position relative
+            left 0
+            .clientSide-content2-title-p1
+              span
+                display inline-block
+                background url('../images/client-img/client-title-bg.png') no-repeat
+                background-size 70%
+                font-size 80px
+                padding-top 25px
+                padding-left 80px
+            .clientSide-content2-title-p2
+              position absolute
+              font-weight lighter
+              text-align left
+              width 250px
+              font-size 16px
+              color #9b9b9b
+              left 30%
+      .clientSide-content3 //中间的第三个内容
+          width 100%
+          margin-top 50px
+          background url('../images/client-img/client-three-bg.png') no-repeat 50%
+          background-size contain
+          img
+            width 360px
+            margin-right  180px
+          .clientSide-content3-right //浮动的右边内容
+            width 50%
+            margin-top 15%
+            .clientSide-content3-title //标题
+              font-size 30px
+              margin 20px auto
+              height 200px
+              position relative
+              left 0
+              margin-left 180px
+              .clientSide-content3-title-p1
+                span
+                  display inline-block
+                  background url('../images/client-img/client-title-bg.png') no-repeat
+                  background-size 70%
+                  font-size 80px
+                  padding-top 25px
+                  padding-left 80px
+              .clientSide-content3-title-p2
+                position absolute
+                font-weight lighter
+                text-align left
+                width 250px
+                font-size 16px
+                color #9b9b9b
+                left 30%
+  .clientSide-content-footer //头部中的文字部分
+     background-size cover
+     height 410px
+     width 100%
+    text-align center
+  .clientSide-content-footer-center //底部的内容
+      background url('../../assets/images/client-img/client-bottom-bg.png') no-repeat 50% 0
+      width 30%
+      margin 100px auto 0
+      padding-top 200px
+      p //底部内容的文字
+        width 80%
+        color #333
+        font-weight 200
+        margin 0 auto
+        text-align left
+      .clientSide-content-footer-btn //下载按钮
+         margin-top 40px
+         position relative
+        a // 下载按钮的内容
+          display inline-block
+          height 40px
+          width 100px
+          background-color rgb(117,201,131)
+          color white
+          border-radius 20px
+          margin-right 15px
+          font-size 16px
+          text-decoration none
+          line-height 40px
+          text-align center
+          padding-left 30px
+        .clientSide-ios //ios下载
+          background url('../../assets/images/client-img/client-ios.png') no-repeat 20px 2px rgb(117,201,131)
+          background-size 18%
+        .clientSide-android //Android 下载
+          background url('../../assets/images/client-img/client-andorid.png') no-repeat 20px 5px rgb(117,201,131)
+          background-size 18%
+        a:hover
+          opacity .8
+        .clientSide-code // 小二维码
+          width 47px
+          vertical-align middle
+        .clientSide-codeH  //大二维码
+          display none
+          width 150px
+          position absolute
+          bottom 0
+          left 450px
+
