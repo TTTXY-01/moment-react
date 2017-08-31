@@ -18,8 +18,8 @@ module.exports = merge(baseWebpackConfig, {
   plugins: [
     // 在html中引入编译后的资源
     // new HTMLWebpackPlugin({
-    //   filename: 'index.html',
-    //   template: './src/modules/index/index.html',
+    //   filename: 'recommend.html',
+    //   template: './src/modules/index/recommend.html',
     //   excludeChunks:  [
     //     {index : './src/modules/index/about.html'}
     //   ]
@@ -28,7 +28,7 @@ module.exports = merge(baseWebpackConfig, {
     //   filename: 'about.html',
     //   template: './src/modules/about/about.html',
     //   excludeChunks:  [
-    //     {index : './src/modules/index/index.html'}
+    //     {index : './src/modules/index/recommend.html'}
     //   ]
     // }),
 
@@ -45,7 +45,7 @@ module.exports = merge(baseWebpackConfig, {
 })
 
 // './src/modules/index/index.js'
-// './src/modules/index/index.html'
+// './src/modules/index/recommend.html'
 // './src/modules/about/about.html'
 const htmlPaths = utils.getEntries('./src/modules/**/*.html')
 // console.log(htmlPaths)

@@ -1,20 +1,15 @@
-/**
- * Created by dllo on 17/8/24.
- */
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class HotLabel extends Component {
+class TopTing extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
-      index: 0
+      data: []
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -33,41 +28,43 @@ class HotLabel extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response)
         this.setState({
           data: response.data
         })
       })
   }
-
   componentDidMount () {
-    this.ajaxData('/newTimeLine/tagList.php?num=12')
+    this.ajaxData('/ting/list.php?pageSize=3&sort=2')
   }
-
   render () {
-    const dataArray = this.state.data.map((item, index) => {
+    let Array = this.state.data.map((item, index) => {
       return (
-        <div name={item.tag} key={index.toString()} className='hotLabel-content-one'>
-          <a name={item.tag}>
-            <img name={item.tag} className='img' src={item.img} />
-            <div name={item.tag} className='hotLabel-content-one-text'>
-              <div name={item.tag}>{item.tag}</div>
-              <div name={item.tag}>{item.count}</div>
-            </div>
-          </a>
+        <div key={index.toString()} className="recommend_ting">
+          <div className="recommend_img_wrap">
+            <img src={item.imgUrl} className="recommend_img" />
+            <div className="coverDiv" />
+          </div>
+          <div className="recommend_ting_introduce">
+            <p className="recommend_ting_name">{item.title}</p>
+            <p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p>
+            <span>1次播放 |</span>
+            <span> 评论:1 | </span>
+            <span> 喜欢:1</span>
+          </div>
         </div>
       )
     })
     return (
-      <div className='hotLabel'>
-        <div className='hotLabel-title'>
-          热门标签
+      <div className="top_wrap">
+        <div className="recommend_title">
+          <span>TOP TING</span>
         </div>
-        <div className='hotLabel-content'>
-          {dataArray}
+        <div className="recommend_ting_wrap">
+          {Array}
         </div>
       </div>
     )
   }
 }
-export default HotLabel
+
+export default TopTing

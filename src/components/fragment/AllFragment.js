@@ -12,7 +12,10 @@ class AllFragment extends Component {
     this.state = {
       data: [],
       page: 20,
-      tf: false
+      url: '',
+      tf: false,
+      colsH: [],
+      height: 0
     }
   }
 
@@ -40,49 +43,99 @@ class AllFragment extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response)
         this.setState({
-          data: response.data
+          data: this.state.data.concat(response.data)
         })
       })
   }
 
   componentDidMount () {
-    const url = 'newTimeLine/list.php?pageSize=' + this.state.page + '&tag=&minId='
-    this.ajaxData(url)
+    this.state.url = 'newTimeLine/list.php?pageSize=' + this.state.page + '&tag=&minId='
+    this.ajaxData(this.state.url)
+    document.body.onscroll = this.scroll
   }
+
+  componentDidUpdate () {
+    this.waterfall('fragment-one')
+  }
+
+  scroll = () => {
+    let scrollHeight = document.documentElement.scrollHeight
+    let scrollTop = document.body.scrollTop
+    let clientHeight = document.documentElement.clientHeight
+    // console.log(scrollHeight, scrollTop, clientHeight)
+    if (scrollHeight <= scrollTop + clientHeight) {
+      this.setState({
+        page: this.state.page + 20,
+        url: 'newTimeLine/list.php?pageSize=' + this.state.page + '&tag=&minId='
+      }, () => {
+        this.ajaxData(this.state.url)
+      })
+    }
+  }
+
+  waterfall = (obj) => {
+    let ones = document.getElementsByClassName(obj)
+    let cols = parseInt(1200 / 280)
+    for (var i = 0; i < cols; i++) {
+      this.state.colsH[i] = 0
+    }
+    for (var k = 0; k < ones.length; k++) {
+      let minIndex = 0
+      let minH = this.state.colsH[0]
+      for (var j = 0; j < this.state.colsH.length; j++) {
+        if (minH > this.state.colsH[j]) {
+          minH = this.state.colsH[j]
+          minIndex = j
+        }
+      }
+      ones[k].style.top = this.state.colsH[minIndex] + 10 + 'px'
+      ones[k].style.left = 298 * minIndex + 'px'
+      this.state.colsH[minIndex] += 10 + ones[k].offsetHeight
+    }
+    // for (var e = 0; e < this.state.colsH.length; e++) {
+    //   if (this.state.colsH[e] < this.state.colsH[e + 1]) {
+    //     this.setState({
+    //       height: this.state.colsH[e + 1]
+    //     })
+    //   }
+    // }
+  }
+
   render () {
     let fragmentArray = this.state.data.map((item, index) => {
       return (
-        <li key={index.toString()} className='fragment-one'>
-          <img src={item.coverimg} />
+        <div key={index.toString()} className='fragment-one'>
+          {
+            item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
+          }
           <div className='fragment-one-content'>
             <p className='fragment-one-text'>
               {item.text}
             </p>
             <div className='fragment-one-one-user clear-float'>
-              <di className='user-left float-left'>
-                <img src={item.userinfo.icon} alt="" />
+              <div className='user-left float-left'>
+                <img src={item.userinfo.icon} />
                 <span className='green-hover'>
                   {item.userinfo.uname}
                 </span>
-              </di >
+              </div>
               <div onMouseOver={this.mouseover} onMouseOut={this.mouseout} className='user-right float-right'>
                 ♡
               </div >
             </div >
           </div >
-        </li>
+        </div>
       )
     })
     return (
-      <div
-        className='allFragment'>
-        <div
-          className='hotLabel-title'>
+      <div className='allFragment'>
+        <div className='hotLabel-title'>
           全部标签
         </div>
-        {fragmentArray}
+        <div className='allFragment-all'>
+          {fragmentArray}
+        </div>
       </div>
     )
   }
