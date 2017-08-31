@@ -1,17 +1,17 @@
 /**
- * Created by dllo on 17/8/27.
+ * Created by dllo on 17/8/26.
  */
 import React, {Component} from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class ReadListByNew extends Component {
+class WriteListByHot extends Component {
   constructor (props) {
     super(props)
     this.state = {
       data: [],
-      minIndex: 0
+      pageNum: 1
     }
   }
   ajaxData = (interFace) => {
@@ -45,20 +45,15 @@ class ReadListByNew extends Component {
     // 判断条件为 滚动到底部
     if (document.body.scrollTop >= document.body.scrollHeight - document.documentElement.clientHeight) {
       this.setState({
-        minIndex: this.state.data.length - 1
+        pageNum: this.state.pageNum + 1
       }, () => {
-        let interFace = '/article/listByNewOfTag.php?' + location.search.match(/tag=\S+/g)[0] + '&minId=' + this.state.data[this.state.minIndex].content.contentId
-        // console.log(this.state.data[this.state.minIndex].content.contentId)
+        let interFace = '/article/listByHot.php?&pageNum=' + this.state.pageNum
         this.ajaxData(interFace)
       })
     }
   }
   componentDidMount() {
-    // console.log(location.search.match(/tag=\S+/g)[0])
-    // decodeURI方法解析url中文乱码问题
-    // console.log(decodeURI(location.search.match(/tag=\S+/g)[0]))
-    let interFace = '/article/listByNewOfTag.php?' + location.search.match(/tag=\S+/g)[0] + '&minId='
-    this.ajaxData(interFace)
+    this.ajaxData('/article/listByHot.php?pageNum=1')
     document.body.onscroll = this.scroll
   }
   render () {
@@ -102,4 +97,4 @@ class ReadListByNew extends Component {
   }
 }
 
-export default ReadListByNew
+export default WriteListByHot

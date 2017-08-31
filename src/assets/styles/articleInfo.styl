@@ -80,7 +80,33 @@
       cursor pointer
       margin-top -32px
       float right
-      div
+      .share-sina
+        background-image url('../../assets/images/foot-sinaH.png')
+      .share-sina:hover
+        background-image url('../../assets/images/share-sina.png')
+      .share-wechat
+        position relative
+        left 0
+        top 0
+        background-image url('../../assets/images/foot-wechatH.png')
+        .ewcode
+          position absolute
+          left -80px
+          top -200px
+          display none
+      .share-wechat:hover
+        background-image url('../../assets/images/share-wechat.png')
+      .share-wechat:hover .ewcode
+        display block
+      .share-qzone
+        background-image url('../../assets/images/qzone.png')
+      .share-qzone:hover
+        background-image url('../../assets/images/share-qzone.png')
+      .share-dou
+        background-image url('../../assets/images/dou.png')
+      .share-dou:hover
+        background-image url('../../assets/images/share-dou.png')
+    .share-cpt>div
         display inline-block
         background-size contain
         background-position center
@@ -88,6 +114,9 @@
         width 44px
         height 44px
         margin-left 10px
+        position relative
+        left 0
+        top -30px
     .like-cpt
       color #999
       cursor pointer
@@ -100,3 +129,73 @@
       background-size 24px
       background-repeat no-repeat
       background-image url('../../assets/images/like.png')
+    .like-cpt:hover
+      background-image url('../../assets/images/likeH.png')
+
+  .is-login-cpt
+    padding-top 100px
+    padding-bottom 40px
+    .is-login
+      width 638px
+      margin 0 auto
+      textarea
+        color #666
+        outline none
+        width 484px
+        height 99px
+        resize none
+        overflow auto
+        border 1px solid #e8e8e8
+        border-radius 10px
+      textarea[placeholder]
+        padding-left 16px
+        padding-top 16px
+        padding-right 16px
+        padding-bottom 5px
+        font-size 14px
+        font-weight 100
+
+    .btn
+      cursor pointer
+      color #fff
+      background-color #78bc85
+      -ms-border-radius 25px
+      -webkit-border-radius 25px
+      -moz-border-radius 25px
+      border-radius 25px
+      font-weight 100
+      position relative
+      padding 8px 20px
+      float right
+      font-size 14px
+      margin-top 38px
+    .btn:hover
+      background-color rgb(87,173,104)
+    .btn::before
+      content ''
+      position absolute
+      width 15px
+      height 15px
+      border 1px solid transparent
+      border-top-color #e8e8e8
+      border-right-color #e8e8e8
+      background-color #fff
+      transform rotate(45deg)
+      top 50%
+      left 0
+      margin-top -7.5px
+      margin-left -33px
+
+  .article-comment
+    .comment-title-cpt
+      color #333
+      font-size 18px
+      border-bottom 1px solid #ccc
+      div
+        display inline-block
+        padding-bottom 8px
+        border-bottom 1px solid #333
+        span
+          font-size 12px
+          font-weight 200
+          padding 0 10px

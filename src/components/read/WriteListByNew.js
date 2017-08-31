@@ -1,12 +1,12 @@
 /**
- * Created by dllo on 17/8/27.
+ * Created by dllo on 17/8/26.
  */
 import React, {Component} from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class ReadListByNew extends Component {
+class WriteListByNew extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -38,7 +38,6 @@ class ReadListByNew extends Component {
         })
       })
   }
-  // 滚轮事件
   scroll = () => {
     // console.log(document.body.scrollTop)
     // console.log(document.body.scrollHeight - document.documentElement.clientHeight)
@@ -47,18 +46,14 @@ class ReadListByNew extends Component {
       this.setState({
         minIndex: this.state.data.length - 1
       }, () => {
-        let interFace = '/article/listByNewOfTag.php?' + location.search.match(/tag=\S+/g)[0] + '&minId=' + this.state.data[this.state.minIndex].content.contentId
+        let interFace = '/article/listByNew.php?&minId=' + this.state.data[this.state.minIndex].content.contentId
         // console.log(this.state.data[this.state.minIndex].content.contentId)
         this.ajaxData(interFace)
       })
     }
   }
   componentDidMount() {
-    // console.log(location.search.match(/tag=\S+/g)[0])
-    // decodeURI方法解析url中文乱码问题
-    // console.log(decodeURI(location.search.match(/tag=\S+/g)[0]))
-    let interFace = '/article/listByNewOfTag.php?' + location.search.match(/tag=\S+/g)[0] + '&minId='
-    this.ajaxData(interFace)
+    this.ajaxData('/article/listByNew.php?minId=')
     document.body.onscroll = this.scroll
   }
   render () {
@@ -71,15 +66,15 @@ class ReadListByNew extends Component {
                 <div className='article-info'>
                   <div className='article-info-box'>
                     <div className='article-title'>
-                      <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>{item.content.title}</a>
+                      <a href={'articleInfo.html?contentid=' + item.content.contentId}>{item.content.title}</a>
                     </div>
                     <div className='article-author'>
-                      <a href="###" target='_blank'>By&nbsp;/&nbsp;{item.userInfo.uname}</a>
+                      <a href="###">By&nbsp;/&nbsp;{item.userInfo.uname}</a>
                     </div>
                     <div className='article-content'>
                       {item.content.desc}
                       <span className='view-all'>
-                        <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
+                        <a href={'articleInfo.html?contentid=' + item.content.contentId}>
                           VIEW ALL
                           <img src={require('../../assets/images/viewall.png')} alt="" />
                         </a>
@@ -90,7 +85,7 @@ class ReadListByNew extends Component {
                     </div>
                   </div>
                 </div>
-                <a href="###" target='_blank'>
+                <a href="###">
                   <div className='article-img' style={{backgroundImage: 'url("' + item.content.imageInfo.img + '")'}}>&nbsp;</div>
                 </a>
               </div>
@@ -102,4 +97,4 @@ class ReadListByNew extends Component {
   }
 }
 
-export default ReadListByNew
+export default WriteListByNew

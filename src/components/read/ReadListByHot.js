@@ -70,15 +70,15 @@ class ReadListByHot extends Component {
                 <div className='article-info'>
                   <div className='article-info-box'>
                     <div className='article-title'>
-                      <a href={'articleInfo.html?contentid=' + item.content.contentId}>{item.content.title}</a>
+                      <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>{item.content.title}</a>
                     </div>
                     <div className='article-author'>
-                      <a href="###">By&nbsp;/&nbsp;{item.userInfo.uname}</a>
+                      <a href="###" target='_blank'>By&nbsp;/&nbsp;{item.userInfo.uname}</a>
                     </div>
                     <div className='article-content'>
                       {item.content.desc}
                       <span className='view-all'>
-                        <a href={'articleInfo.html?contentid=' + item.content.contentId}>
+                        <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
                           VIEW ALL
                           <img src={require('../../assets/images/viewall.png')} alt="" />
                         </a>
@@ -89,7 +89,7 @@ class ReadListByHot extends Component {
                     </div>
                   </div>
                 </div>
-                <a href="###">
+                <a href="###" target='_blank'>
                   <div className='article-img' style={{backgroundImage: 'url("' + item.content.imageInfo.img + '")'}}>&nbsp;</div>
                 </a>
               </div>

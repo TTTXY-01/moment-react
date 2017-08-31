@@ -68,7 +68,7 @@ app.use(hotMiddleware)
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
 
-const url = 'http://localhost:' + port
+const url = 'http://localhost:' + port + '/user.html?uid=2931924'
 
 let _resolve
 let readyPromise = new Promise(resolve => {
