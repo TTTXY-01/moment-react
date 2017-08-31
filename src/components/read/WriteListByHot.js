@@ -69,7 +69,7 @@ class WriteListByHot extends Component {
                       <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>{item.content.title}</a>
                     </div>
                     <div className='article-author'>
-                      <a href="###" target='_blank'>By&nbsp;/&nbsp;{item.userInfo.uname}</a>
+                      <a href={'user.html?uid=' + item.userInfo.uid} target='_blank'>By&nbsp;/&nbsp;{item.userInfo.uname}</a>
                     </div>
                     <div className='article-content'>
                       {item.content.desc}
@@ -85,7 +85,7 @@ class WriteListByHot extends Component {
                     </div>
                   </div>
                 </div>
-                <a href="###" target='_blank'>
+                <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
                   <div className='article-img' style={{backgroundImage: 'url("' + item.content.imageInfo.img + '")'}}>&nbsp;</div>
                 </a>
               </div>
