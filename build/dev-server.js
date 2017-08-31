@@ -68,7 +68,8 @@ app.use(hotMiddleware)
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
 
-const url = 'http://localhost:' + port + '/timelineinfo.html'
+const url = 'http://localhost:' + port
+
 
 let _resolve
 let readyPromise = new Promise(resolve => {

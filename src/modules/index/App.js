@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -20,7 +20,6 @@ class App extends Component {
     const sig = md5('0' + '' + timestamp).toUpperCase()
     const Authorization = base64.btoa('' + ':' + timestamp)
     const url = '/api/pub/ad.php?type=3&sig=' + sig
-
     fetch(url, {
       method: 'GET',
       headers: {
@@ -29,32 +28,17 @@ class App extends Component {
     })
       .then(response => {
         return response.json()
-      }
-      )
+      })
 
       .then(response => {
-        console.log(response)
         this.setState({
           data: response.data
         })
       })
   }
-
   render () {
-    const dataArray = this.state.data.map((item, index) => {
-      return (
-        <p key={index.toString()}>
-          {item.title}
-        </p >
-      )
-    })
     return (
-      <div>
-        <h1> 梁佳军好帅, 窝唉泥记得找我哦, 包小姐:13983726593 </h1>
-        {dataArray}
-        <img src={require('./../../assets/images/timg.jpg')} />
-        <a href='about.html'> 关于我们 </a>
-      </div>
+      <h1>aaa</h1>
     )
   }
 }

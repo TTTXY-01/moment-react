@@ -11,7 +11,7 @@ class ReadListByNew extends Component {
     super(props)
     this.state = {
       data: [],
-      minIndex: -1
+      minIndex: 0
     }
   }
   ajaxData = (interFace) => {
@@ -45,7 +45,7 @@ class ReadListByNew extends Component {
     // 判断条件为 滚动到底部
     if (document.body.scrollTop >= document.body.scrollHeight - document.documentElement.clientHeight) {
       this.setState({
-        minIndex: this.state.minIndex + 1
+        minIndex: this.state.data.length - 1
       }, () => {
         let interFace = '/article/listByNewOfTag.php?' + location.search.match(/tag=\S+/g)[0] + '&minId=' + this.state.data[this.state.minIndex].content.contentId
         // console.log(this.state.data[this.state.minIndex].content.contentId)
@@ -71,15 +71,15 @@ class ReadListByNew extends Component {
                 <div className='article-info'>
                   <div className='article-info-box'>
                     <div className='article-title'>
-                      <a href={'articleInfo.html?contentid=' + item.content.contentId}>{item.content.title}</a>
+                      <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>{item.content.title}</a>
                     </div>
                     <div className='article-author'>
-                      <a href="###">By&nbsp;/&nbsp;{item.userInfo.uname}</a>
+                      <a href="###" target='_blank'>By&nbsp;/&nbsp;{item.userInfo.uname}</a>
                     </div>
                     <div className='article-content'>
                       {item.content.desc}
                       <span className='view-all'>
-                        <a href={'articleInfo.html?contentid=' + item.content.contentId}>
+                        <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
                           VIEW ALL
                           <img src={require('../../assets/images/viewall.png')} alt="" />
                         </a>
@@ -90,7 +90,7 @@ class ReadListByNew extends Component {
                     </div>
                   </div>
                 </div>
-                <a href="###">
+                <a href="###" target='_blank'>
                   <div className='article-img' style={{backgroundImage: 'url("' + item.content.imageInfo.img + '")'}}>&nbsp;</div>
                 </a>
               </div>
