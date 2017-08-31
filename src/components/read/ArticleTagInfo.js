@@ -17,7 +17,6 @@ class ArticleTagInfo extends Component {
       Hot_New: true
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss

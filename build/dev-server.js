@@ -67,18 +67,11 @@ app.use(hotMiddleware)
 // console.log(!!a)//false
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
-<<<<<<< HEAD
-const  url = 'http://localhost:' + port + '/radio.html'
-=======
-
-const url = 'http://localhost:' + port
-
->>>>>>> fd6fe23f71093b480cc6af5ab48dd1362eed5d08
+const  url = 'http://localhost:' + port
 let _resolve
 let readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
-
 console.log('> 请开始你的表演服务器...')
 devMiddleware.waitUntilValid(() => {
   console.log('> 服务器蹦跶在' + url + '\n')

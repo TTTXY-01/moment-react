@@ -4,12 +4,12 @@ import Recommendation from './Recommendation_TING'
 import TopTing from './Top_Ting'
 import NewVoice from './New_Voice'
 import HotRadio from './Hot_Radio'
-import Slideshow from '../read/Slideshow'
+import RadioCarouse from './Radio_Carouse'
 class ChoiceContent extends Component {
   render () {
     return (
       <div className='connect_wrap'>
-        <Slideshow />
+        <RadioCarouse />
         <RadioType />
         <Recommendation />
         <TopTing />
