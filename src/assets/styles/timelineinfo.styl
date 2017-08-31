@@ -1,0 +1,179 @@
+*
+  padding 0
+  margin 0
+  font-family: "PingFang SC", "微软雅黑"
+
+$border = 1px solid black
+.float-left
+  float left
+
+.float-right
+  float right
+
+.clear-float
+  content ""
+  clear both
+  display table
+
+.timelineinfo //最大的内容
+  width 1200px
+  border 2px solid violet
+  margin 70px auto 0
+  .timelineinfo-left //左边的大内容
+    width 716px
+    margin-right 12px
+    padding 30px 46px
+    padding-bottom 60px
+    margin-bottom 128px
+    background-color #ffffff
+    border 1px solid #e8e8e8
+    .left-header //左边内容的头部
+      width 100%
+      .left-header-left //头部的左边
+        overflow hidden
+        .header-icon
+          float left
+          img
+           width 40px
+           border-radius 50%
+        .header-uname
+          color #666
+          font-size 12px
+          float left
+          margin 10px 0 0 10px
+
+      .left-header-right //头部内容的右边
+          height 40px
+          line-height 40px
+          font-size 12px
+          color #999
+          position relative
+          .arrows //小箭头
+            padding 0 10px
+            background url('../images/del.png') no-repeat 50%
+            background-size contain
+            margin-left 20px
+          .arrows:hover //箭头悬停
+            background url('../images/delHover.png') no-repeat 50%
+            background-size contain
+          .arrows-hover //下头下的文字
+            color red
+            width 50px
+            border 1px solid #e8e8e8
+            border-radius 3px
+            text-align center
+            background-color white
+            position absolute
+            left 100px
+            top: 40px
+            display none
+    .left-content //左边的内容
+      width 100%
+      border $border
+      text-align center
+      .left-text //左边内容的正文
+        width 90%
+        margin 0 auto
+        padding-top 49px
+        padding-bottom 22px
+        font-weight 300
+        color #333
+        font-size 14px
+        text-align left
+      .left-tag //左边内容的类型
+        border-bottom .5px solid #999
+        width 90%
+        text-align left
+        margin 10px auto
+        padding 10px 0
+        .left-tag-a //类型中的文字
+          text-decoration none
+          color #999
+          font-size 12px
+          font-weight 200
+        .left-tag-a:hover
+          color #5cb76e
+      .voice
+        border $border
+        width 90%
+        margin 0 auto
+        text-align left
+        overflow hidden
+        .audio
+          border 1px solid red
+          background url('../images/timeline-playicon.png') no-repeat left
+          background-size contain
+          width 30px
+          overflow hidden
+          float left
+        .voice-action
+          opacity 0
+          border $border
+        .canvas
+          width 50%
+          height 20px
+          border $border
+          float left
+        .voice-time
+          float left
+
+      .left-bottom
+        width 90%
+        margin 50px auto
+        border $border
+        .left-bottom-left
+           background url('../images/like.png') no-repeat left
+           background-size 50%
+           padding-left 35px
+           color #999
+           border $border
+           height 44px
+           line-height 44px
+        .left-bottom-left:hover
+           background url('../images/likeH.png') no-repeat left
+           background-size 50%
+        .left-bottom-right
+           position relative
+           border $border
+           span
+             display inline-block
+             width 44px
+             height 44px
+             margin-left 20px
+           .sina
+             background url('../images/foot-sina.png') no-repeat
+             background-size contain
+           .sina:hover
+             background url('../images/share-sina.png') no-repeat
+             background-size contain
+           .wechar
+             background url('../images/foot-wechat.png') no-repeat
+             background-size contain
+           .wechar:hover
+             background url('../images/share-wechat.png') no-repeat
+             background-size contain
+           .wechar-er
+             display none
+             position absolute
+             width 200px
+             border-radius 10px
+             top -240px
+             box-shadow 1px 1px 1px 1px lightgrey
+             left 10px
+          .Qzone
+             background url('../images/qzone.png') no-repeat
+             background-size contain
+           .Qzone:hover
+             background url('../images/share-qzone.png') no-repeat
+             background-size contain
+           .douban
+             background url('../images/dou.png') no-repeat
+             background-size contain
+           .douban:hover
+             background url('../images/share-dou.png') no-repeat
+             background-size contain
+  .timelineinfo-right
+    width 290px
+    margin-top 70px
+    padding: 26px 0 12px 26px
+    background-color white

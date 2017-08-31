@@ -43,7 +43,9 @@ $border = 1px solid black
     text-align center
 
   .publish-textarea //文本输入框
-    border 2px solid #e8e8e8
+    resize none
+    border 1px solid #e8e8e8
+    border-radius 4px
     max-width 90%
     min-width 90%
     min-height 60%
@@ -80,6 +82,8 @@ $border = 1px solid black
     padding 5px 15px
     border-radius 20px
     margin-left 20px
+  .publish-btn:hover
+    background-color rgb(87,173,104)
 
   .up-img //上传图片
     position relative
@@ -104,6 +108,11 @@ $border = 1px solid black
   .publish-label //上传的标签内容
     margin-left 80px
     margin-top 4px
+  .privacy-label
+    margin-left 120px
+    margin-top 5px
+    color rgb(218,210,209)
+    font-size 16px
 
   .add-label //添加标签
     background url('../images/imgjing.png') no-repeat
@@ -146,7 +155,8 @@ $border = 1px solid black
     font-size 20px
     width 100px
     display none
-
+  .allFragment
+   text-align center
   .hotLabel-title //标签前的小黑色方图片
     background url('../images/label-img.png') no-repeat left
     padding-left 30px
@@ -171,6 +181,7 @@ $border = 1px solid black
     padding-left 30px
     margin 100px 0 30px 0
     background-position-x 10px
+    text-align left
   .hotLabel-content-one  //热门标签下的每一个
     width 191px
     height 84px
@@ -204,7 +215,6 @@ $border = 1px solid black
     transition 1s ease
   .allFragment-all
     position relative
-    border 1px solid red
     //overflow hidden
     height auto
   .fragment-one //全部碎片中的每一个
@@ -279,5 +289,11 @@ $border = 1px solid black
       margin-right 7px
 
   .user-right //用户的右边  点赞
-    font-size 20px
-    color rgb(248, 141, 121)
+    background url('../images/like.png') no-repeat 0 8px
+    padding-bottom 5px
+    background-size contain
+    width 20px
+    height 20px
+  .user-right:hover
+    background url('../images/likeH.png') no-repeat 0 8px
+    background-size contain
