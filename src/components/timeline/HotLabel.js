@@ -2,6 +2,8 @@
  * Created by dllo on 17/8/24.
  */
 import React, {Component} from 'react'
+import AllFragment from './AllFragment'
+import Classreagment from './ClassFragment'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -11,10 +13,11 @@ class HotLabel extends Component {
     super(props)
     this.state = {
       data: [],
-      index: 0
+      index: 0,
+      bool: true,
+      tag: ''
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -44,10 +47,17 @@ class HotLabel extends Component {
     this.ajaxData('/newTimeLine/tagList.php?num=12')
   }
 
+  tagValue = (ev) => {
+    this.setState({
+      tag: ev.target.getAttribute('name'),
+      bool: false
+    })
+  }
+
   render () {
     const dataArray = this.state.data.map((item, index) => {
       return (
-        <div name={item.tag} key={index.toString()} className='hotLabel-content-one'>
+        <div name={item.tag} onClick={this.tagValue} key={index.toString()} className='hotLabel-content-one'>
           <a name={item.tag}>
             <img name={item.tag} className='img' src={item.img} />
             <div name={item.tag} className='hotLabel-content-one-text'>
@@ -59,13 +69,18 @@ class HotLabel extends Component {
       )
     })
     return (
-      <div className='hotLabel'>
-        <div className='hotLabel-title'>
-          热门标签
+      <div>
+        <div className='hotLabel'>
+          <div className='hotLabel-title'>
+            热门标签
+          </div>
+          <div className='hotLabel-content'>
+            {dataArray}
+          </div>
         </div>
-        <div className='hotLabel-content'>
-          {dataArray}
-        </div>
+        {
+          this.state.bool ? <AllFragment /> : <Classreagment valueTag={this.state.tag} />
+        }
       </div>
     )
   }

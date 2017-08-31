@@ -8,6 +8,10 @@ const dateformat = require('dateformat')
 const base64 = require('Base64')
 
 class MoreBtn extends Component {
+  btnmore = (ev) => {
+    ev.target.parentNode.parentNode.style.display = 'none'
+    ev.target.parentNode.parentNode.nextElementSibling.style.display = 'block'
+  }
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -50,7 +54,7 @@ class MoreBtn extends Component {
     return (
       <div className="more-button">
         <div className="btn-box">
-          <div className="btn-more">查看更多精选内容</div>
+          <div className="btn-more" onClick={this.btnmore}>查看更多精选内容</div>
         </div>
       </div>
     )

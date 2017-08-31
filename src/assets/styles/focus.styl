@@ -473,7 +473,7 @@
   position relative
   top: 75px
   margin-top 80px
-  height 500px
+  height 600px
 
   #title-cpt
 
@@ -560,9 +560,11 @@
             font-size 12px
             font-weight 100
             color rgb(51, 51, 51)
+            text-decoration none
 
           .ting-author-a:hover
             color rgb(87,173,104)
+            text-decoration none
 
         .ting-others
           font-size 10px
@@ -641,9 +643,11 @@
             font-size 12px
             font-weight 100
             color rgb(51, 51, 51)
+            text-decoration none
 
           .ting-author-a:hover
             color rgb(87,173,104)
+            text-decoration none
 
         .ting-others
           font-size 10px
@@ -722,9 +726,11 @@
             font-size 12px
             font-weight 100
             color rgb(51, 51, 51)
+            text-decoration none
 
           .ting-author-a:hover
             color rgb(87,173,104)
+            text-decoration none
 
         .ting-others
           font-size 10px
@@ -735,13 +741,13 @@
 
 //人气片刻
 #hot-list-group
-  height 300px
   width 960px
   margin 0 auto
   position relative
-  top 130px
+  overflow hidden
 
   #title-cpt
+    margin-top 80px
 
     .title-black
       display inline-block
@@ -753,8 +759,8 @@
       margin-left 10px
 
   #user-list
-    position absolute
     margin-top 45px
+    height 250px
 
     .user-cpt0
       position: absolute
@@ -763,6 +769,7 @@
       background-image url("../images/homepage-background.png")
       background-repeat no-repeat
       background-size 100% 100%
+      overflow hidden
 
       .user-info
         position absolute
@@ -772,7 +779,7 @@
         top 40px
 
         .user-cpt-left
-          float left
+          position absolute
           margin-top 20px
 
           .user-cpt-a
@@ -793,8 +800,9 @@
         .user-cpt-right
           width 85px
           height 85px
-          float right
-          margin-top 40px
+          position absolute
+          left 110px
+          top 40px
 
           .user-name
 
@@ -815,6 +823,7 @@
       background-repeat no-repeat
       background-size 100% 100%
       left 244px
+      overflow hidden
 
       .user-info
         position absolute
@@ -824,7 +833,7 @@
         top 40px
 
         .user-cpt-left
-          float left
+          position absolute
           margin-top 20px
 
           .user-cpt-a
@@ -834,19 +843,20 @@
               height 80px
               border-radius 40px
 
-            .user-cpt-label1
+            .user-cpt-label0
+              position absolute
               width 52px
               height 19px
-              background-image url("../images/homepage-musician.png")
+              background-image url("../images/homepage- writer.png")
               background-size 100% 100%
-              position absolute
               left 15px
 
         .user-cpt-right
           width 85px
           height 85px
-          float right
-          margin-top 40px
+          position absolute
+          left 110px
+          top 40px
 
           .user-name
 
@@ -867,6 +877,7 @@
       background-repeat no-repeat
       background-size 100% 100%
       left 488px
+      overflow hidden
 
       .user-info
         position absolute
@@ -876,7 +887,7 @@
         top 40px
 
         .user-cpt-left
-          float left
+          position absolute
           margin-top 20px
 
           .user-cpt-a
@@ -886,19 +897,20 @@
               height 80px
               border-radius 40px
 
-            .user-cpt-label2
+            .user-cpt-label0
+              position absolute
               width 52px
               height 19px
-              background-image url("../images/homepage-musician.png")
+              background-image url("../images/homepage- writer.png")
               background-size 100% 100%
-              position absolute
               left 15px
 
         .user-cpt-right
           width 85px
           height 85px
-          float right
-          margin-top 40px
+          position absolute
+          left 110px
+          top 40px
 
           .user-name
 
@@ -919,6 +931,7 @@
       background-repeat no-repeat
       background-size 100% 100%
       left 731px
+      overflow hidden
 
       .user-info
         position absolute
@@ -928,7 +941,7 @@
         top 40px
 
         .user-cpt-left
-          float left
+          position absolute
           margin-top 20px
 
           .user-cpt-a
@@ -938,19 +951,20 @@
               height 80px
               border-radius 40px
 
-            .user-cpt-label3
+            .user-cpt-label0
+              position absolute
               width 52px
               height 19px
-              background-image url("../images/homepage-musician.png")
+              background-image url("../images/homepage- writer.png")
               background-size 100% 100%
-              position absolute
               left 15px
 
         .user-cpt-right
           width 85px
           height 85px
-          float right
-          margin-top 40px
+          position absolute
+          left 110px
+          top 40px
 
           .user-name
 
@@ -965,20 +979,21 @@
 
 //查看更多按钮样式
 .more-button
-  border 1px solid red
   position relative
-  top: 200px
   width 960px
+  height 200px
   margin 0 auto
-  display none
+  //display none
 
   .btn-box
+    position absolute
     width 190px
     height 50px
     border 1px solid rgb(86, 172, 103)
     border-radius 100px
-    margin-left 350px
-    display none
+    left 42%
+    margin-bottom auto
+    top 100px
 
     .btn-more
       width 180px
@@ -991,7 +1006,7 @@
       text-align center
       line-height 44px
       opacity 0.7
-      display none
+
 
     .btn-more:hover
       opacity 1
@@ -1000,8 +1015,8 @@
 #more-content
   position relative
   width 1210px
-  top 175px
   margin 0 auto
+  display none
 
   #past-content-title
     background-image url("../images/imaginary-line.png")
@@ -1017,8 +1032,7 @@
 
   .img-group-cpt
     position relative
-    top 85px
-    border 1px solid black
+    margin-top 55px
     width 1210px
 
     .card-ting-cpt
@@ -1048,11 +1062,11 @@
           left 0
           top 0
           background-color black
-          opacity 0.6
-          display none
+          opacity 0
 
       .card-a:hover .card-top-span
-        display block
+        opacity 0.5
+        transition opacity 1s
 
     .card-item
       border 1px solid ridge
@@ -1133,8 +1147,14 @@
 
         .card-heart
           float right
-          font-size 25px
-          line-height 50px
+          width 25px
+          height 25px
+          margin-top 10px
+          background-image url("../images/like.png")
+          background-size 100% 100%
           margin-right 10px
-          color red
+
+        .card-heart:hover
+          background-image url("../images/likeH.png")
+
 

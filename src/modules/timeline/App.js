@@ -4,21 +4,19 @@
 
 import React, {Component} from 'react'
 import Header from '../../components/read/Header'
-import Publish from '../../components/fragment/Publish'
-import HotLabel from '../../components/fragment/HotLabel'
-import AllFragment from '../../components/fragment/AllFragment'
-// import Footer from '../../components/read/Footer'
+import Publish from '../../components/timeline/Publish'
+import HotLabel from '../../components/timeline/HotLabel'
+import Footer from '../../components/read/Footer'
 class App extends Component {
-  constructor (porps) {
-    super(porps)
+  constructor (props) {
+    super(props)
     this.state = {
+      tag: '',
       url: '',
-      tag: ''
+      bool: true,
+      test: '000',
+      url2: ''
     }
-  }
-
-  tagValue = (ev) => {
-    console.log(ev.target.getAttribute('name'))
   }
 
   render () {
@@ -28,8 +26,8 @@ class App extends Component {
           <Header />
           <Publish />
           <HotLabel tagValue={this.tagValue} />
-          <AllFragment />
         </div>
+        <Footer />
       </div>
 
     )
