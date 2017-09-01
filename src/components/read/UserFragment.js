@@ -87,6 +87,13 @@ class UserFragment extends Component {
     document.body.onscroll = this.scroll
   }
   componentDidUpdate() {
+    let cardTopImg = document.getElementsByClassName('card-top-img')
+    for (let i = 0; i < cardTopImg.length; i++) {
+      // console.log(cardTopImg[i].children[0].children[0].src)
+      if (cardTopImg[i].children[0].children[0].src === 'http://localhost:5000/user.html' + location.search) {
+        cardTopImg[i].style.height = 0
+      }
+    }
     this.waterfall('card-read-cpt')
   }
   render () {
@@ -95,25 +102,27 @@ class UserFragment extends Component {
         {
           this.state.data.map((item, index) => {
             return (
-              <div className='card-read-cpt' key={index.toString()}>
-                <div className='card-top-img'>
-                  <a href="###">
-                    <img src={item.content.imageInfo.img} alt="" />
-                  </a>
+              <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank' key={index.toString()}>
+                <div className='card-read-cpt'>
+                  <div className='card-top-img'>
+                    <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
+                      <img src={item.content.imageInfo.img} alt="" />
+                    </a>
+                  </div>
+                  <div className='card-item'>
+                    <div className='card-content'>
+                      {item.content.desc}
+                    </div>
+                    <div className='timeline-voice'>
+                      <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>[&nbsp;语音&nbsp;]</a>
+                    </div>
+                    <div className='card-others'>
+                      <span className='card-type'><a href='timeline.html' target='_blank'>碎片</a></span>
+                      <span>{item.statistics.view}次阅读&nbsp;&nbsp;|&nbsp;&nbsp;评论:{item.statistics.comments}&nbsp;&nbsp;|&nbsp;&nbsp;喜欢:{item.statistics.like}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className='card-item'>
-                  <div className='card-content'>
-                    {item.content.desc}
-                  </div>
-                  <div className='timeline-voice'>
-                    <a href="###" target='_blank'>[&nbsp;语音&nbsp;]</a>
-                  </div>
-                  <div className='card-others'>
-                    <span className='card-type'><a href='read.html' target='_blank'>碎片</a></span>
-                    <span>{item.statistics.view}次阅读&nbsp;&nbsp;|&nbsp;&nbsp;评论:{item.statistics.comments}&nbsp;&nbsp;|&nbsp;&nbsp;喜欢:{item.statistics.like}</span>
-                  </div>
-                </div>
-              </div>
+              </a>
             )
           })
         }

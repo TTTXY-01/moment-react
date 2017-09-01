@@ -23,7 +23,7 @@ class UserInfo extends Component {
       countInfo: {},
       home: 'block',
       like: 'none',
-      userInfo: 'Ting'
+      userInfo: '全部'
     }
   }
 

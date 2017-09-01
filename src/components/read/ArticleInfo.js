@@ -65,7 +65,7 @@ class ArticleInfo extends Component {
             </div>
             <div className='article-title'>{this.state.data.title}</div>
             <div className='article-others'>
-              <a href="###" target='_blank'>
+              <a href={'user.html?uid=' + this.state.userinfo.uid} target='_blank'>
                 <img src={this.state.userinfo.icon} alt="" />
                 {this.state.userinfo.uname}
               </a>
