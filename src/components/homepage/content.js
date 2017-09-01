@@ -26,7 +26,7 @@ class Content extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response.data[2].data)
+        console.log(response.data[2].data)
         this.setState({
           data: response.data[2].data
         })
@@ -59,19 +59,19 @@ class Content extends Component {
               <div id={'article-cpl' + index} key={index.toString()}>
                 <div className={'article-info'}>
                   <div className="article-img">
-                    <a className="crticle-img-a" href="###">
+                    <a className="crticle-img-a" href={'articleInfo.html?contentid=' + item.contentid} target="_blank">
                       <img className={'img-article'} src={item.cover} />
                     </a>
                   </div>
                   <div className={'article-info-box'}>
                     <div className={'article-title'}>
-                      <a className="article-a" href='###'>{item.title}</a>
+                      <a className="article-a" href={'articleInfo.html?contentid=' + item.contentid} target="_blank">{item.title}</a>
                     </div>
                     <div className={'article-author'}>
-                      <a className="author-a" href="###">{'by/' + item.detail.userinfo.uname}</a>
+                      <a className="author-a" href={'user.html?uid=' + item.detail.userinfo.uid} target="_blank">{'by/' + item.detail.userinfo.uname}</a>
                       <p className="article-p">——</p>
                     </div>
-                    <div className="article-content">{item.summary}<a className="view" href="###">VIEW ALL▶</a></div>
+                    <div className="article-content">{item.summary}<a className="view" href={'articleInfo.html?contentid=' + item.contentid} target="_blank">VIEW ALL▶</a></div>
                   </div>
                   <div className="article-others">{item.statistics.view}次阅读&nbsp;&nbsp;|&nbsp;&nbsp;
                     评论: {item.statistics.comment}&nbsp;&nbsp;|&nbsp;&nbsp;喜欢: {item.statistics.like}</div>

@@ -118,12 +118,12 @@ class Publish extends Component {
   }
 
   render () {
-    const day = this.state.time.getDate()
+    const day = this.state.time.getDate() > 10 ? this.state.time.getDate() : '0' + this.state.time.getDate()
     return (
       <div className='publish clear-float'>
         <div className='publish-time float-left'>
           <span>{day}</span>
-          <span>August</span>
+          <span>September</span>
         </div>
         <div className='publish-content float-right'>
           <textarea value={this.state.values} onChange={this.changes} className='publish-textarea' placeholder={this.state.placeholder} />

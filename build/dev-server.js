@@ -74,7 +74,6 @@ let _resolve
 let readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
-
 console.log('> 请开始你的表演服务器...')
 devMiddleware.waitUntilValid(() => {
   console.log('> 服务器蹦跶在' + url + '\n')

@@ -11,7 +11,7 @@ class Header extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      display: 'block'
+      display: 'none'
     }
   }
   ajaxData = (interFace) => {
@@ -81,7 +81,7 @@ class Header extends Component {
           <div id='head'>
             <a href='#' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
             <ul id='navUL'>
-              <a href="homepage.html"><li>首页</li></a>
+              <a href="homepage.html"><li className='clickLi'>首页</li></a>
               <a href="read.html"><li>阅读</li></a>
               <a href="radio.html"><li>电台</li></a>
               <a href="timeline.html"><li>碎片</li></a>

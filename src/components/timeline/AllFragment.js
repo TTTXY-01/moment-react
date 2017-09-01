@@ -16,6 +16,7 @@ class AllFragment extends Component {
       colsH: []
     }
   }
+
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -38,12 +39,14 @@ class AllFragment extends Component {
           data: this.state.data.concat(response.data)
         })
       })
+    console.log(this.state.data)
   }
 
   componentDidMount () {
     this.ajaxData('newTimeLine/list.php?pageSize=20&tag=&minId=')
     document.body.onscroll = this.scroll
   }
+
   componentDidUpdate () {
     this.waterfall('fragment-one')
   }
@@ -88,22 +91,27 @@ class AllFragment extends Component {
     }
     document.getElementsByClassName('allFragment-all')[0].style.height = maxHeight + 'px'
   }
+
   render () {
     let fragmentArray = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className='fragment-one'>
-          {
-            item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
-          }
+          <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}>
+            {
+              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
+            }
+          </a>
           <div className='fragment-one-content'>
             <p className='fragment-one-text'>
               {item.text}
             </p>
             <div className='fragment-one-one-user clear-float'>
               <div className='user-left float-left'>
-                {
-                  item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
-                }
+                <a target="_blank" href={'user.html?uid=' + item.userinfo.uid}>
+                  {
+                    item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
+                  }
+                </a>
                 <span className='green-hover'>
                   {item.userinfo.uname}
                 </span>

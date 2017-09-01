@@ -1,13 +1,31 @@
 /**
- * Created by XiaoTong on 2017/8/25.
+ * Created by XiaoTong on 2017/9/1.
  */
 import React, {Component} from 'react'
-import '../../assets/styles/focus.styl'
+import '../../assets/styles/getCaptcha.styl'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class Focus extends Component {
+class Captcha extends Component {
+  closeBtn = () => {
+    this.setState({
+      display: 'none'
+    })
+  }
+  cutBtn = () => {
+    this.setState({
+      showLogin: 'none',
+      phone: 'block'
+    })
+  }
+  lgBtn = () => {
+    this.setState({
+      showLogin: 'block',
+      phone: 'none'
+    })
+  }
+
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -26,7 +44,6 @@ class Focus extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response.data)
         this.setState({
           data: response.data
         })
@@ -46,25 +63,17 @@ class Focus extends Component {
 
   render () {
     return (
-      <div>
-        <div id="big-focus">
-          {
-            this.state.data.map((item, index) => {
-              return (
-                <div className={'focus' + index} key={index.toString()}>
-                  <a className={'focus-a' + index} href={'articleInfo.html?contentid=' + item.contentid} target="_blank">
-                    <img className={'focus-img' + index} src={item.cover} />
-                    <span className={'focus-span' + index}>&nbsp;</span>
-                  </a>
-                  <p className={'focus-p' + index}>——<br />
-                    {item.title}</p>
-                </div>
-              )
-            })
-          }
+      <div className="container">
+        <div className="set-cpt">
+          <div className="set-title">找回密码</div>
+          <div className="login-input">
+            <input type="text" maxLength="11" placeholder="请输入手机号" />
+          </div>
+          <div className="btn">发送验证码</div>
         </div>
+
       </div>
     )
   }
 }
-export default Focus
+export default Captcha
