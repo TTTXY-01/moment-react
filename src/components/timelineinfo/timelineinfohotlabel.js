@@ -36,7 +36,7 @@ class Timelineinfohotlabel extends Component {
         this.setState({
           data: response.data
         })
-        console.log(this.state.data)
+        // console.log(this.state.data)
       })
   }
   ajaxData1 = (interFace) => {
@@ -60,7 +60,7 @@ class Timelineinfohotlabel extends Component {
         this.setState({
           data1: response.data
         })
-        console.log(this.state.data1)
+        // console.log(this.state.data1)
       })
   }
 
@@ -73,27 +73,31 @@ class Timelineinfohotlabel extends Component {
     let HotLabel = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className='btn-tag'>
-          <a>{item.tag}</a>
+          <a target="_blank" href={'timeline.html?tag=' + item.tag}>{item.tag}</a>
         </div>
       )
     })
     let cottrlation = this.state.data1.map((item, index) => {
       return (
         <div key={index.toString()} className='fragment-one'>
-          {
-            item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.6}} src={item.coverimg} />
-          }
+          <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}>
+            {
+              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
+            }
+          </a>
           <div className='fragment-one-content'>
             <p className='fragment-one-text'>
-              {item.text}
+              <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}> {item.text}</a>
             </p>
             <div className='fragment-one-one-user clear-float'>
               <div className='user-left float-left'>
-                {
-                  item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
-                }
+                <a target="_blank" href={'user.html?uid=' + item.userinfo.uid}>
+                  {
+                    item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
+                  }
+                </a>
                 <span className='green-hover'>
-                  {item.userinfo.uname}
+                  <a className='user-a' target="_blank" href={'user.html?uid=' + item.userinfo.uid}> {item.userinfo.uname}</a>
                 </span>
               </div>
               <div className='user-right float-right'>

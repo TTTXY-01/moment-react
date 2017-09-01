@@ -13,7 +13,9 @@ class AllFragment extends Component {
       data: [],
       minIndex: 0,
       tf: false,
-      colsH: []
+      colsH: [],
+      search: location.search.slice(1),
+      label: '全部标签'
     }
   }
 
@@ -39,14 +41,18 @@ class AllFragment extends Component {
           data: this.state.data.concat(response.data)
         })
       })
-    console.log(this.state.data)
+    // console.log(this.state.data)
   }
 
   componentDidMount () {
-    this.ajaxData('newTimeLine/list.php?pageSize=20&tag=&minId=')
+    console.log(this.state.search)
+    if (this.state.search === '') {
+      this.ajaxData('newTimeLine/list.php?pageSize=20&tag=&minId=')
+    } else {
+      this.ajaxData('/newTimeLine/listByTag.php?pageSize=20& ' + this.state.search + '&minId=')
+    }
     document.body.onscroll = this.scroll
   }
-
   componentDidUpdate () {
     this.waterfall('fragment-one')
   }
@@ -60,7 +66,11 @@ class AllFragment extends Component {
       this.setState({
         minIndex: this.state.data.length - 1
       }, () => {
-        this.ajaxData('newTimeLine/list.php?pageSize=20&tag=&minId=' + this.state.data[this.state.minIndex].id)
+        if (this.state.search === '') {
+          this.ajaxData('newTimeLine/list.php?pageSize=20&tag=&minId=' + this.state.data[this.state.minIndex].id)
+        } else {
+          this.ajaxData('/newTimeLine/listByTag.php?pageSize=20& ' + this.state.search + '&minId=' + this.state.data[this.state.minIndex].id)
+        }
       })
     }
   }
@@ -103,7 +113,7 @@ class AllFragment extends Component {
           </a>
           <div className='fragment-one-content'>
             <p className='fragment-one-text'>
-              {item.text}
+              <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}> {item.text}</a>
             </p>
             <div className='fragment-one-one-user clear-float'>
               <div className='user-left float-left'>
@@ -113,7 +123,7 @@ class AllFragment extends Component {
                   }
                 </a>
                 <span className='green-hover'>
-                  {item.userinfo.uname}
+                  <a className='user-a' target="_blank" href={'user.html?uid=' + item.userinfo.uid}> {item.userinfo.uname}</a>
                 </span>
               </div>
               <div className='user-right float-right'>
@@ -127,7 +137,7 @@ class AllFragment extends Component {
     return (
       <div className='allFragment'>
         <div className='hotLabel-title'>
-          全部碎片
+          {this.state.search === '' ? this.state.label : decodeURI(this.state.search.slice(4))}
         </div>
         <div className='allFragment-all'>
           {fragmentArray}

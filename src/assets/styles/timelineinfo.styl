@@ -4,6 +4,8 @@
   font-family: "PingFang SC", "微软雅黑"
 
 $border = 1px solid black
+a
+  text-decoration none
 .float-left
   float left
 
@@ -189,12 +191,14 @@ $border = 1px solid black
         margin-right 10px
         margin-bottom 18px
         cursor pointer
-        font-size 14px
         border-radius 25px
-        font-weight 200
         border 1px solid #e8e8e8
         line-height 32px
         padding 0 17px
+        a
+          font-size 14px
+          font-weight 200
+          color #999
       .btn-tag:hover
         color #57ad68
         border 1px solid #57ad68
@@ -221,6 +225,13 @@ $border = 1px solid black
        .fragment-one-one-user //碎片下的用户
            margin 20px 0
            width 100%
+          .fragment-one-text
+            text-align left
+          a
+            text-align left
+            color black
+            font-weight 200
+            font-size 14px
          .user-left //用户中的左边
             color grey
             font-size 14px

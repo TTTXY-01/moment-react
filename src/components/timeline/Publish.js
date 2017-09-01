@@ -79,8 +79,8 @@ class Publish extends Component {
     }
   }
   tagValue = (ev) => {
-    console.log(this.state.display)
-    console.log(ev.target.textContent)
+    // console.log(this.state.display)
+    // console.log(ev.target.textContent)
   }
   ajaxData = (interFace) => {
     const time = new Date()

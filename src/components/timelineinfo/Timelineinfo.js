@@ -41,7 +41,8 @@ class Timelineinfo extends Component {
           data: response.data,
           info: response.data.userinfo
         })
-        console.log(this.state.data)
+        // console.log(this.state.data)
+        // console.log(this.state.info)
         if (response.data.voice !== 0) {
           this.setState({
             voice: response.data.voice.match(/_[\d]+/g)[0]
@@ -77,8 +78,8 @@ class Timelineinfo extends Component {
         <div className='timelineinfo-left float-left'>
           <div className='left-header clear-float'>
             <div className="left-header-left float-left">
-              <a className='header-icon' href="#"><img src={this.state.info.icon} alt="" /></a>
-              <a className='header-uname' href="#">{this.state.info.uname}</a>
+              <a className='header-icon' target="_blank" href={'user.html?uid=' + this.state.info.uname}><img src={this.state.info.icon} alt="" /></a>
+              <a className='header-uname' target="_blank" href={'user.html?uid=' + this.state.info.uname}> {this.state.info.uname}</a>
             </div>
             <div className='left-header-right float-right'>
               <div className="float-left">{this.timeStr(this.state.data.addtime)}</div>

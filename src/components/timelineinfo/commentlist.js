@@ -38,12 +38,12 @@ class CommentList extends Component {
         this.setState({
           data: response.data
         })
-        console.log(this.state.data)
+        // console.log(this.state.data)
       })
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.id)
+    // console.log(nextProps.id)
     this.setState({
       data: []
     }, () => {
@@ -60,7 +60,7 @@ class CommentList extends Component {
   }
   click = (ev) => {
     if (this.state.click) {
-      console.log(this.state.click)
+      // console.log(this.state.click)
       ev.target.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.style.display = 'block'
     } else {
       ev.target.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.style.display = 'none'
@@ -89,12 +89,12 @@ class CommentList extends Component {
         return (
           <div key={index.toString()} className='content-every clear-float'>
             <div className='comment-user-icon float-left'>
-              <img src={item.userinfo.icon} />
+              <a target="_blank" href={'user.html?uid=' + item.userinfo.uid}><img src={item.userinfo.icon} /></a>
             </div>
             <div className="float-right comment-user-content">
               <div className='user-content-header  clear-float'>
                 <div className="float-left">
-                  <a className="username">{item.userinfo.uname}</a>
+                  <a className='username' target="_blank" href={'user.html?uid=' + item.userinfo.uid}> {item.userinfo.uname}</a>
                   <span className="add-time">{this.timeStr(item.addtime)}</span>
                 </div>
                 <div className='float-right'>
