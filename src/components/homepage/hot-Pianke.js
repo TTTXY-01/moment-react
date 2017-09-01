@@ -26,7 +26,7 @@ class Hot extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response)
+        console.log(response)
         this.setState({
           data: response.data
         })
@@ -58,14 +58,14 @@ class Hot extends Component {
                 <div className={'user-cpt' + index} key={index.toString()}>
                   <div className="user-info">
                     <div className="user-cpt-left">
-                      <a className="user-cpt-a" href="###">
+                      <a className="user-cpt-a" href={'user.html?uid=' + item.uid} target="_blank">
                         <img className="user-cpt-img" src={item.icon} />
                         <div className={'user-cpt-label' + index} key={index.toString()}>&nbsp;</div>
                       </a>
                     </div>
                     <div className="user-cpt-right">
                       <div className="user-name">
-                        <a className="user-name-a" href="###">{item.uname}</a>
+                        <a className="user-name-a" href={'user.html?uid=' + item.uid} target="_blank">{item.uname}</a>
                       </div>
                       <div className="user-des">{item.desc}</div>
                     </div>
