@@ -1,0 +1,182 @@
+body, html
+  width 100%
+  height 100%
+
+  #theLogin
+    overflow scroll
+    width 100%
+    position fixed
+    z-index 1001
+    height 100%
+    background-color rgba(225, 225, 225, 0.9)
+    display none
+
+    .close-login-box
+      cursor pointer
+      background-image url("../images/login-X.png")
+      background-size 20px
+      height 20px
+      background-position top right
+      background-repeat no-repeat
+      margin-right 25px
+      margin-top 25px
+
+  #theLogin .login-box
+    position absolute
+    font-weight 300
+    width 500px
+    top 50%
+    margin-top -345px
+    left 50%
+    margin-left -250px
+    height 690px
+    background-repeat no-repeat
+    background-image url("../images/login-back.png")
+    background-size cover
+
+    .pianke-text
+      text-align center
+      padding-top 146px
+      color black
+      font-weight 200
+      font-size 16px
+
+    .type-title-cpt
+      margin-top 73px
+      padding-bottom 27px
+      text-align center
+
+    .type-title-cpt .active
+      margin-right 70px
+      color #333333
+
+    .type-title-cpt .active2
+      cursor pointer
+      position relative
+
+    .login-content
+
+      .login-warn
+        position absolute
+        width 100%
+        font-size 12px
+        text-align center
+        color #e86f6f
+        display: none
+
+      .login-input
+        width 270px
+        margin 0 auto
+        padding-top 25px
+
+      .login-input input
+        width 270px
+        height 33px
+        outline none
+        font-weight 300
+        font-size 16px
+        border 1px solid transparent
+        color black
+        border-bottom-color #e8e8e8
+
+      .forget-psw
+        width 270px
+        margin 0 auto
+        font-size 12px
+        text-align right
+        padding-top 10px
+
+      .forget-psw a
+        color #cccccc
+        text-decoration none
+
+      .forget-psw a:hover
+        color rgb(120,188,133)
+
+      .login-btn
+        margin 0 auto
+        margin-top 38px
+        margin-bottom 33px
+        width 172px
+        font-size 16px
+        line-height 44px
+        text-align center
+        border 1px solid rgba(120,188,133,0.5)
+        border-radius 25px
+        color #57ad68
+        cursor pointer
+
+      .login-btn:hover
+        background-color rgb(120,188,133)
+        color white
+
+    .register-content
+      margin 0 auto
+      margin-bottom 37px
+      margin-top 10px
+      background-position center
+      width 134px
+      height 212px
+      background-image url("../images/login-wecha.png")
+      background-size 134px
+      background-repeat no-repeat
+      //display none
+
+      .content-weCha
+        width 92px
+        height 92px
+        margin-top 70px
+        margin-left 21px
+
+    .login-others-way
+      margin 0 auto
+      padding-top 16px
+      width 400px
+      border-top 1px solid #f2f2f2
+      color #cccccc
+      font-size 12px
+      text-align center
+
+      .share-cpt
+        float none
+        margin-top 23px
+        cursor pointer
+
+        .share-a
+
+          .share-sina
+            background-image url("../images/login-sinaH.png")
+
+          .share-sina:hover
+            background-image url("../images/login-sina-hover.png")
+          
+          .share-wechat
+            background-image url("../images/login-wechatH.png")
+
+          .share-wechat:hover
+            background-image url("../images/login-wecha-hover.png")
+          
+          .share-qq
+            background-image url("../images/login-qq.png")
+
+          .share-qq:hover
+            background-image url("../images/login-qq-hover.png")
+          
+          .share-dou
+            background-image url("../images/login-db.png")
+          
+          .share-dou:hover
+            background-image url("../images/login-db-hover.png")
+
+        .share-a > div
+          display inline-block
+          background-size contain
+          background-position center
+          width 44px
+          height 44px
+          margin-left 10px
+
+
+
+
+

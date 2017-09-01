@@ -56,7 +56,7 @@ class Timelineinfo extends Component {
   }
 
   componentDidMount () {
-    this.ajaxData('/timeline/info.php?contentid=599d7a9c7b2aade60ac88b5a')
+    this.ajaxData('/timeline/info.php' + location.search)
   }
   mouseOver = () => {
     document.getElementsByClassName('arrows-hover')[0].style.display = 'block'

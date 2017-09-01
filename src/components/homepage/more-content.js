@@ -33,7 +33,7 @@ class MoreContent extends Component {
       })
   }
   scroll = () => {
-    if (document.documentElement.clientHeight + document.body.scrollTop === document.body.scrollHeight) {
+    if (document.getElementById('more-content').style.display === 'block' && document.documentElement.clientHeight + document.body.scrollTop === document.body.scrollHeight) {
       this.setState({
         page: this.state.page + 1
       }, () => {
@@ -41,35 +41,45 @@ class MoreContent extends Component {
       })
     }
   }
+  waterfall = (obj) => {
+    let ones = document.getElementsByClassName(obj)
+    let cols = parseInt(1200 / 280)
+    for (var i = 0; i < cols; i++) {
+      this.state.colsH[i] = 0
+    }
+    for (var k = 0; k < ones.length; k++) {
+      let minIndex = 0
+      let minH = this.state.colsH[0]
+      for (var j = 0; j < this.state.colsH.length; j++) {
+        if (minH > this.state.colsH[j]) {
+          minH = this.state.colsH[j]
+          minIndex = j
+        }
+      }
+      ones[k].style.top = this.state.colsH[minIndex] + 10 + 'px'
+      ones[k].style.left = 306 * minIndex + 'px'
+      this.state.colsH[minIndex] += 10 + ones[k].offsetHeight
+    }
+    let maxHeight = 0
+    for (var e = 0; e < this.state.colsH.length; e++) {
+      if (maxHeight < this.state.colsH[e]) {
+        maxHeight = this.state.colsH[e]
+      }
+    }
+    document.getElementsByClassName('img-group-cpt')[0].style.height = maxHeight + 'px'
+  }
 
   constructor (props) {
     super(props)
     this.state = {
       data: [],
-      page: 1
+      page: 1,
+      colsH: []
     }
   }
 
   componentDidUpdate () {
-    let ones = document.getElementsByClassName('card-ting-cpt')
-    let cols = parseInt(1200 / 280)
-    let colsH = []
-    for (var i = 0; i < cols; i++) {
-      colsH[i] = 0
-    }
-    for (var k = 0; k < ones.length; k++) {
-      let minIndex = 0
-      let minH = colsH[0]
-      for (var j = 0; j < colsH.length; j++) {
-        if (minH > colsH[j]) {
-          minH = colsH[j]
-          minIndex = j
-        }
-      }
-      ones[k].style.top = colsH[minIndex] + 10 + 'px'
-      ones[k].style.left = 306 * minIndex + 'px'
-      colsH[minIndex] += 10 + ones[k].offsetHeight
-    }
+    this.waterfall('card-ting-cpt')
   }
 
   componentDidMount () {
@@ -114,7 +124,7 @@ class MoreContent extends Component {
                           <img className="card-header" src={item.detail.authorinfo.icon} />
                           <span className="card-s">{item.detail.authorinfo.uname}</span>
                         </a>
-                        <span className="card-heart">♡</span>
+                        <div className="card-heart">&nbsp;</div>
                       </div>
                     </div>
                   </div>

@@ -4,6 +4,8 @@
 
 $border = 1px solid black
 
+a
+ text-decoration none
 #fragment-container //中间最的容器
   //border $border
   width 1200px
@@ -195,11 +197,15 @@ $border = 1px solid black
 .fragment-one //全部碎片中的每一个
   width 280px
   margin-left 10px
-  border 4px solid rgb(232,232,232)
+  border 1px solid rgb(232,232,232)
   position absolute
   top 0
   left 0
-  img //下面的图片
+  img
+   width 100%
+  .hotLabel-content-one img //热门标签下每一个图片
+   .publish //发布碎片
+    border $border
     width 100%
     height 100%
   .hotLabel-content-one img //热门标签下每一个图片
@@ -268,11 +274,15 @@ $border = 1px solid black
       transform scale(1.1)
       transition 1s ease
   .fragment-one:hover //悬停每一个出现的效果
-    box-shadow 1px 1px 1px 2px lightgrey
+    box-shadow 1px 1px 0 .5px lightgrey
 
   .fragment-one-content //每一个的内容
     padding 10px
-
+    p
+      text-align left
+      color black
+      font-weight 200
+      font-size 14px
 .float-right //全部都可以用 浮动右
     float right
 
