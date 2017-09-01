@@ -40,12 +40,12 @@ class Recommendation extends Component {
     let Array = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className="recommend_ting">
-          <div className="recommend_img_wrap" >
-            <a href="">
+          <a href={'tingInfo.html?tingid=' + item.tingid}>
+            <div className="recommend_img_wrap">
               <img src={item.imgUrl} className="recommend_img" />
               <div className="coverDiv" />
-            </a>
-          </div>
+            </div>
+          </a>
           <div className="recommend_ting_introduce">
             <a href="###"><p className="recommend_ting_name">{item.title}</p></a>
             <a href="###"><p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p></a>

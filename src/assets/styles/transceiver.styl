@@ -575,3 +575,225 @@ radioType_title .type-active::before {
   box-shadow 2px -2px 2px #e8e8e8
   bottom -8px
   left 90px
+// 热门电台详情
+.radio_wrap
+  margin-top 40px
+  margin-bottom 40px
+.radio_detail
+  position relative
+  width 960px
+  height 300px
+  margin auto
+  padding 0 120px 0 120px
+.radio_img_wrap
+  position relative
+  width 300px
+  height 300px
+  z-index 100
+.radio_detail_information
+  height 300px
+  width 610px
+  position absolute
+  top 0
+  left 470px
+.radio_detail_title
+  font-size 40px
+  color #333
+  font-weight 400
+.radio_detail_author
+  padding-top 9px
+  padding-bottom 33px
+.radio_detail_author img
+  width 40px
+  height 40px
+  border-radius 50%
+  vertical-align middle
+.radio_detail_author_title
+  padding-left 20px
+.radio_detail_author_title a
+  color #57ad68
+  text-decoration none
+  font-size 15px
+  font-weight lighter
+.radio_detail_others
+  padding-left 20px
+  color #999
+  font-size 12px
+  font-weight lighter
+.radio_detail_introduction
+  font-size 14px
+  font-weight lighter
+  color #999
+.radio_detail_btn
+  width 129px
+  height 52px
+  position absolute
+  line-height 52px
+  color #57ad68
+  font-size 14px
+  bottom 0
+.radio_detail_stopBtn
+  background-repeat no-repeat
+  background-size 30px
+  background-position 12px 10px
+  background-image url("../../assets/images/radio-pause.png")
+  padding-left 53px
+  width 76px
+  height 50px
+  border-radius 25px
+  border 1px solid #57ad68
+  display none
+.radio_detail_playBtn
+  background-repeat no-repeat
+  background-size 30px
+  background-position 12px 10px
+  background-image url("../../assets/images/radio-play.png")
+  padding-left 53px
+  width 76px
+  height 50px
+  border-radius 25px
+  border 1px solid #57ad68
+// 热门电台详情列表
+.radio_detail_ting
+  width 960px
+  margin auto
+  padding 0 120px 0 120px
+.radio_detail_ting_wrap
+  width 960px
+  height 800px
+  border 1px solid red
+.ting_item
+  width 960px
+  height 78px
+  border 1px solid black
+.ting_item_index
+  width 80px
+  height 80px
+  text-align center
+  line-height 80px
+  float left
+  font-size 16px
+  font-weight lighter
+  color #999
+  //display inline-block
+.ting_item_title
+  clear both
+  width 330px
+  height 80px
+  line-height 80px
+  //float left
+  overflow: hidden
+  text-overflow ellipsis
+  white-space nowrap
+  display inline-block
+.ting_item_like
+  cursor pointer
+  height 80px
+  width 24px
+  margin-left 60px
+  margin-right 54px
+  background-position 0 center
+  background-repeat no-repeat
+  background-image url('../../assets/images/like.png')
+  background-size 19px
+  //float left
+  display inline-block
+.ting_item_like:hover
+  background-image url('../../assets/images/likeH.png')
+.ting_item_share
+  position relative
+  cursor pointer
+  height 80px
+  width 16px
+  background-position 0 center
+  background-repeat no-repeat
+  background-image url('../../assets/images/share.png')
+  background-size 16px
+  //float left
+  display inline-block
+.ting_item_share:hover
+  background-image url('../../assets/images/shareH.png')
+.ting_item_share:hover > .ting_item_shareBox
+  display block
+.ting_item_shareBox
+  display none
+  position absolute
+  right -40px
+  bottom 60px
+  width 290px
+  height 80px
+  border-radius 50px
+  box-shadow 0 1px 6px 0 #e8e8e8
+  background-color #fff
+  border 1px solid #e8e8e8
+.ting_item_shareBox::after
+  position absolute
+  content ''
+  width 0
+  height 0
+  border-style solid
+  border-width 6px
+  border-color #fff #fff transparent transparent
+  transform rotate(135deg)
+  box-shadow 2px -2px 2px #e8e8e8
+  bottom -6px
+  left 238px
+.ting_item_right
+  float right
+  height 78px
+  line-height 80px
+  margin-right 60px
+  font-size 14px
+  font-weight lighter
+  color #999
+.ting_item_plays
+  display inline-block
+  width 120px
+.ting_item_time
+  display inline-block
+  width 90px
+// 电台详情分页器
+.radio_detail_ting_page
+  //overflow: hidden
+  width 960px
+  height 30px
+  margin auto
+  margin-top 20px
+  border 1px solid black
+  margin-bottom 200px
+.radio_detail_ting_prev
+  //display none
+  background-image url("../../assets/images/prev.png")
+  background-size 6px
+  background-repeat no-repeat
+  background-position center
+.radio_detail_ting_prev:hover
+  background-image url("../../assets/images/prevH.png")
+.radio_detail_ting_next
+  background-image url("../../assets/images/next.png")
+  background-size 6px
+  background-repeat no-repeat
+  background-position center
+.radio_detail_ting_next:hover
+  background-image url("../../assets/images/nextH.png")
+.radio_detail_ting_page p
+  //float left
+  display inline-block
+  width 33px
+  height 30px
+  margin-right 8px
+.radio_detail_ting_pageNum
+  border 1px solid red
+  background blue
+  font-size 15px
+  //float left
+  color red
+  display inline-block
+  width 33px
+  height 30px
+  margin-right 8px
+  text-align center
+  line-height 30
+//.ting_active
+//  background #57ad68
+//  color white

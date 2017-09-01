@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
-class HotRadio extends Component {
+class TingInfo extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -39,7 +39,8 @@ class HotRadio extends Component {
       })
   }
   componentDidMount () {
-    this.ajaxData('/ting/info.php?tingid=599507fdb978327c2417abdc')
+    console.log(location.search)
+    this.ajaxData('/ting/info.php' + location.search)
   }
   render() {
     return (
@@ -96,4 +97,4 @@ class HotRadio extends Component {
     )
   }
 }
-export default HotRadio
+export default TingInfo

@@ -6,25 +6,20 @@ const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
 
-class AllFragment extends Component {
+class ClassFragment extends Component {
   constructor (porps) {
     super(porps)
     this.state = {
       data: [],
-      page: 20,
-      url: '',
+      minIndex: 0,
       tf: false,
-      colsH: [],
-      height: 0
+      colsH: []
     }
   }
+  static propTypes = {
+    valueTag: React.PropTypes.string
+  }
 
-  mouseover = (ev) => {
-    ev.target.innerHTML = '♥'
-  }
-  mouseout = (ev) => {
-    ev.target.innerHTML = '♡'
-  }
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -43,15 +38,23 @@ class AllFragment extends Component {
         return response.json()
       })
       .then(response => {
+        console.log(response)
         this.setState({
           data: this.state.data.concat(response.data)
         })
       })
   }
 
+  componentWillReceiveProps (nextProps) {
+    console.log(nextProps.valueTag)
+    this.setState({
+      data: []
+    }, () => {
+      this.ajaxData('/newTimeLine/listByTag.php?pageSize=20&tag=' + nextProps.valueTag + '&minId=')
+    })
+  }
   componentDidMount () {
-    this.state.url = 'newTimeLine/list.php?pageSize=' + this.state.page + '&tag=&minId='
-    this.ajaxData(this.state.url)
+    this.ajaxData('/newTimeLine/listByTag.php?pageSize=20&tag=' + this.props.valueTag + '&minId=')
     document.body.onscroll = this.scroll
   }
 
@@ -64,12 +67,11 @@ class AllFragment extends Component {
     let scrollTop = document.body.scrollTop
     let clientHeight = document.documentElement.clientHeight
     // console.log(scrollHeight, scrollTop, clientHeight)
-    if (scrollHeight <= scrollTop + clientHeight) {
+    if (scrollHeight === scrollTop + clientHeight) {
       this.setState({
-        page: this.state.page + 20,
-        url: 'newTimeLine/list.php?pageSize=' + this.state.page + '&tag=&minId='
+        minIndex: this.state.data.length - 1
       }, () => {
-        this.ajaxData(this.state.url)
+        this.ajaxData('/newTimeLine/listByTag.php?pageSize=10&tag=' + this.props.valueTag + '&minId=' + this.state.data[this.state.minIndex].id)
       })
     }
   }
@@ -93,13 +95,13 @@ class AllFragment extends Component {
       ones[k].style.left = 298 * minIndex + 'px'
       this.state.colsH[minIndex] += 10 + ones[k].offsetHeight
     }
-    // for (var e = 0; e < this.state.colsH.length; e++) {
-    //   if (this.state.colsH[e] < this.state.colsH[e + 1]) {
-    //     this.setState({
-    //       height: this.state.colsH[e + 1]
-    //     })
-    //   }
-    // }
+    let maxHeight = 0
+    for (var e = 0; e < this.state.colsH.length; e++) {
+      if (maxHeight < this.state.colsH[e]) {
+        maxHeight = this.state.colsH[e]
+      }
+    }
+    document.getElementsByClassName('allFragment-all')[0].style.height = maxHeight + 'px'
   }
 
   render () {
@@ -115,29 +117,32 @@ class AllFragment extends Component {
             </p>
             <div className='fragment-one-one-user clear-float'>
               <div className='user-left float-left'>
-                <img src={item.userinfo.icon} />
+                {
+                  item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
+                }
                 <span className='green-hover'>
                   {item.userinfo.uname}
                 </span>
               </div>
-              <div onMouseOver={this.mouseover} onMouseOut={this.mouseout} className='user-right float-right'>
-                ♡
-              </div >
-            </div >
-          </div >
+              <div className='user-right float-right'>
+               &nbsp;
+              </div>
+            </div>
+          </div>
         </div>
       )
     })
     return (
       <div className='allFragment'>
         <div className='hotLabel-title'>
-          全部标签
+          {this.props.valueTag}
         </div>
         <div className='allFragment-all'>
           {fragmentArray}
         </div>
+        <img style={{marginTop: '30px'}} src={require('../../assets/images/download.gif')} alt="" />
       </div>
     )
   }
 }
-export default AllFragment
+export default ClassFragment

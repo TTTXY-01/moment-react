@@ -49,7 +49,7 @@ class Classification extends Component {
             this.state.data.map((item, index) => {
               return (
                 <div key={index.toString()} className='article-type-cpt'>
-                  <a href={'readType.html?type=' + item.type + '&tag=' + item.typeName}>
+                  <a href={'readType.html?type=' + item.type + '&tag=' + item.typeName} target='_blank'>
                     <img src={item.img} className='type-img' alt="" />
                     <span className='type-bg'>&nbsp;</span>
                     <span className='type-title'>{item.typeName}</span>

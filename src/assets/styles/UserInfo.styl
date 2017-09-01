@@ -1,0 +1,304 @@
+.user-base-content
+  background-color: #fff
+  font-size 14px
+  font-weight 200
+  border-bottom 1px solid #e8e8e8
+  padding-bottom 19px
+  padding-top 55px
+  .user-info-box
+    width 556px
+    margin 0 auto
+    margin-bottom 20px
+    padding-bottom 99px
+    .user-icon-group
+      width 100px
+      height 139px
+      .user-icon
+        width 100px
+        height 100px
+        margin-bottom 20px
+        position relative
+        img
+          width 100%
+          border-radius 50%
+
+    .user-info
+      height 139px
+      margin-top -139px
+      margin-left 150px
+      .user-name
+        position relative
+        font-size 24px
+        font-weight 500
+        padding-bottom 7px
+        span:first-child
+          display inline-block
+          width 345px
+          overflow hidden
+          text-overflow ellipsis
+        .btn-focus
+          cursor pointer
+          margin-left 13px
+          width 72px
+          line-height 29px
+          font-size 14px
+          color #333
+          border 1px solid #ccc
+          border-radius 25px
+          position absolute
+          text-align center
+        .btn-focus:hover
+          color #57ad68
+          border-color #57ad68
+        .pianke-mail
+          cursor pointer
+          position: absolute
+          top 0
+          left 680px
+          background-image url('../../assets/images/mail.png')
+          width 31px
+          height 31px
+          background-size 31px
+        .pianke-mail:hover
+          background-image url('../../assets/images/mailH.png')
+
+      .user-des
+        line-height 20px
+        overflow hidden
+        max-height 60px
+      .user-others
+        padding-top 26px
+        font-weight 500
+        a:hover
+          color #57ad68
+        a
+          display inline-block
+          color #999
+          height 42px
+          text-align center
+          padding-right 40px
+          cursor pointer
+          text-decoration none
+          span
+            font-weight 200
+            font-size 12px
+
+.data-title
+  font-weight 200
+  width 1200px
+  margin 0 auto
+  padding 60px 0
+  color #666
+  span
+    cursor pointer
+    position relative
+    padding-right 26px
+    color #999
+    font-size 12px
+    a
+      font-size 14px
+      color #666
+      padding-right 5px
+      cursor pointer
+      text-decoration none
+    a:hover
+      color #57ad68
+    .title-active
+      color #57ad68
+
+.data-title-like
+  font-weight 200
+  width 980px
+  margin 0 auto
+  padding 60px 0
+  color #666
+
+// 瀑布流
+.data-content > img
+  margin 0 auto
+  display block
+.data-content
+  width 1200px
+  margin 0 auto
+  .img-group-cpt
+    min-height 200px
+    position relative
+    margin-left -13px
+    .card-read-cpt:hover
+      box-shadow 0 1px 20px #e8e8e8
+    .card-read-cpt
+      border 1px solid #e8e8e8
+      position absolute
+      width 290px
+      background-color #fff
+      font-size 12px
+      .card-top-img:hover>.play-icon
+        opacity 0.4
+        transition opacity 1s
+      .card-top-img
+        display block
+        width 290px
+        height 290px
+        overflow hidden
+        border 0
+        position relative
+        .play-icon
+          width 300px
+          height 300px
+          position absolute
+          left 0
+          top 0
+          opacity 0
+          background url("../../assets/images/play-icon.png") black
+          background-repeat no-repeat
+          background-position 110px 110px
+        a
+          cursor pointer
+          color #333
+          text-decoration none
+          img
+            width 100%
+            display block
+      .card-item
+        width 290px
+        .card-title
+          font-size 24px
+          padding 15px;
+          position relative
+          a
+            text-decoration none
+            color: #000
+          a:hover
+            color #57ad68
+        .card-title::before
+          content ''
+          bottom 0
+          position absolute
+          width 43px
+          height 1px
+          border-top 1px solid #333
+        .card-content
+          word-break break-word
+          line-height 24px
+          font-weight 200
+          font-size 14px
+          padding 15px 15px 10px 15px
+          span
+            margin-left 10px
+            a
+              text-decoration none
+              color #57ad68
+              img
+                width 6px
+                height 10px
+        .timeline-voice
+          cursor pointer
+          background-image url('../../assets/images/timeline-playicon.png')
+          background-size 14px
+          background-repeat no-repeat
+          padding-left 25px
+          background-position 0 center
+          margin-top 10px
+          margin-bottom 20px
+          margin-left 15px
+          a
+            text-decoration none
+            color #000
+        .timeline-voice:hover
+          background-image url('../../assets/images/timeline-playiconH.png')
+        .card-ting-title
+          padding 15px
+          padding-bottom 5px
+          color #333
+          font-size 18px
+          a:hover
+            color #57ad68
+          a
+            text-decoration none
+            color #000
+        .user-sign
+          padding 15px 15px 0 15px
+          a:hover
+            color #57ad68
+          a
+            text-decoration none
+            color #000
+        .card-others
+          padding 0 15px
+          padding-top 30px
+          font-weight lighter
+          padding-bottom 12px
+          .card-type:hover
+            border-color #57ad68
+          .card-type
+            border 1px solid rgba(204, 204, 204, 0.5)
+            border-radius 10px
+            padding 0 6px
+            a
+              color: #333;
+              text-decoration none
+          span:not(.card-type)
+            color #ccc
+            float right
+
+.data-content
+  .user-like-list
+    width 980px
+    overflow hidden
+    margin 0 auto
+    .user-like-cpt > div
+      float left
+    .user-like-cpt
+      padding 20px 30px
+      background-color #fff
+      border 1px solid #e8e8e8
+      width 470px
+      height 130px
+      margin-bottom 14px
+      margin-right 20px
+      float left
+      box-sizing border-box
+      position relative
+      .s-user-icon
+        width 50px
+        height 50px
+        a
+          text-decoration none
+          cursor pointer
+          img
+            width 100%
+            height 100%
+            border-radius 50%
+      .s-user-info
+        width 200px
+        font-size 16px
+        padding-left 18px
+        font-weight 300
+        .s-user-name
+          a
+            text-decoration none
+            cursor pointer
+            color #333
+        .s-user-des
+          font-weight 100
+          color #666
+          height 55px
+          font-size 12px
+          padding-top 6px
+      .btn-focus
+        cursor pointer
+        right 30px
+        top 50%
+        margin-top -15.5px
+        margin-left 13px
+        width 72px
+        line-height 29px
+        font-size 14px
+        color #333
+        border 1px solid #ccc
+        border-radius: 25px
+        position absolute
+        text-align center
+      .btn-focus:hover
+        color #57ad68
+        border-color #57ad68
