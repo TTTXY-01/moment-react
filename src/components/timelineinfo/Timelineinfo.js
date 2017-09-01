@@ -2,6 +2,9 @@
  * Created by dllo on 17/8/30.
  */
 import React, {Component} from 'react'
+import Commentlist from './commentlist'
+import Timelineinfohotlabel from './timelineinfohotlabel'
+
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -11,7 +14,8 @@ class Timelineinfo extends Component {
     super(props)
     this.state = {
       data: [],
-      info: {}
+      info: {},
+      voice: ''
     }
   }
 
@@ -38,6 +42,11 @@ class Timelineinfo extends Component {
           info: response.data.userinfo
         })
         console.log(this.state.data)
+        if (response.data.voice !== 0) {
+          this.setState({
+            voice: response.data.voice.match(/_[\d]+/g)[0]
+          })
+        }
       })
   }
   timeStr = (nS) => {
@@ -47,9 +56,8 @@ class Timelineinfo extends Component {
   }
 
   componentDidMount () {
-    this.ajaxData('timeline/info.php?contentid=57e917fd02334d296ed01cd8')
+    this.ajaxData('/timeline/info.php?contentid=599d7a9c7b2aade60ac88b5a')
   }
-
   mouseOver = () => {
     document.getElementsByClassName('arrows-hover')[0].style.display = 'block'
   }
@@ -85,15 +93,14 @@ class Timelineinfo extends Component {
             }
             <p className='left-text'>{this.state.data.text}</p>
             <div className="left-tag">
-              <a className='left-tag-a' href="#">#{this.state.data.tag}#</a>
+              {
+                this.state.data.tag === '' ? <span style={{display: 'none'}} /> : <a className='left-tag-a' href="#">#{this.state.data.tag}#</a>
+              }
+
             </div>
-            <div className='voice'>
-              <div className="audio">
-                <audio controls="controls" src={this.state.data.voice} className='voice-action'>&nbsp;</audio>
-              </div>
-              <canvas className='canvas'>1</canvas>
-              <div className='voice-time'>1</div>
-            </div>
+            {
+              this.state.data.voice === '' ? <span style={{display: 'none'}} /> : <div className='voice'><div className="audio"><audio controls="controls" src={this.state.data.voice} className='voice-action'>&nbsp;</audio></div><div className='canvas' /><div className='voice-time'>{this.state.voice.replace('_', '')}''</div></div>
+            }
             <div className='left-bottom clear-float'>
               <div className="left-bottom-left float-left">
                 {this.state.data.likes}
@@ -107,9 +114,12 @@ class Timelineinfo extends Component {
               </div>
 
             </div>
+            <Commentlist id={this.state.data.id} />
           </div>
         </div>
-        <div className='timelineinfo-right float-right'>ee</div>
+        <div className='timelineinfo-right float-right'>
+          <Timelineinfohotlabel />
+        </div>
       </div>
     )
   }
