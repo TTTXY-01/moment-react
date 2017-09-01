@@ -26,7 +26,7 @@ class Ting extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response.data[5].data)
+        console.log(response.data[5].data)
         this.setState({
           data: response.data[5].data
         })
@@ -69,7 +69,7 @@ class Ting extends Component {
                       <a className="ting-title-a" href="###">{item.detail.shareinfo.title}</a>
                     </div>
                     <div className="ting-author">
-                      <a className="ting-author-a" href="###">主播&nbsp;/&nbsp;{item.detail.userinfo.uname}</a>
+                      <a className="ting-author-a" href={'user.html?uid=' + item.detail.userinfo.uid} target="_blank">主播&nbsp;/&nbsp;{item.detail.userinfo.uname}</a>
                     </div>
                     <div className="ting-others">{item.statistics.view}次阅读&nbsp;&nbsp;|&nbsp;&nbsp;评论: {item.statistics.comment}&nbsp;&nbsp;|&nbsp;&nbsp;喜欢: {item.statistics.like}</div>
                   </div>

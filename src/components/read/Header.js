@@ -18,6 +18,22 @@ class Header extends Component {
           <div id='head'>
             <a href='###' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
             <ul id='navUL'>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+              <a href="homepage.html"><li className='clickLi' onClick={this.click}>首页</li></a>
+              <a href="read.html"><li onClick={this.click}>阅读</li></a>
+              <a href="radio.html"><li onClick={this.click}>电台</li></a>
+              <a href="timeline.html"><li onClick={this.click}>碎片</li></a>
+              <a href="clientSide.html"><li onClick={this.click}>客户端</li></a>
+=======
+<<<<<<< HEAD
+              <a href="###"><li onClick={this.click}>首页</li></a>
+              <a href="read.html"><li className='clickLi' onClick={this.click}>阅读</li></a>
+              <a href="radio.html"><li onClick={this.click}>电台</li></a>
+=======
+<<<<<<< HEAD
+>>>>>>> 7c9bf24224f7a81761bb04ee732d837623108205
               <a href="###"><li className='clickLi' onClick={this.click}>首页</li></a>
               <a href="read.html"><li onClick={this.click}>阅读</li></a>
               <a href="###"><li className='clickLi' onClick={this.click}>首页</li></a>
@@ -25,8 +41,10 @@ class Header extends Component {
               <a href="###"><li onClick={this.click}>首页</li></a>
               <a href="read.html"><li className='clickLi' onClick={this.click}>阅读</li></a>
               <a href="###"><li onClick={this.click}>电台</li></a>
+>>>>>>> 4691d4fcd9a45b2ed99e769ff1a6877c91bb8e3a
               <a href="###"><li onClick={this.click}>碎片</li></a>
               <a href="###"><li onClick={this.click}>客户端</li></a>
+>>>>>>> 21df6dacf30ff9eb107d0b39107c0cb54d8e15c9
             </ul>
             <div id='login'>
               <div id='outside'>
