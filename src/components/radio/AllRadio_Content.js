@@ -6,7 +6,8 @@ class AllRadioContent extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      pageNum: 1
     }
   }
   ajaxData = (interFace) => {
@@ -28,12 +29,27 @@ class AllRadioContent extends Component {
       })
       .then(response => {
         this.setState({
-          data: response.data
+          data: this.state.data.concat(response.data)
         })
       })
   }
   componentDidMount () {
-    this.ajaxData('/ting/listOfRadio.php?pageSize=12&sort=2' + this.state.pageNum + '&pageNum=1')
+    this.ajaxData('/ting/listOfRadio.php?pageSize=12&sort=2&pageNum=' + this.state.pageNum)
+    window.addEventListener('scroll', this.handleScroll.bind(this))
+  }
+  handleScroll = () => {
+    let STop = document.body.scrollTop
+    const DHeight = document.documentElement.clientHeight
+    const SHeight = document.documentElement.scrollHeight
+    if (SHeight === STop + DHeight) {
+      this.setState({
+        pageNum: this.state.pageNum + 1
+      }, () => {
+        console.log(this.state.pageNum)
+        this.ajaxData('/ting/listOfRadio.php?pageSize=9&sort=2&pageNum=' + this.state.pageNum)
+      })
+    }
+    console.log(this.state.pageNum)
   }
   render() {
     let hotArray = this.state.data.map((item, index) => {
@@ -56,6 +72,17 @@ class AllRadioContent extends Component {
     })
     return (
       <div className="All_wrap">
+        <div className='AllRadioType_title_wrap'>
+          <div className='AllRadioType_title'>
+            分类:
+            <a href='###'>故事</a>
+            <a href='###'>音乐</a>
+            <a href='###'>读诗</a>
+            <a href='###'>电影</a>
+            <a href='###'>旅行</a>
+            <a href='###'>爱情</a>
+          </div>
+        </div>
         {hotArray}
       </div>
     )

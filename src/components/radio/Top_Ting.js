@@ -10,6 +10,7 @@ class TopTing extends Component {
       data: []
     }
   }
+
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -33,17 +34,21 @@ class TopTing extends Component {
         })
       })
   }
+
   componentDidMount () {
     this.ajaxData('/ting/list.php?pageSize=3&sort=2')
   }
+
   render () {
     let Array = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className="recommend_ting">
-          <div className="recommend_img_wrap">
-            <img src={item.imgUrl} className="recommend_img" />
-            <div className="coverDiv" />
-          </div>
+          <a href={'tingInfo.html?tingid=' + item.tingid}>
+            <div className="recommend_img_wrap">
+              <img src={item.imgUrl} className="recommend_img" />
+              <div className="coverDiv" />
+            </div>
+          </a>
           <div className="recommend_ting_introduce">
             <p className="recommend_ting_name">{item.title}</p>
             <p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p>
