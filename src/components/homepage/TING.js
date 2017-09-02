@@ -59,14 +59,14 @@ class Ting extends Component {
               return (
                 <div className={'ting-cpt' + index} key={index.toString()}>
                   <div className="ting-img-div">
-                    <a className="ting-a" href="###">
+                    <a className="ting-a" href={'tingInfo.html?tingid=' + item.collinfo.id} target='blank'>
                       <img className="ting-img" src={item.cover} />
                       <span className="meng-span">&nbsp;</span>
                     </a>
                   </div>
                   <div className="ting-info">
                     <div className="ting-title">
-                      <a className="ting-title-a" href="###">{item.detail.shareinfo.title}</a>
+                      <a className="ting-title-a" href={'tingInfo.html?tingid=' + item.collinfo.id} target='blank'>{item.detail.shareinfo.title}</a>
                     </div>
                     <div className="ting-author">
                       <a className="ting-author-a" href={'user.html?uid=' + item.detail.userinfo.uid} target="_blank">主播&nbsp;/&nbsp;{item.detail.userinfo.uname}</a>

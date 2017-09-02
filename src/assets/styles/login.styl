@@ -33,6 +33,10 @@ body, html
     background-repeat no-repeat
     background-image url("../images/login-back.png")
     background-size cover
+    p
+      text-align center
+      font-size 12px
+      color red
 
     .pianke-text
       text-align center
@@ -45,14 +49,46 @@ body, html
       margin-top 73px
       padding-bottom 27px
       text-align center
-
-    .type-title-cpt .active
-      margin-right 70px
-      color #333333
-
-    .type-title-cpt .active2
-      cursor pointer
-      position relative
+      span
+        color #999
+        cursor pointer
+        position relative
+      span:first-child::before
+        content ''
+        position absolute
+        width 32px
+        height 2px
+        background-color #333
+        top 28px
+        left 0
+        display none
+      span:last-child::before
+        content ''
+        position absolute
+        width 32px
+        height 2px
+        background-color #333
+        top 28px
+        left 0
+        display none
+      span:first-child
+        margin-right 70px
+      span:hover
+        color #333
+      span:first-child:hover::before
+        display block
+      span:last-child:hover::before
+        display block
+      .login-active
+        color #000
+      .login-active::after
+        content ''
+        position absolute
+        width 32px
+        height 2px
+        background-color #333
+        top 28px
+        left 0
 
     .login-content
 
@@ -68,6 +104,8 @@ body, html
         width 270px
         margin 0 auto
         padding-top 25px
+        input::-webkit-input-placeholder
+          color #ccc
 
       .login-input input
         width 270px

@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import '../../assets/styles/read.styl'
 import '../../assets/styles/Footer.styl'
+import '../../assets/styles/Up.styl'
 
 ReactDOM.render(
   <App />,

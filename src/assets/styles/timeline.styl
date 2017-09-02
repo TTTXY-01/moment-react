@@ -4,14 +4,15 @@
 
 $border = 1px solid black
 
+a
+ text-decoration none
 #fragment-container //中间最的容器
   //border $border
   width 1200px
   margin 0 auto
   background url('../images/back.png') no-repeat
 
-  .publish //发布碎片
-  //box-shadow 0 0 3px 3px lightgray
+.publish //发布碎片
     padding-top 20px
     width 100%
     height 220px
@@ -32,14 +33,13 @@ $border = 1px solid black
     font-size 20px
     position absolute
     top 55%
-    right 20%
+    right 10%
 
   .publish-content //发布碎片文本框
     width 70%
     height 100%
     background-color white
     padding 10px 20px
-    //padding 10px 0
     text-align center
 
   .publish-textarea //文本输入框
@@ -162,6 +162,7 @@ $border = 1px solid black
     padding-left 30px
     margin 100px 0 30px 0
     background-position-x 10px
+    text-align left
 
   .hotLabel-content-one //热门标签下的每一个
     width 191px
@@ -213,24 +214,22 @@ $border = 1px solid black
 .hotLabel-content-one:hover .img  //悬停之后让里面的图片响应
   transform scale(1.1)
   transition 1s ease
-.allFragment //全部碎片
-  border $border
 .fragment-one //全部碎片中的每一个
   width 280px
   margin-left 10px
-  border 4px solid rgb(232,232,232)
-
+  border 1px solid rgb(232,232,232)
+  position absolute
+  top 0
+  left 0
+  img
+   width 100%
   .hotLabel-content-one img //热门标签下每一个图片
    .publish //发布碎片
     border $border
     width 100%
-    height 380px
-  .hotLabel-title //标签前的小黑色方图片
-    background url('../images/label-img.png') no-repeat left
-    padding-left 30px
-    margin 100px 0 30px 0
-    background-position-x 10px
-    text-align left
+    height 100%
+  .hotLabel-content-one img //热门标签下每一个图片
+   border $border
   .hotLabel-content-one  //热门标签下的每一个
     width 191px
     height 84px
@@ -262,61 +261,57 @@ $border = 1px solid black
   .hotLabel-content-one:hover .img  //悬停之后让里面的图片响应
     transform scale(1.1)
     transition 1s ease
-  .allFragment-all
+.allFragment-all
     position relative
     //overflow hidden
     height auto
-  .fragment-one //全部碎片中的每一个
-    position absolute
-    //overflow hidden
-    top 0
-    left 0
-    width 280px
-    border 4px solid rgb(232,232,232)
-    img //下面的图片
+
+.hotLabel-content-one-text //热门标签下每一个中的文字
+      position absolute
+      top 0
       width 100%
       height 100%
-  .hotLabel-content-one-text //热门标签下每一个中的文字
-    //overflow hidden
-    position absolute
-    top 0
-    width 100%
-    height 100%
-    background rgba(0, 0, 0, 0.2)
+      background rgba(0, 0, 0, 0.2)
 
-  .hotLabel-content-one-text
-    div //热门标签下每一个文字的内容
-     color white
-     text-align center
-     font-weight 500
-     font-size 18px
+    .hotLabel-content-one-text
+      div //热门标签下每一个文字的内容
+       color white
+       text-align center
+       font-weight 500
+       font-size 18px
 
-  .hotLabel-content-one
-    div:first-child //热门标签下第一个的内容
-     margin-top 25px
+    .hotLabel-content-one
+      div:first-child //热门标签下第一个的内容
+       margin-top 25px
 
-  .hotLabel-content-one-text
-    div:last-child //热门标签下最后一个文字的内容
-     font-weight lighter
-     font-size 13px
+    .hotLabel-content-one-text
+      div:last-child //热门标签下最后一个文字的内容
+       font-weight lighter
+       font-size 13px
 
   .hotLabel-content-one:hover
     .img //悬停之后让里面的图片响应
       transform scale(1.1)
       transition 1s ease
   .fragment-one:hover //悬停每一个出现的效果
-    box-shadow 1px 1px 1px 2px lightgrey
+    box-shadow 1px 1px 0 .5px lightgrey
 
   .fragment-one-content //每一个的内容
     padding 10px
-
-  .float-right //全部都可以用 浮动右
+    .fragment-one-text
+      text-align left
+     a
+      text-align left
+      color black
+      font-weight 200
+      font-size 14px
+.float-right //全部都可以用 浮动右
     float right
 
-  .float-left //全部都可以用 浮动左
+.float-left //全部都可以用 浮动左
     float left
 
-  .clear-float::after //清除浮动
+.clear-float::after //清除浮动
     content ''
     clear both
     display table
@@ -336,6 +331,9 @@ $border = 1px solid black
       border-radius 50%
       vertical-align middle
       margin-right 7px
+    .user-a
+      color #999999
+      font-size 14px
 
   .user-right //用户的右边  点赞
     background url('../images/like.png') no-repeat 0 8px
