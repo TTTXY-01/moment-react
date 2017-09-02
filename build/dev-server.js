@@ -67,28 +67,7 @@ app.use(hotMiddleware)
 // console.log(!!a)//false
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
-<<<<<<< HEAD
 const url = 'http://localhost:' + port + '/radio.html'
-=======
-<<<<<<< HEAD
-const  url = 'http://localhost:' + port + '/homepage.html'
-=======
-<<<<<<< HEAD
-
-const url = 'http://localhost:' + port
-
-=======
-<<<<<<< HEAD
-const  url = 'http://localhost:' + port + '/homepage.html'
-=======
-
-const url = 'http://localhost:' + port
-
->>>>>>> ed7c490d5167e4b2e601451ac2b0a46a99d04d2f
-
->>>>>>> d9dc2008c74d2eed47917964c64be0d661458a20
->>>>>>> 4ee22e4dfcc573bf61e41d41fc715756d00219bb
->>>>>>> 4691d4fcd9a45b2ed99e769ff1a6877c91bb8e3a
 let _resolve
 let readyPromise = new Promise(resolve => {
   _resolve = resolve
