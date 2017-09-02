@@ -56,8 +56,8 @@ class TingInfo extends Component {
               <span> 评论:1 | </span>
               <span> 喜欢:1</span>
             </div>
-            <p className="info_detail_anchor">主播: <a href="###">{this.state.userInfo.uname}</a></p>
-            <p className="info_detail_author">原文: <a href="###">{this.state.authorInfo.uname}</a></p>
+            <p className="info_detail_anchor">主播: <a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>{this.state.userInfo.uname}</a></p>
+            <p className="info_detail_author">原文: <a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>{this.state.authorInfo.uname}</a></p>
             <div className="info_detail_btn">
               <div className="info_detail_stopBtn">
                 暂停Ting
@@ -87,7 +87,7 @@ class TingInfo extends Component {
           </div>
           <div className="info_text_content">
             {this.state.text.substring(0, 190)}...
-            <span className="view_all"><a href="###">
+            <span className="view_all"><a href={'articleInfo.html?contentid=' + this.state.data.contentid}>
               VIEW ALL
               <img src={require('../../assets/images/viewall.png')} />
             </a></span>

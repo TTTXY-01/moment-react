@@ -9,7 +9,6 @@ class HotRadio extends Component {
       data: []
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -33,16 +32,14 @@ class HotRadio extends Component {
         })
       })
   }
-
   componentDidMount () {
     this.ajaxData('/ting/listOfRadio.php?pageSize=3&sort=2&pageNum=1')
   }
-
   render () {
     let hotArray = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className="hot_radio">
-          <a href={'radioinfo.html?id=' + item.id}>
+          <a href={'radioinfo.html?id=' + item.id} target='blank'>
             <div className="hot_img_wrap">
               <img src={item.userimg} className="hot_img1" />
               <img src={item.userimg} className="hot_img2" />
