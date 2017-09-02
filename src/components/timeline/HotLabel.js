@@ -15,7 +15,8 @@ class HotLabel extends Component {
       data: [],
       index: 0,
       bool: true,
-      tag: ''
+      tag: '',
+      search: location.search
     }
   }
   ajaxData = (interFace) => {
@@ -42,7 +43,6 @@ class HotLabel extends Component {
         })
       })
   }
-
   componentDidMount () {
     this.ajaxData('/newTimeLine/tagList.php?num=12')
   }
