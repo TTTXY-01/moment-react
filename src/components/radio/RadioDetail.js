@@ -51,10 +51,10 @@ class RadioDetail extends Component {
           <div className="radio_detail_information">
             <p className="radio_detail_title">{this.state.data.title}</p>
             <div className="radio_detail_author">
-              <a href="###">
+              <a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>
                 <img src={this.state.userInfo.icon} />
               </a>
-              <span className="radio_detail_author_title"><a href="###">{this.state.userInfo.uname}</a></span>
+              <span className="radio_detail_author_title"><a href={'user.html?uid=' + this.state.userInfo.uid}>{this.state.userInfo.uname} target='blank'</a></span>
               <span className="radio_detail_others">{(this.state.data.plays / 1000000).toFixed(1)}m次播放 | {this.state.data.total}个TING</span>
             </div>
             <div className="radio_detail_introduction">{this.state.data.desc}</div>

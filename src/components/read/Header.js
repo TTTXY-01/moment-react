@@ -3,6 +3,8 @@
  */
 import React, {Component} from 'react'
 import Login from '../../components/login/login'
+import Loginafter from '../../components/login/Loginafter'
+import Loginbefore from '../../components/login/Loginbefore'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -11,7 +13,9 @@ class Header extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      display: 'none'
+      data: [],
+      response: {},
+      code: 1
     }
   }
   ajaxData = (interFace) => {
@@ -32,9 +36,11 @@ class Header extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         this.setState({
-          data: response.data
+          data: response.data,
+          response: response,
+          code: response.code
         })
       })
   }
@@ -53,49 +59,44 @@ class Header extends Component {
         break
       case '/timeline.html': liArr[3].className = 'clickLi'
         break
-      case '/clientSide.html': liArr[4].className = 'clickLi'
+      case '/clientSide.html': liArr[liArr.length - 1].className = 'clickLi'
+        break
+      case '/feedlist.html': liArr[4].className = 'clickLi'
         break
     }
   }
+  // 传到子组件登录之前的登录点击事件
   lgBtn = () => {
-    this.setState({
-      display: 'block'
-    })
+    let theLogin = document.getElementById('theLogin')
+    theLogin.style.display = 'block'
   }
   closeBtn = () => {
-    this.setState({
-      display: 'none'
-    })
+    let theLogin = document.getElementById('theLogin')
+    theLogin.style.display = 'none'
   }
-  // 登录事件
+  // 传到子组件的登录事件
   loginBtn = () => {
     let mobile = document.querySelector('.login-mobile').value
     let password = document.querySelector('.login-password').value
     let interFace = '/user/login.php?mobile=' + mobile + '&pwd=' + password
+    console.log(interFace)
     this.ajaxData(interFace)
+  }
+  componentDidUpdate() {
+    let theLogin = document.getElementById('theLogin')
+    if (this.state.response.code === 0) {
+      theLogin.style.display = 'none'
+    }
   }
   render () {
     return (
       <div id='nav-fixed'>
         <nav>
-          <div id='head'>
-            <a href='#' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
-            <ul id='navUL'>
-              <a href="homepage.html"><li className='clickLi'>首页</li></a>
-              <a href="read.html"><li>阅读</li></a>
-              <a href="radio.html"><li>电台</li></a>
-              <a href="timeline.html"><li>碎片</li></a>
-              <a href="clientSide.html"><li>客户端</li></a>
-            </ul>
-            <div id='login'>
-              <div id='outside'>
-                <div id='inside'><img src={require('../../assets/images/edit-icon.png')} /></div>
-              </div>
-              <div id='loginBtn' onClick={this.lgBtn}>登录&nbsp;/&nbsp;注册</div>
-            </div>
-          </div>
+          {
+            this.state.code === 0 ? <Loginafter uid={this.state.data.uid} /> : <Loginbefore lgBtn={this.lgBtn} />
+          }
         </nav>
-        <Login display={this.state.display} loginBtn={this.loginBtn} closeBtn={this.closeBtn} />
+        <Login message={this.state.response.errorMsg} loginBtn={this.loginBtn} closeBtn={this.closeBtn} />
       </div>
     )
   }

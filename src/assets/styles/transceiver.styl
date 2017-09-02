@@ -661,11 +661,23 @@ radioType_title .type-active::before {
 .radio_detail_ting_wrap
   width 960px
   height 800px
-  border 1px solid red
 .ting_item
   width 960px
-  height 78px
-  border 1px solid black
+  height 80px
+  background white
+.ting_item:hover
+  background rgb(239, 239, 239)
+.ting_item:hover > .ting_item_index
+  background-image url("../../assets/images/radio-play.png")
+  background-repeat no-repeat
+  background-position center
+  background-size 20px
+.ting_item:hover > .ting_item_title
+  color #5cb76e
+.ting_item:hover > .ting_item_like
+  visibility visible
+.ting_item:hover > .ting_item_share
+  visibility visible
 .ting_item_index
   width 80px
   height 80px
@@ -677,12 +689,12 @@ radioType_title .type-active::before {
   color #999
   //display inline-block
 .ting_item_title
+  font-weight 200
   clear both
   width 330px
   height 80px
   line-height 80px
-  //float left
-  overflow: hidden
+  overflow hidden
   text-overflow ellipsis
   white-space nowrap
   display inline-block
@@ -698,6 +710,7 @@ radioType_title .type-active::before {
   background-size 19px
   //float left
   display inline-block
+  visibility hidden
 .ting_item_like:hover
   background-image url('../../assets/images/likeH.png')
 .ting_item_share
@@ -711,6 +724,7 @@ radioType_title .type-active::before {
   background-size 16px
   //float left
   display inline-block
+  visibility hidden
 .ting_item_share:hover
   background-image url('../../assets/images/shareH.png')
 .ting_item_share:hover > .ting_item_shareBox
@@ -754,15 +768,13 @@ radioType_title .type-active::before {
   width 90px
 // 电台详情分页器
 .radio_detail_ting_page
-  //overflow: hidden
   width 960px
   height 30px
   margin auto
   margin-top 20px
-  border 1px solid black
-  margin-bottom 200px
 .radio_detail_ting_prev
-  //display none
+  display none
+  float left
   background-image url("../../assets/images/prev.png")
   background-size 6px
   background-repeat no-repeat
@@ -770,6 +782,7 @@ radioType_title .type-active::before {
 .radio_detail_ting_prev:hover
   background-image url("../../assets/images/prevH.png")
 .radio_detail_ting_next
+  display inline-block
   background-image url("../../assets/images/next.png")
   background-size 6px
   background-repeat no-repeat
@@ -777,23 +790,31 @@ radioType_title .type-active::before {
 .radio_detail_ting_next:hover
   background-image url("../../assets/images/nextH.png")
 .radio_detail_ting_page p
-  //float left
-  display inline-block
-  width 33px
+  width 41px
   height 30px
-  margin-right 8px
+.radio_detail_ting_pageNum_wrap
+  position relative
+  width 203px
+  height 30px
+  display inline-block
+  overflow hidden
+.radio_detail_ting_pageNum_move
+  position absolute
+  width 406px
+  height 20px
 .radio_detail_ting_pageNum
-  border 1px solid red
-  background blue
-  font-size 15px
-  //float left
-  color red
-  display inline-block
-  width 33px
+  float left
+  width 41px
   height 30px
-  margin-right 8px
+  font-size 14px
   text-align center
-  line-height 30
-//.ting_active
-//  background #57ad68
-//  color white
+  line-height 30px
+.pageActive
+  background #57ad68
+  float left
+  width 41px
+  height 30px
+  font-size 15px
+  color white
+  text-align center
+  line-height 30px

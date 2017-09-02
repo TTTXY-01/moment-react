@@ -33,10 +33,12 @@ class AllRadioContent extends Component {
         })
       })
   }
+
   componentDidMount () {
     this.ajaxData('/ting/listOfRadio.php?pageSize=12&sort=2&pageNum=' + this.state.pageNum)
     window.addEventListener('scroll', this.handleScroll.bind(this))
   }
+
   handleScroll = () => {
     let STop = document.body.scrollTop
     const DHeight = document.documentElement.clientHeight
@@ -51,22 +53,25 @@ class AllRadioContent extends Component {
     }
     console.log(this.state.pageNum)
   }
-  render() {
+
+  render () {
     let hotArray = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className="All_radio">
-          <div className="hot_img_wrap">
-            <img src={item.userimg} className="hot_img1" />
-            <img src={item.userimg} className="hot_img2" />
-            <img src={item.userimg} className="hot_img3" />
-            <div className="hot_coverDiv" />
-            <p className="hot_coverDiv_title">{item.desc}</p>
-          </div>
-          <div className="hot_radio_introduce">
-            <p><a href="###" className="hot_radio_name">{item.title}</a></p>
-            <p><a href="###" className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
-            <p className="hot_radio_playCount">2.5m次播放</p>
-          </div>
+          <a href={'radioinfo.html?id=' + item.id} target='blank'>
+            <div className="hot_img_wrap">
+              <img src={item.userimg} className="hot_img1" />
+              <img src={item.userimg} className="hot_img2" />
+              <img src={item.userimg} className="hot_img3" />
+              <div className="hot_coverDiv" />
+              <p className="hot_coverDiv_title">{item.desc}</p>
+            </div>
+            <div className="hot_radio_introduce">
+              <p><a href="###" className="hot_radio_name">{item.title}</a></p>
+              <p><a href="###" className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
+              <p className="hot_radio_playCount">2.5m次播放</p>
+            </div>
+          </a>
         </div>
       )
     })

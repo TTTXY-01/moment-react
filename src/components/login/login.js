@@ -9,14 +9,16 @@ class Login extends Component {
     super(props)
     this.state = {
       showLogin: 'block',
-      phone: 'none'
+      phone: 'none',
+      display: ''
     }
   }
   static propTypes = {
-    display: React.PropTypes.string,
     closeBtn: React.PropTypes.func,
-    loginBtn: React.PropTypes.func
+    loginBtn: React.PropTypes.func,
+    message: React.PropTypes.string
   }
+  // 注册
   cutBtn = () => {
     let span = document.querySelectorAll('.type-title-cpt>span')
     span[1].className = 'login-active'
@@ -26,6 +28,7 @@ class Login extends Component {
       phone: 'block'
     })
   }
+  // 登录
   lgBtn = () => {
     let span = document.querySelectorAll('.type-title-cpt>span')
     span[0].className = 'login-active'
@@ -35,13 +38,10 @@ class Login extends Component {
       phone: 'none'
     })
   }
-  componentDidMount () {
-    // this.ajaxData('')
-  }
   render () {
     return (
       <div>
-        <div id="theLogin" style={{display: this.props.display}}>
+        <div id="theLogin">
           <div className="close-login-box" onClick={this.props.closeBtn}>&nbsp;</div>
           <div className="login-box">
             <div className="pianke-text">世界很美,你正好有空</div>
@@ -49,6 +49,7 @@ class Login extends Component {
               <span className="login-active" onClick={this.lgBtn}>登录</span>
               <span onClick={this.cutBtn}>注册</span>
             </div>
+            <p>{this.props.message}</p>
             <div className="login-content" style={{display: this.state.showLogin}}>
               <div className="login-warn">请输入账号或密码</div>
               <div className="login-input">
@@ -58,7 +59,7 @@ class Login extends Component {
                 <input type="password" className='login-password' placeholder="密码" />
               </div>
               <div className="forget-psw">
-                <a className="forget-a" href="###" target='_blank'>忘记密码?</a>
+                <a className="forget-a" href="getCaptcha.html" target='_blank'>忘记密码?</a>
               </div>
               <div className="login-btn" onClick={this.props.loginBtn}>登录</div>
             </div>
