@@ -41,7 +41,7 @@ class Slideshow extends Component {
         return response.json()
       })
       .then(response => {
-        // console.log(response.data)
+        console.log(response.data)
         this.setState({
           data: response.data
         })
@@ -85,7 +85,10 @@ class Slideshow extends Component {
       className: this.state.className
     })
   }
-
+  click = (e) => {
+    window.open('http://localhost:5000/articleInfo.html?contentid=' + e.target.id)
+    // console.log(e.target)
+  }
   componentDidMount () {
     this.ajaxData('/pub/ad.php?type=3')
   }
@@ -99,7 +102,7 @@ class Slideshow extends Component {
             {
               this.state.data.map((item, index) => {
                 return <li key={index.toString()} className={this.state.className[index]} style={this.state.styles[index]} data-index={index}>
-                  <a href="###" target='_blank'><img src={item.img} /></a>
+                  <img onClick={this.click} src={item.img} id={item.url.match(/\d[a-zA-Z0-9]+/g)[0]} />
                 </li>
               })
             }

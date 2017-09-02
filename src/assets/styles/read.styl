@@ -33,7 +33,7 @@ nav
 
 #navUL
   float left
-  width 420px
+  width 507px
   margin 0 100px
   a
     text-decoration none
@@ -63,6 +63,109 @@ nav
   width 200px
   height 65px
   padding-top 25px
+  .msg-icon:hover ul
+    display block
+  .msg-icon
+    display inline-block
+    margin-left 20px
+    position relative
+    height 100%
+    ul::before
+      content ''
+      width 14px
+      height 14px
+      background-color white
+      position absolute
+      top -8px
+      left 40px
+      transform rotate(45deg)
+      border 1px solid #ccc
+      border-bottom-color transparent
+      border-right-color transparent
+    ul
+      position absolute
+      list-style none
+      border 1px solid #ccc
+      width 76px
+      height 165px
+      left -25px
+      top 60px
+      background-color white
+      opacity 1
+      border-radius 5px
+      padding 5px 10px
+      display none
+      li:last-child
+        border 0
+      li
+        border-bottom  1px solid #ccc
+        padding 8px 0
+        cursor pointer
+        a:hover
+          color #78bc85
+        a
+          text-decoration none
+          font-size 13px
+          color black
+          span
+            display inline-block
+            float right
+            color #e86f6f
+            vertical-align middle
+    img
+      width 44px
+      height 44px
+      cursor pointer
+  .userinfo:hover ul
+    display block
+  .userinfo
+    display inline-block
+    margin-left 20px
+    position relative
+    vertical-align top
+    height 100%
+    ul::before
+      content ''
+      width 14px
+      height 14px
+      background-color white
+      position absolute
+      top -8px
+      left 40px
+      transform rotate(45deg)
+      border 1px solid #ccc
+      border-bottom-color transparent
+      border-right-color transparent
+    ul
+      position absolute
+      list-style none
+      border 1px solid #ccc
+      width 76px
+      height 80px
+      left -25px
+      top 60px
+      background-color white
+      opacity 1
+      border-radius 5px
+      padding 5px 10px
+      display none
+      li:last-child
+        border 0
+      li
+        border-bottom  1px solid #ccc
+        padding 8px 0
+        cursor pointer
+        a:hover
+          color #78bc85
+        a
+          text-decoration none
+          font-size 13px
+          color black
+    img
+      width 44px
+      height 44px
+      cursor pointer
+      border-radius  100%
 
 #inside
   width 40px
@@ -92,6 +195,7 @@ nav
   border-radius 100%
   border 1px solid rgb(92,183,110)
   cursor pointer
+  vertical-align top
 
 #loginBtn
   float right
