@@ -8,22 +8,25 @@ const dateformat = require('dateformat')
 const base64 = require('Base64')
 
 class Captcha extends Component {
-  closeBtn = () => {
+  forgetBtn = () => {
+    let mobile = document.querySelector('.login-input>input').value
+    this.ajaxData('/user/captcha.php?type=1&mobile=' + mobile)
     this.setState({
-      display: 'none'
+      display: 'none',
+      back: 'block'
     })
   }
-  cutBtn = () => {
-    this.setState({
-      showLogin: 'none',
-      phone: 'block'
-    })
-  }
-  lgBtn = () => {
-    this.setState({
-      showLogin: 'block',
-      phone: 'none'
-    })
+  recomposeBtn = () => {
+    let phone = document.querySelectorAll('.login-input>input')[0].value
+    let password = document.querySelectorAll('.login-input>input')[1].value
+    let code = document.querySelectorAll('.login-input>input')[2].value
+    console.log(phone)
+    console.log(password)
+    console.log(code)
+    let parameter = '/user/forgotPass.php?pwd=' + password + '&mobile=' + phone + '&captcha=' + code
+    this.ajaxData(parameter)
+    document.querySelectorAll('.forget-btn')[1].innerHTML = '修改成功'
+    window.history.back()
   }
 
   ajaxData = (interFace) => {
@@ -44,6 +47,7 @@ class Captcha extends Component {
         return response.json()
       })
       .then(response => {
+        console.log(response)
         this.setState({
           data: response.data
         })
@@ -57,21 +61,37 @@ class Captcha extends Component {
     }
   }
 
-  componentDidMount () {
-    this.ajaxData('/headline/recent.php?location=special')
+  componentDidUpdate () {
+    // if (this.prototype.code === 1) {
+      // window.history.back()
+    // }
   }
 
   render () {
     return (
-      <div className="container">
-        <div className="set-cpt">
-          <div className="set-title">找回密码</div>
-          <div className="login-input">
-            <input type="text" maxLength="11" placeholder="请输入手机号" />
+      <div id="bigD">
+        <div className="container">
+          <div className="set-cpt" style={{display: this.state.display}}>
+            <div className="set-title">找回密码</div>
+            <div className="login-input">
+              <input type="text" maxLength="11" placeholder="请输入手机号" />
+            </div>
+            <div className="forget-btn" onClick={this.forgetBtn}>发送验证码</div>
           </div>
-          <div className="btn">发送验证码</div>
+          <div className="alter-cpt" style={{display: this.state.back}}>
+            <div className="set-title">重设密码</div>
+            <div className="login-input">
+              <input type="text" maxLength="11" placeholder="手机号" />
+            </div>
+            <div className="login-input">
+              <input type="password" placeholder="新密码" />
+            </div>
+            <div className="login-input">
+              <input type="text" placeholder="验证码" />
+            </div>
+            <div className="forget-btn" onClick={this.recomposeBtn}>完成</div>
+          </div>
         </div>
-
       </div>
     )
   }
