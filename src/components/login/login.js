@@ -3,90 +3,65 @@
  */
 import React, {Component} from 'react'
 import '../../assets/styles/login.styl'
-const md5 = require('md5')
-const dateformat = require('dateformat')
-const base64 = require('Base64')
 
 class Login extends Component {
-  closeBtn = () => {
-    this.setState({
-      display: 'none'
-    })
+  constructor (props) {
+    super(props)
+    this.state = {
+      showLogin: 'block',
+      phone: 'none',
+      display: ''
+    }
   }
+  static propTypes = {
+    closeBtn: React.PropTypes.func,
+    loginBtn: React.PropTypes.func,
+    message: React.PropTypes.string
+  }
+  // 注册
   cutBtn = () => {
+    let span = document.querySelectorAll('.type-title-cpt>span')
+    span[1].className = 'login-active'
+    span[0].className = ''
     this.setState({
       showLogin: 'none',
       phone: 'block'
     })
   }
+  // 登录
   lgBtn = () => {
+    let span = document.querySelectorAll('.type-title-cpt>span')
+    span[0].className = 'login-active'
+    span[1].className = ''
     this.setState({
       showLogin: 'block',
       phone: 'none'
     })
   }
-
-  ajaxData = (interFace) => {
-    const time = new Date()
-    // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
-    const timestamp = dateformat(time.getTime(), 'yyyymmddHHMMss')
-    // 3.将字符串 0+''+timestamp 转成MD5, 并变为全大写
-    const sig = md5('0' + '' + timestamp).toUpperCase()
-    const Authorization = base64.btoa('' + ':' + timestamp)
-    const url = '/api' + interFace + '&sig=' + sig
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: Authorization
-      }
-    })
-      .then(response => {
-        return response.json()
-      })
-      .then(response => {
-        this.setState({
-          data: response.data
-        })
-      })
-  }
-
-  constructor (props) {
-    super(props)
-    this.state = {
-      data: [],
-      display: 'block',
-      showLogin: 'block',
-      phone: 'none'
-    }
-  }
-
-  componentDidMount () {
-    this.ajaxData('/headline/recent.php?location=special')
-  }
-
   render () {
     return (
       <div>
-        <div id="theLogin" style={{display: this.state.display}}>
-          <div className="close-login-box" onClick={this.closeBtn}>&nbsp;</div>
+        <div id="theLogin">
+          <div className="close-login-box" onClick={this.props.closeBtn}>&nbsp;</div>
           <div className="login-box">
             <div className="pianke-text">世界很美,你正好有空</div>
             <div className="type-title-cpt">
-              <span className="active" onClick={this.lgBtn}>登录</span>
-              <span className="active2" onClick={this.cutBtn}>注册</span>
+              <span className="login-active" onClick={this.lgBtn}>登录</span>
+              <span onClick={this.cutBtn}>注册</span>
             </div>
+            <p>{this.props.message}</p>
             <div className="login-content" style={{display: this.state.showLogin}}>
               <div className="login-warn">请输入账号或密码</div>
               <div className="login-input">
-                <input type="text" placeholder="输入邮箱或手机号码" />
+                <input type="text" className='login-mobile' placeholder="输入邮箱或手机号码" />
               </div>
               <div className="login-input">
-                <input type="password" placeholder="密码" />
+                <input type="password" className='login-password' placeholder="密码" />
               </div>
               <div className="forget-psw">
-                <a className="forget-a" href="###">忘记密码?</a>
+                <a className="forget-a" href="getCaptcha.html" target='_blank'>忘记密码?</a>
               </div>
-              <div className="login-btn">登录</div>
+              <div className="login-btn" onClick={this.props.loginBtn}>登录</div>
             </div>
             <div className="register-content" style={{display: this.state.phone}}>
               <img className="content-weCha" src="http://qnstatic.pianke.me/public/assets/img/pianke-code.png" />

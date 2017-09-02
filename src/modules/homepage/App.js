@@ -1,7 +1,6 @@
 /**
  * Created by XiaoTong on 2017/8/25.
  */
-import Login from '../../components/login/login'
 import React, {Component} from 'react'
 import Header from '../../components/read/Header'
 import Focus from '../../components/homepage/focus'
@@ -15,7 +14,6 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Login />
         <Header />
         <Focus />
         <Content />

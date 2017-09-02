@@ -43,7 +43,7 @@ class TopTing extends Component {
     let Array = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className="recommend_ting">
-          <a href={'tingInfo.html?tingid=' + item.tingid}>
+          <a href={'tingInfo.html?tingid=' + item.tingid} target='blank'>
             <div className="recommend_img_wrap">
               <img src={item.imgUrl} className="recommend_img" />
               <div className="coverDiv" />

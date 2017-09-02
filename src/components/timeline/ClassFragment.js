@@ -38,7 +38,7 @@ class ClassFragment extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({
           data: this.state.data.concat(response.data)
         })
@@ -46,7 +46,7 @@ class ClassFragment extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.valueTag)
+    // console.log(nextProps.valueTag)
     this.setState({
       data: []
     }, () => {
@@ -108,20 +108,24 @@ class ClassFragment extends Component {
     let fragmentArray = this.state.data.map((item, index) => {
       return (
         <div key={index.toString()} className='fragment-one'>
-          {
-            item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
-          }
+          <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}>
+            {
+              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
+            }
+          </a>
           <div className='fragment-one-content'>
             <p className='fragment-one-text'>
-              {item.text}
+              <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}> {item.text}</a>
             </p>
             <div className='fragment-one-one-user clear-float'>
               <div className='user-left float-left'>
-                {
-                  item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
-                }
+                <a target="_blank" href={'user.html?uid=' + item.userinfo.uid}>
+                  {
+                    item.userinfo.icon === '' ? <img src={require('../../assets/images/user-default-img.png')} /> : <img src={item.userinfo.icon} />
+                  }
+                </a>
                 <span className='green-hover'>
-                  {item.userinfo.uname}
+                  <a className='user-a' target="_blank" href={'user.html?uid=' + item.userinfo.uid}> {item.userinfo.uname}</a>
                 </span>
               </div>
               <div className='user-right float-right'>

@@ -26,7 +26,7 @@ class MoreContent extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({
           data: this.state.data.concat(response.data)
         })
@@ -109,18 +109,17 @@ class MoreContent extends Component {
                       <a className="card-title-a" href="###">{item.title}</a>
                     </div>
                     <div className="user-sign">
-                      <a className="user-sign-a" href="###">主播 / {item.detail.authorinfo.uname}</a>
+                      <a className="user-sign-a" href={'user.html?uid=' + item.detail.userinfo.uid} target="_blank">主播 / {item.detail.authorinfo.uname}</a>
                     </div>
                     <div className="card-others">
                       <span className="card-type">
                         <a className="card-ting" href="###">&nbsp;&nbsp;ting&nbsp;&nbsp;</a>
                       </span>
-                      <span className="card-span">7.8 k次播放&nbsp;&nbsp;|&nbsp;&nbsp;评论:8&nbsp;&nbsp;|&nbsp;&nbsp;
-                        喜欢:64</span>
+                      <span className="card-span">{item.detail.plays}次播放&nbsp;&nbsp;|&nbsp;&nbsp;评论: {item.detail.comments}&nbsp;&nbsp;|&nbsp;&nbsp;喜欢: {item.detail.likes}</span>
                     </div>
                     <div className="card-user">
                       <div className="card-user-info">
-                        <a className="card-name" href="###">
+                        <a className="card-name" href={'user.html?uid=' + item.detail.userinfo.uid} target="_blank">
                           <img className="card-header" src={item.detail.authorinfo.icon} />
                           <span className="card-s">{item.detail.authorinfo.uname}</span>
                         </a>
@@ -132,6 +131,9 @@ class MoreContent extends Component {
               )
             })
           }
+        </div>
+        <div className='load-tea'>
+          <img className="load-tea-img" src={require('../../assets/images/download.gif')} />
         </div>
       </div>
     )
