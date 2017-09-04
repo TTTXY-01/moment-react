@@ -8,6 +8,13 @@ const dateformat = require('dateformat')
 const base64 = require('Base64')
 
 class Setting extends Component {
+  save = () => {
+    document.getElementById('show-save').style.display = 'block'
+    setTimeout(function () {
+      document.getElementById('show-save').style.display = 'none'
+    }, 1500)
+  }
+
   constructor (props) {
     super(props)
     this.state = {
@@ -44,9 +51,6 @@ class Setting extends Component {
 
   componentDidMount () {
     this.ajaxData('/user/info.php?uid=4561988&isDetail=1')
-    // console.log(document.querySelector('.the-text'))
-    // console.log(this.state.data.desc)
-    // document.querySelector('.the-text').innerHTML = this.state.data.desc
   }
 
   render () {
@@ -100,13 +104,15 @@ class Setting extends Component {
             </div>
             <div className="set-des">
               <span className="set-text">简介:</span>
-              <textarea className="the-text" placeholder="请输入简介" maxLength="36">&nbsp;</textarea>
+              <textarea className="the-text" placeholder="请输入简介" maxLength="36" />
             </div>
-            <div className="set-btn">保存设置</div>
+            <div className="set-btn" onClick={this.save}>保存设置</div>
+            <div id="show-save">
+              <div className="save-img">&nbsp;</div>
+              <p className="save-p">修改成功</p>
+            </div>
           </div>
         </div>
-
-        }
       </div>
     )
   }
