@@ -10,6 +10,7 @@ import Hot from '../../components/homepage/hot-Pianke'
 import MoreBtn from '../../components/homepage/morebtn'
 import MoreContent from '../../components/homepage/more-content'
 import Footer from '../../components/read/Footer'
+import Up from '../../components/read/Up'
 class App extends Component {
   render () {
     return (
@@ -21,6 +22,7 @@ class App extends Component {
         <Hot />
         <MoreBtn />
         <MoreContent />
+        <Up />
         <Footer />
       </div>
     )
