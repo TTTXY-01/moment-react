@@ -44,8 +44,12 @@ class Header extends Component {
         })
       })
   }
-  componentDidMount () {
-    // console.log(location.href.match(/\/[a-zA-Z]+\.html/g)[0])
+  // 根据网页url判断nav被选中的状态
+  navStyle = () => {
+    let theLogin = document.getElementById('theLogin')
+    if (this.state.response.code === 0) {
+      theLogin.style.display = 'none'
+    }
     let liArr = document.querySelectorAll('#navUL>a>li')
     liArr.forEach((item, index) => {
       item.className = ''
@@ -65,6 +69,15 @@ class Header extends Component {
         break
     }
   }
+  componentDidMount () {
+    let mobile = document.cookie === '' ? '' : document.cookie.match(/mobile=\d+/g)[0].substr(7)
+    let password = document.cookie === '' ? '' : document.cookie.match(/password=\d+/g)[0].substr(9)
+    let interFace = '/user/login.php?mobile=' + mobile + '&pwd=' + password
+    if (document.cookie !== '') {
+      this.ajaxData(interFace)
+    }
+    this.navStyle()
+  }
   // 传到子组件登录之前的登录点击事件
   lgBtn = () => {
     let theLogin = document.getElementById('theLogin')
@@ -79,21 +92,34 @@ class Header extends Component {
     let mobile = document.querySelector('.login-mobile').value
     let password = document.querySelector('.login-password').value
     let interFace = '/user/login.php?mobile=' + mobile + '&pwd=' + password
-    console.log(interFace)
+    document.cookie = 'mobile=' + mobile
+    document.cookie = 'password=' + password
     this.ajaxData(interFace)
   }
+  // 退出账号
+  logout = () => {
+    let mobile = document.cookie.match(/mobile=\d+/g)[0].substr(7)
+    let password = document.cookie.match(/password=\d+/g)[0].substr(9)
+    var date = new Date()
+    date.setTime(date.getTime() - 10000)
+    document.cookie = 'mobile=' + mobile + '; expires=' + date.toGMTString()
+    document.cookie = 'password=' + password + '; expires=' + date.toGMTString()
+    this.setState({
+      code: 1
+    }, () => {
+      document.getElementsByClassName('login-mobile')[0].value = ''
+      document.getElementsByClassName('login-password')[0].value = ''
+    })
+  }
   componentDidUpdate() {
-    let theLogin = document.getElementById('theLogin')
-    if (this.state.response.code === 0) {
-      theLogin.style.display = 'none'
-    }
+    this.navStyle()
   }
   render () {
     return (
       <div id='nav-fixed'>
         <nav>
           {
-            this.state.code === 0 ? <Loginafter uid={this.state.data.uid} /> : <Loginbefore lgBtn={this.lgBtn} />
+            this.state.code === 0 ? <Loginafter logout={this.logout} /> : <Loginbefore lgBtn={this.lgBtn} />
           }
         </nav>
         <Login message={this.state.response.errorMsg} loginBtn={this.loginBtn} closeBtn={this.closeBtn} />

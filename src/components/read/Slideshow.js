@@ -41,7 +41,7 @@ class Slideshow extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         this.setState({
           data: response.data
         })
