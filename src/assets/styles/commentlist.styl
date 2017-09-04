@@ -47,6 +47,21 @@ $border = 1px solid black
         float right
         margin-top 50px
         margin-right 20px
+        position relative
+      .add-btn::before
+        content ''
+        position absolute
+        width 15px
+        height 15px
+        border 1px solid transparent
+        border-top-color #e8e8e8
+        border-right-color #e8e8e8
+        background-color #fff
+        transform rotate(45deg)
+        top 50%
+        left: -22px
+        margin-top: -7.5px
+        margin-left: -33px
       .add-btn:hover //悬停按钮
         opacity 0.8
     .comment-count //评论的数量

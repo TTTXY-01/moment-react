@@ -26,7 +26,7 @@ class Content extends Component {
         return response.json()
       })
       .then(response => {
-        console.log(response.data[2].data)
+        // console.log(response.data[2].data)
         this.setState({
           data: response.data[2].data
         })
