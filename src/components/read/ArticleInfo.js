@@ -2,6 +2,7 @@
  * Created by dllo on 17/8/28.
  */
 import React, {Component} from 'react'
+import commentlist from '../timelineinfo/commentlist'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -102,6 +103,7 @@ class ArticleInfo extends Component {
           <div className='comment-title-cpt'>
             <div>评论<span>({this.state.data.comments}&nbsp;条)</span></div>
           </div>
+          <commentlist id={this.state.data.contendid} />
         </div>
       </div>
     )

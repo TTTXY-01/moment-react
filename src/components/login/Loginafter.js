@@ -5,7 +5,7 @@ import React, {Component} from 'react'
 
 class Loginafter extends Component {
   static propTypes = {
-    uid: React.PropTypes.number
+    logout: React.PropTypes.func
   }
   render () {
     return (
@@ -37,8 +37,8 @@ class Loginafter extends Component {
               <img src='http://hpimg.pianke.me/cd21694fe29a781659901f67435b977920170901.png?imageView2/2/w/330/format/jpg' alt="" />
             </a>
             <ul>
-              <li><a href={'user.html?uid=' + this.props.uid}>账号设置</a></li>
-              <li><a href="###">退出</a></li>
+              <li><a href='account-setting.html'>账号设置</a></li>
+              <li onClick={this.props.logout}><a href="###">退出</a></li>
             </ul>
           </div>
         </div>
