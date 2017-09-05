@@ -54,6 +54,7 @@
     "md5": "^2.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
+    "react-avatar-editor": "^10.2.1",
     "react-dom": "^15.6.1",
     "whatwg-fetch": "^2.0.3"
   },
