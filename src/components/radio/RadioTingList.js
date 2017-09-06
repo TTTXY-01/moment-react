@@ -67,7 +67,6 @@ class RadioTingList extends Component {
   timeStr = (nS) => {
     // 转换日期
     let ymd = new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 8).replace(/\//g, '-')
-    console.log(new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 8))
     return ymd
   }
   numClick = (ev) => {
@@ -191,13 +190,11 @@ class RadioTingList extends Component {
   playClick = (ev) => {
     ev.target.style.display = 'none'
     ev.target.nextSibling.style.display = 'block'
-    console.log(ev.target.parentNode)
     ev.target.parentNode.removeEventListener('mouseenter', this.mouseEnter)
     ev.target.parentNode.removeEventListener('mouseleave', this.mouseEnter)
   }
   stopClick = (ev) => {
     ev.target.style.display = 'none'
-    // console.log(ev.target.previousSibling)
     ev.target.previousSibling.style.display = 'block'
   }
   render () {
