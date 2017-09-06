@@ -41,7 +41,7 @@ class ArticleTagInfo extends Component {
         })
       })
   }
-  // 点击事件
+  // 切换new和hot的点击事件
   click = (e) => {
     let spanArr = document.querySelectorAll('.type-title-cpt>span')
     for (let i = 0; i < spanArr.length; i++) {

@@ -118,24 +118,8 @@ class Header extends Component {
     return (
       <div id='nav-fixed'>
         <nav>
-          <div id='head'>
-            <a href='###' id='logo'><img src={require('../../assets/images/head-logo.png')} /></a>
-            <ul id='navUL'>
-              <a href="homepage.html"><li className='clickLi' onClick={this.click}>首页</li></a>
-              <a href="read.html"><li onClick={this.click}>阅读</li></a>
-              <a href="radio.html"><li onClick={this.click}>电台</li></a>
-              <a href="timeline.html"><li onClick={this.click}>碎片</li></a>
-              <a href="clientSide.html"><li onClick={this.click}>客户端</li></a>
-            </ul>
-            <div id='login'>
-              <div id='outside'>
-                <div id='inside'><img src={require('../../assets/images/edit-icon.png')} /></div>
-              </div>
-              <div id='loginBtn'>登录 / 注册</div>
-            </div>
-          </div>
           {
-            this.state.code === 0 ? <Loginafter logout={this.logout} /> : <Loginbefore lgBtn={this.lgBtn} />
+            this.state.code === 0 ? <Loginafter logout={this.logout} data={this.state.data} /> : <Loginbefore lgBtn={this.lgBtn} />
           }
         </nav>
         <Login message={this.state.response.errorMsg} loginBtn={this.loginBtn} closeBtn={this.closeBtn} />

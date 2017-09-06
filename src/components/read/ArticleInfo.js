@@ -2,7 +2,7 @@
  * Created by dllo on 17/8/28.
  */
 import React, {Component} from 'react'
-import commentlist from '../timelineinfo/commentlist'
+import Commentlist from '../timelineinfo/commentlist'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -44,8 +44,8 @@ class ArticleInfo extends Component {
   }
   // 时间戳转换
   timeStr = (nS) => {
-    let ymd = new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 10).replace(/\//g, '-')
-    let hm = new Date(parseInt(nS) * 1000).toString().substr(16, 5)
+    let ymd = new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 9).replace(/\//g, '-')
+    let hm = new Date(parseInt(nS) * 1000).toString().substr(15, 6)
     return ymd + hm
   }
   componentDidMount() {
@@ -53,6 +53,7 @@ class ArticleInfo extends Component {
     this.ajaxData('/article/info.php' + location.search)
   }
   componentDidUpdate() {
+    // 把文章内容以文本内容的形式赋值
     let content = document.querySelector('.article-content')
     content.innerHTML = this.state.html
   }
@@ -93,18 +94,7 @@ class ArticleInfo extends Component {
             <div className='share-dou'>&nbsp;</div>
           </div>
         </div>
-        <div className='is-login-cpt'>
-          <div className='is-login'>
-            <textarea name='' id='' maxLength='360' placeholder='发表你的精彩评论啦' />
-            <div className='btn'>发表评论</div>
-          </div>
-        </div>
-        <div className='article-comment'>
-          <div className='comment-title-cpt'>
-            <div>评论<span>({this.state.data.comments}&nbsp;条)</span></div>
-          </div>
-          <commentlist id={this.state.data.contendid} />
-        </div>
+        <Commentlist id={this.state.data.contendid} />
       </div>
     )
   }
