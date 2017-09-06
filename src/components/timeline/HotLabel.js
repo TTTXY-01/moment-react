@@ -13,8 +13,7 @@ class HotLabel extends Component {
     super(props)
     this.state = {
       data: [], // 请求的参数
-      index: 0,
-      bool: true,
+      bool: true, // 判断是否点击分类
       tag: '',
       search: location.search
     }
