@@ -5,6 +5,7 @@ import React, {Component} from 'react'
 import Header from '../../components/read/Header'
 import Timelineinfo from '../../components/timelineinfo/Timelineinfo'
 import Footer from '../../components/read/Footer'
+import Up from '../../components/read/Up'
 class App extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class App extends Component {
         <Header />
         <Timelineinfo />
         <Footer />
+        <Up />
       </div>
     )
   }

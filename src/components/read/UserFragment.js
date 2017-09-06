@@ -102,10 +102,10 @@ class UserFragment extends Component {
         {
           this.state.data.map((item, index) => {
             return (
-              <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank' key={index.toString()}>
+              <a href={'timelineinfo.html?contentid=' + item.content.contentId} target='_blank' key={index.toString()}>
                 <div className='card-read-cpt'>
                   <div className='card-top-img'>
-                    <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>
+                    <a href={'timelineinfo.html?contentid=' + item.content.contentId} target='_blank'>
                       <img src={item.content.imageInfo.img} alt="" />
                     </a>
                   </div>
@@ -114,7 +114,7 @@ class UserFragment extends Component {
                       {item.content.desc}
                     </div>
                     <div className='timeline-voice'>
-                      <a href={'articleInfo.html?contentid=' + item.content.contentId} target='_blank'>[&nbsp;语音&nbsp;]</a>
+                      <a href={'timelineinfo.html?contentid=' + item.content.contentId} target='_blank'>[&nbsp;语音&nbsp;]</a>
                     </div>
                     <div className='card-others'>
                       <span className='card-type'><a href='timeline.html' target='_blank'>碎片</a></span>
