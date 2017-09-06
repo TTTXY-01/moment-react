@@ -104,7 +104,6 @@ class AllFragment extends Component {
     }
     document.getElementsByClassName('allFragment-all')[0].style.height = maxHeight + 'px'
   }
-
   render () {
     let fragmentArray = this.state.data.map((item, index) => {
       return (
