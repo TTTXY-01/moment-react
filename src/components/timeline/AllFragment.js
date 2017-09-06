@@ -10,15 +10,15 @@ class AllFragment extends Component {
   constructor (porps) {
     super(porps)
     this.state = {
-      data: [],
-      minIndex: 0,
-      tf: false,
-      colsH: [],
-      search: location.search.slice(1),
-      label: '全部标签'
+      data: [], // 请求的参数
+      minIndex: 0, // 最小的下标
+      tf: false, // 布尔状态
+      colsH: [], // 瀑布流的数组
+      search: location.search.slice(1), // 地址栏的拼接参数 链接a
+      label: '全部标签' // 标题的名称
     }
   }
-
+  // ajax请求
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -43,7 +43,7 @@ class AllFragment extends Component {
       })
     // console.log(this.state.data)
   }
-
+  // 挂载完进行请求, 和滚轮滚动事件
   componentDidMount () {
     console.log(this.state.search)
     if (this.state.search === '') {
@@ -51,12 +51,14 @@ class AllFragment extends Component {
     } else {
       this.ajaxData('/newTimeLine/listByTag.php?pageSize=20& ' + this.state.search + '&minId=')
     }
+    // 滚轮滚动事件
     document.body.onscroll = this.scroll
   }
+  // 更新完成加载瀑布流
   componentDidUpdate () {
     this.waterfall('fragment-one')
   }
-
+  // 滚动事件
   scroll = () => {
     let scrollHeight = document.documentElement.scrollHeight
     let scrollTop = document.body.scrollTop
@@ -74,6 +76,7 @@ class AllFragment extends Component {
       })
     }
   }
+  // 瀑布流事件
   waterfall = (obj) => {
     let ones = document.getElementsByClassName(obj)
     let cols = parseInt(1200 / 280)
@@ -108,7 +111,7 @@ class AllFragment extends Component {
         <div key={index.toString()} className='fragment-one'>
           <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}>
             {
-              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
+              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.9}} src={item.coverimg} />
             }
           </a>
           <div className='fragment-one-content'>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import RadioType from './Radio_type'
+import RadioTypeTitle from './Radio_type_title'
 import Recommendation from './Recommendation_TING'
 import TopTing from './Top_Ting'
 import NewVoice from './New_Voice'
@@ -10,7 +10,7 @@ class ChoiceContent extends Component {
     return (
       <div className='connect_wrap'>
         <RadioCarouse />
-        <RadioType />
+        <RadioTypeTitle />
         <Recommendation />
         <TopTing />
         <HotRadio />

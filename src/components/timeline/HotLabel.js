@@ -12,7 +12,7 @@ class HotLabel extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
+      data: [], // 请求的参数
       index: 0,
       bool: true,
       tag: '',
@@ -43,10 +43,11 @@ class HotLabel extends Component {
         })
       })
   }
+  // 挂载完请求
   componentDidMount () {
     this.ajaxData('/newTimeLine/tagList.php?num=12')
   }
-
+  // 点击每一个获取tag类型
   tagValue = (ev) => {
     this.setState({
       tag: ev.target.getAttribute('name'),

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CommentList from '../timelineinfo/commentlist'
 const md5 = require('md5')
 const dateformat = require('dateformat')
 const base64 = require('Base64')
@@ -9,7 +10,8 @@ class TingInfo extends Component {
       data: [],
       userInfo: {},
       authorInfo: {},
-      text: ''
+      text: '',
+      voice: 'play'
     }
   }
   ajaxData = (interFace) => {
@@ -39,8 +41,26 @@ class TingInfo extends Component {
       })
   }
   componentDidMount () {
-    console.log(location.search)
+    console.log(location.search.split('=')[1])
     this.ajaxData('/ting/info.php' + location.search)
+    let audio = document.getElementById('theMusic')
+    audio.play()
+  }
+  stopClick = () => {
+    let audio = document.getElementById('theMusic')
+    audio.pause()
+    let stopBtn = document.getElementsByClassName('info_detail_stopBtn')[0]
+    let playBtn = document.getElementsByClassName('info_detail_playBtn')[0]
+    stopBtn.style.display = 'none'
+    playBtn.style.display = 'block'
+  }
+  playClick = () => {
+    let audio = document.getElementById('theMusic')
+    audio.play()
+    let stopBtn = document.getElementsByClassName('info_detail_stopBtn')[0]
+    let playBtn = document.getElementsByClassName('info_detail_playBtn')[0]
+    stopBtn.style.display = 'block'
+    playBtn.style.display = 'none'
   }
   render() {
     return (
@@ -52,17 +72,18 @@ class TingInfo extends Component {
           <div className="info_detail_information">
             <p className="info_detail_title">{this.state.data.title}</p>
             <div className="info_detail_type">
-              <span>1次播放 |</span>
-              <span> 评论:1 | </span>
-              <span> 喜欢:1</span>
+              <span>{(this.state.data.plays / 1000).toFixed(1)}K次播放 |</span>
+              <span> 评论:{this.state.data.comments} | </span>
+              <span> 喜欢:{this.state.data.likes}</span>
             </div>
             <p className="info_detail_anchor">主播: <a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>{this.state.userInfo.uname}</a></p>
             <p className="info_detail_author">原文: <a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>{this.state.authorInfo.uname}</a></p>
             <div className="info_detail_btn">
-              <div className="info_detail_stopBtn">
+              <div className="info_detail_stopBtn" onClick={this.stopClick}>
                 暂停Ting
               </div>
-              <div className="info_detail_playBtn">
+              <audio src={this.state.data.musicUrl} id="theMusic" />
+              <div className="info_detail_playBtn" onClick={this.playClick}>
                 播放Ting
               </div>
             </div>
@@ -93,7 +114,11 @@ class TingInfo extends Component {
             </a></span>
           </div>
         </div>
+        <div className="info_commentList">
+          <CommentList />
+        </div>
       </div>
+
     )
   }
 }

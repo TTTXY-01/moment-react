@@ -22,8 +22,8 @@ class App extends Component {
   render () {
     return (
       <div>
+        <Header />
         <div id='fragment-container'>
-          <Header />
           <Publish />
           <HotLabel tagValue={this.tagValue} />
         </div>
