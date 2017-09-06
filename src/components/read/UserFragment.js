@@ -105,7 +105,7 @@ class UserFragment extends Component {
               <a href={'timelineinfo.html?contentid=' + item.content.contentId} target='_blank' key={index.toString()}>
                 <div className='card-read-cpt'>
                   <div className='card-top-img'>
-                    <a href={'timelineinfo?contentid=' + item.content.contentId} target='_blank'>
+                    <a href={'timelineinfo.html?contentid=' + item.content.contentId} target='_blank'>
                       <img src={item.content.imageInfo.img} alt="" />
                     </a>
                   </div>
