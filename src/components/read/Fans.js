@@ -39,7 +39,7 @@ class Fans extends Component {
         })
       })
   }
-  // 滚轮事件
+  // 滚轮继续加载数据事件
   scroll = () => {
     // console.log(document.body.scrollTop)
     // console.log(document.body.scrollHeight - document.documentElement.clientHeight)

@@ -5,7 +5,8 @@ import React, {Component} from 'react'
 
 class Loginafter extends Component {
   static propTypes = {
-    logout: React.PropTypes.func
+    logout: React.PropTypes.func,
+    data: React.PropTypes.object
   }
   render () {
     return (
@@ -20,9 +21,11 @@ class Loginafter extends Component {
           <a href="clientSide.html"><li>客户端</li></a>
         </ul>
         <div id='login'>
-          <div id='outside'>
-            <div id='inside'><img src={require('../../assets/images/edit-icon.png')} /></div>
-          </div>
+          <a href={'/editor/#!/?uid=' + this.props.data.uid} target='_blank'>
+            <div id='outside'>
+              <div id='inside'><img src={require('../../assets/images/edit-icon.png')} /></div>
+            </div>
+          </a>
           <div className="msg-icon">
             <img src={require('../../assets/images/msg.png')} alt="" />
             <ul>
@@ -33,11 +36,11 @@ class Loginafter extends Component {
             </ul>
           </div>
           <div className='userinfo'>
-            <a href="###">
-              <img src='http://hpimg.pianke.me/cd21694fe29a781659901f67435b977920170901.png?imageView2/2/w/330/format/jpg' alt="" />
+            <a href={'user.html?uid=' + this.props.data.uid}>
+              <img src={this.props.data.icon} alt="" />
             </a>
             <ul>
-              <li><a href='account-setting.html'>账号设置</a></li>
+              <li><a href='userSet.html'>账号设置</a></li>
               <li onClick={this.props.logout}><a href="###">退出</a></li>
             </ul>
           </div>

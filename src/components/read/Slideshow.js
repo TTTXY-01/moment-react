@@ -47,6 +47,7 @@ class Slideshow extends Component {
         })
       })
   }
+  // 点左轮播按钮事件
   leftBtn = () => {
     let lastStyle = this.state.styles[this.state.styles.length - 1]
     let lastClassName = this.state.className[this.state.className.length - 1]
@@ -66,6 +67,7 @@ class Slideshow extends Component {
       className: this.state.className
     })
   }
+  // 点右轮播按钮事件
   rightBtn = () => {
     let firstStyle = this.state.styles[0]
     let firstClassName = this.state.className[0]
@@ -85,6 +87,7 @@ class Slideshow extends Component {
       className: this.state.className
     })
   }
+  // 图片点击跳转事件
   click = (e) => {
     window.open('http://localhost:5000/articleInfo.html?contentid=' + e.target.id)
     // console.log(e.target)

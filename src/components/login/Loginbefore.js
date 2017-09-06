@@ -7,6 +7,10 @@ class Loginbefore extends Component {
   static propTypes = {
     lgBtn: React.PropTypes.func
   }
+  showLogin = () => {
+    let theLogin = document.getElementById('theLogin')
+    theLogin.style.display = 'block'
+  }
   render () {
     return (
       <div id='head'>
@@ -19,7 +23,7 @@ class Loginbefore extends Component {
           <a href="clientSide.html"><li>客户端</li></a>
         </ul>
         <div id='login'>
-          <div id='outside'>
+          <div id='outside' onClick={this.showLogin}>
             <div id='inside'><img src={require('../../assets/images/edit-icon.png')} /></div>
           </div>
           <div id='loginBtn' onClick={this.props.lgBtn}>登录&nbsp;/&nbsp;注册</div>

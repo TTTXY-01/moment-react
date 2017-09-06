@@ -119,7 +119,7 @@ class Header extends Component {
       <div id='nav-fixed'>
         <nav>
           {
-            this.state.code === 0 ? <Loginafter logout={this.logout} /> : <Loginbefore lgBtn={this.lgBtn} />
+            this.state.code === 0 ? <Loginafter logout={this.logout} data={this.state.data} /> : <Loginbefore lgBtn={this.lgBtn} />
           }
         </nav>
         <Login message={this.state.response.errorMsg} loginBtn={this.loginBtn} closeBtn={this.closeBtn} />

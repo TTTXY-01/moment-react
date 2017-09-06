@@ -87,6 +87,7 @@ class UserAll extends Component {
     document.body.onscroll = this.scroll
   }
   componentDidUpdate() {
+    // 加判断让没有图片的div高度为0
     let cardTopImg = document.getElementsByClassName('card-top-img')
     for (let i = 0; i < cardTopImg.length; i++) {
       // console.log(cardTopImg[i].children[0].children[0].src)

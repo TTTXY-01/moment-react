@@ -12,7 +12,7 @@ class WriteNotes extends Component {
       Hot_New: true
     }
   }
-  // 点击事件
+  // hot/new切换的点击事件
   click = (e) => {
     let spanArr = document.querySelectorAll('.type-title-cpt>span')
     for (let i = 0; i < spanArr.length; i++) {

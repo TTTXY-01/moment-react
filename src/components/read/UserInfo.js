@@ -53,7 +53,7 @@ class UserInfo extends Component {
         })
       })
   }
-  // 点击事件
+  // 分类状态切换点击事件
   click = (e) => {
     let dataTitle = document.querySelectorAll('.data-title>span>a')
     for (let i = 0; i < dataTitle.length; i++) {
@@ -64,7 +64,7 @@ class UserInfo extends Component {
       userInfo: e.target.innerHTML
     })
   }
-  // 点击切换状态
+  // 粉丝关注访客切换状态的点击事件
   changeSatus = (e) => {
     // console.log(e.target.textContent.match(/[\u4E00-\u9FA5]+/g))
     let text = e.target.textContent.match(/[\u4E00-\u9FA5]+/g)[0]
