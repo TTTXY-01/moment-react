@@ -10,7 +10,6 @@ class RadioTingList extends Component {
       theArr: [1, 2, 3, 4, 5]
     }
   }
-
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss

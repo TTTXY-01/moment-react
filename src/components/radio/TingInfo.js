@@ -41,7 +41,7 @@ class TingInfo extends Component {
       })
   }
   componentDidMount () {
-    console.log(location.search.split('=')[1])
+    console.log(location.search)
     this.ajaxData('/ting/info.php' + location.search)
     let audio = document.getElementById('theMusic')
     audio.play()
