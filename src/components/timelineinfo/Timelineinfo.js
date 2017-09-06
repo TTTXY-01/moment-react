@@ -50,21 +50,24 @@ class Timelineinfo extends Component {
         }
       })
   }
+  // 时间戳转换
   timeStr = (nS) => {
     let ymd = new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 10).replace(/\//g, '-')
     let hm = new Date(parseInt(nS) * 1000).toString().substr(16, 5)
     return ymd + hm
   }
-
+  // 挂载完成请求
   componentDidMount () {
     this.ajaxData('/timeline/info.php' + location.search)
   }
+  // 举报
   mouseOver = () => {
     document.getElementsByClassName('arrows-hover')[0].style.display = 'block'
   }
   mouseOut = () => {
     document.getElementsByClassName('arrows-hover')[0].style.display = 'none'
   }
+  // 微信
   wecharOver = () => {
     document.getElementsByClassName('wechar-er')[0].style.display = 'block'
   }

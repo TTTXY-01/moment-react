@@ -193,7 +193,7 @@ class Publish extends Component {
       })
     }
   }
-  //上传图片
+  // 上传图片
   displayImg = () => {
     let displayImg = document.getElementsByClassName('image')[0]
     this.setState({

@@ -44,18 +44,22 @@ class FeedList extends Component {
       })
     // console.log(this.state.data)
   }
-  componentDidUpdate () {
+  // 滚动事件调用
+  componentDidMount () {
+    this.ajaxData('feed/list.php?minId=')
     document.body.onscroll = this.scroll
   }
+  // 滚动事件
   scroll = () => {
     let clientHeight = document.documentElement.clientHeight
     let pageheight = document.documentElement.scrollHeight
     let scroolTop = document.body.scrollTop
-    if (pageheight * 0.9 <= clientHeight + scroolTop) {
+    if (pageheight === clientHeight + scroolTop) {
       let minId = this.state.data[this.state.data.length - 1]['content'].contentId
       this.ajaxData('feed/list.php?minId=' + minId)
     }
   }
+  // 时间转换成多长时间以前
   time = (timeC) => {
     let nowDate = parseInt(new Date().getTime() / 1000)
     let prevTime = nowDate - timeC
@@ -70,11 +74,6 @@ class FeedList extends Component {
       return prevMinu + ' minutes ago'
     }
   }
-
-  componentDidMount () {
-    this.ajaxData('feed/list.php?minId=')
-  }
-
   render () {
     let contentArray = this.state.data.map((item, index) => {
       if (item.userInfo.uname !== '片刻') {

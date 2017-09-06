@@ -14,6 +14,7 @@ class CommentList extends Component {
       click: true
     }
   }
+  // 定义父级类型
   static propTypes = {
     id: React.PropTypes.string
   }
@@ -41,9 +42,8 @@ class CommentList extends Component {
         // console.log(this.state.data)
       })
   }
-
+  // 继承父级所传过来的状态
   componentWillReceiveProps (nextProps) {
-    // console.log(nextProps.id)
     this.setState({
       data: []
     }, () => {
@@ -58,6 +58,7 @@ class CommentList extends Component {
     let hm = new Date(parseInt(nS) * 1000).toString().substr(16, 5)
     return ymd + hm
   }
+  // 回复框显示
   click = (ev) => {
     if (this.state.click) {
       // console.log(this.state.click)
@@ -69,12 +70,14 @@ class CommentList extends Component {
       click: !this.state.click
     })
   }
+  // 点击取消
   displayClick = (ev) => {
     ev.target.parentNode.parentNode.style.display = 'none'
     this.setState({
       click: true
     })
   }
+  // 查看更多
   moreSee = (ev) => {
     ev.target.style.display = 'none'
     ev.target.nextElementSibling.style.display = 'block'

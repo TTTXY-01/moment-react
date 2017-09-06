@@ -1,0 +1,176 @@
+#container .user-set-content {
+  width: 960px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+#container .user-set-content .type-title-cpt {
+  clear: both;
+  padding-bottom: 34px;
+  padding-top: 40px;
+  color: #000;
+  font-size: 16px;
+}
+#container .user-set-content .type-title-cpt span:first-child {
+  margin-right: 30px;
+}
+#container .user-set-content .type-title-cpt span:first-child .active {
+  cursor: pointer;
+  position: relative;
+}
+#container .user-set-content .type-title-cpt span:first-child .active::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background-color: #f00;
+  top: 10px;
+  left: 0;
+}
+#container .set-content {
+  background-color: #fff;
+  height: 700px;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 103px;
+  margin-top: 16px;
+}
+#container .set-content .user-set {
+  padding-left: 106px;
+  padding-top: 47px;
+}
+#container .set-content .user-set .set-icon {
+  height: 100px;
+}
+#container .set-content .user-set > div {
+  margin-bottom: 30px;
+}
+#container .set-content .user-set div .set-text {
+  padding-right: 22px;
+  font-weight: 200;
+}
+#container .set-content .user-set div .set-header {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+#container .set-content .user-set .set-icon .change-icon {
+  cursor: pointer;
+  margin-top: 80px;
+  position: relative;
+}
+#container .set-content .user-set .set-icon div {
+  float: left;
+}
+#container .user-set-content .set-point-text {
+  font-weight: 200;
+  padding-left: 11px;
+  font-size: 12px;
+  color: #57ad68;
+}
+#container .user-set-content .set-content .user-set > div {
+  margin-bottom: 30px;
+}
+#container .user-set-content .set-text {
+  padding-right: 11px;
+  font-weight: 200;
+}
+#container .user-set-content .set-content .user-set .set-name input {
+  width: 140px;
+  height: 36px;
+  font-size: 14px;
+  outline: none;
+  overflow: auto;
+  border: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  color: #000;
+}
+#container .user-set-content .set-content .user-set .set-name input[placeholder] {
+  padding-left: 12px;
+  padding-right: 12px;
+  font-weight: 100;
+  color: #ccc;
+}
+#container .user-set-content .set-warn-text {
+  font-size: 12px;
+  font-weight: 200;
+  color: #f5a623;
+  padding-left: 17px;
+}
+#container .user-set-content .set-point-text a {
+  font-weight: 200;
+  padding-left: 11px;
+  font-size: 12px;
+  color: #57ad68;
+  text-decoration: none;
+}
+#container .user-set-content .set-text {
+  padding-right: 11px;
+  font-weight: 200;
+}
+#container .user-set-content .set-point-text {
+  font-weight: 200;
+  padding-left: 11px;
+  font-size: 12px;
+  color: #57ad68;
+  text-decoration: none;
+}
+#container .user-set-content .set-content .user-set .set-sex .radiovote {
+  width: 60px;
+  margin-left: 15px;
+  position: relative;
+}
+#container .user-set-content .set-content .user-set .set-sex .radiovote .voteContent {
+  padding-right: 10px;
+}
+#container .user-set-content .set-content .set-des {
+  margin-left: 110px;
+}
+.user-set-content .the-text {
+  color: #000;
+  vertical-align: text-top;
+  outline: none;
+  width: 400px;
+  height: 125px;
+  font-size: 14px;
+  padding: 7px 16px;
+  font-weight: 200;
+  resize: none;
+  overflow: auto;
+  border: 1px solid #e8e8e8;
+}
+.user-set-content .set-btn {
+  margin-top: 70px;
+  margin-left: 140px;
+  width: 96px;
+  line-height: 36px;
+  text-align: center;
+  background-color: #78bc85;
+  border-radius: 25px;
+  font-weight: 100;
+  color: #fff;
+}
+.user-set-content #show-save {
+  height: 100px;
+  width: 250px;
+  position: fixed;
+  z-index: 100;
+  top: 40%;
+  left: 40%;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 2px 3px 10px #bbb;
+  border-radius: 5px;
+  display: none;
+}
+.user-set-content #show-save .save-img {
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/login-save.png");
+  background-size: 100% 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.user-set-content #show-save .save-p {
+  font-weight: 200;
+  margin-top: 10px;
+}
