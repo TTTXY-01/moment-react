@@ -8,6 +8,7 @@ import '../../assets/styles/read.styl'
 import '../../assets/styles/Footer.styl'
 import '../../assets/styles/Up.styl'
 import '../../assets/styles/articleInfo.styl'
+import '../../assets/styles/commentlist.styl'
 
 ReactDOM.render(
   <App />,
