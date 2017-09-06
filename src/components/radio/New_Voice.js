@@ -49,8 +49,8 @@ class NewVoice extends Component {
             </div>
           </a>
           <div className="recommend_ting_introduce">
-            <p className="recommend_ting_name">{item.title}</p>
-            <p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p>
+            <a href={'tingInfo.html?tingid=' + item.tingid} target='blank'><p className="recommend_ting_name">{item.title}</p></a>
+            <a href={'user.html?uid=' + item.userinfo.uid} target='blank'><p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p></a>
             <span>{(item.plays / 1000).toFixed(1)}次播放 |</span>
             <span> 评论:{item.comments} | </span>
             <span> 喜欢:{item.likes}</span>
