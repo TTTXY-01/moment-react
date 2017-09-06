@@ -109,6 +109,7 @@ class Header extends Component {
     }, () => {
       document.getElementsByClassName('login-mobile')[0].value = ''
       document.getElementsByClassName('login-password')[0].value = ''
+      window.location.reload()
     })
   }
   componentDidUpdate() {
