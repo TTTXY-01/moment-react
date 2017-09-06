@@ -12,21 +12,16 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      tag: '',
-      url: '',
-      bool: true,
-      test: '000',
-      url2: ''
+      tag: ''
     }
   }
-
   render () {
     return (
       <div>
         <Header />
         <div id='fragment-container'>
           <Publish />
-          <HotLabel tagValue={this.tagValue} />
+          <HotLabel />
         </div>
         <Footer />
         <Up />

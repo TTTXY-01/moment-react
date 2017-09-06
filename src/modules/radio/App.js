@@ -3,7 +3,7 @@ import Header from '../../components/read/Header'
 import ChoiceContent from '../../components/radio/Choice_Content'
 import AllRadioContent from '../../components/radio/AllRadio_Content'
 import Footer from '../../components/read/Footer'
-
+import Up from '../../components/read/Up'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -40,6 +40,7 @@ class App extends Component {
           this.state.All_Choice ? <ChoiceContent /> : <AllRadioContent />
         }
         <Footer />
+        <Up />
       </div>
     )
   }

@@ -84,7 +84,7 @@ class RadioDetail extends Component {
             </div>
           </div>
         </div>
-        <div className="info_text_title">
+        <div ref='count' className="info_text_title">
           TING | {this.state.data.total}首
         </div>
       </div>

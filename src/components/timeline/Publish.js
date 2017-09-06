@@ -217,7 +217,7 @@ class Publish extends Component {
       <div className='publish clear-float'>
         <div className='publish-time float-left'>
           <span>{day}</span>
-          <span>{MonthArray[parseInt(months)]}</span>
+          <span>{MonthArray[parseInt(months) + 1]}</span>
         </div>
         <div className='publish-content float-right'>
           <textarea value={this.state.values} onChange={this.changes} className='publish-textarea' placeholder={this.state.placeholder} />
