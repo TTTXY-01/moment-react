@@ -36,7 +36,7 @@ class FeedList extends Component {
         this.setState({
           data: this.state.data.concat(response.data.list)
         })
-        // console.log(this.state.data)
+        console.log(this.state.data)
       }, () => {
         this.setState({
           content: this.state.data.content

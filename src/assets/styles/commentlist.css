@@ -1,0 +1,229 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.clear-float {
+  clear: both;
+  display: table;
+  content: '';
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.none-comment {
+  width: 100%;
+  padding-top: 300px;
+  background: url("../images/no-comment.png") no-repeat 50% 0;
+  background-size: 60%;
+  padding-bottom: 100px;
+  color: #999;
+  font-size: 14px;
+}
+.comment {
+  width: 90%;
+  margin: 0 auto;
+}
+.comment .comment-header {
+  border-bottom: 1px solid #999;
+  text-align: left;
+}
+.comment .comment-header .add-comment {
+  margin: 60px 0 40px 0;
+}
+.comment .comment-header .add-comment .comment-textarea {
+  color: #666;
+  outline: none;
+  width: 69%;
+  height: 80px;
+  padding: 20px;
+  resize: none;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+}
+.comment .comment-header .add-comment .add-btn {
+  outline: none;
+  background-color: #78bc85;
+  width: 96px;
+  padding: 8px 20px;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  vertical-align: middle;
+  float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+  position: relative;
+}
+.comment .comment-header .add-comment .add-btn::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 1px solid transparent;
+  border-top-color: #e8e8e8;
+  border-right-color: #e8e8e8;
+  background-color: #fff;
+  transform: rotate(45deg);
+  top: 50%;
+  left: -22px;
+  margin-top: -7.5px;
+  margin-left: -33px;
+}
+.comment .comment-header .add-comment .add-btn:hover {
+  opacity: 0.8;
+}
+.comment .comment-header .comment-count {
+  font-size: 18px;
+  color: #333;
+  text-align: left;
+}
+.comment .comment-header .comment-count span {
+  font-size: 12px;
+}
+.comment .comment-content {
+  margin-top: 30px;
+}
+.comment .comment-content .content-every {
+  width: 100%;
+  margin: 30px 0;
+  padding-bottom: 50px;
+  border-bottom: 0.3px solid #e3e3e3;
+}
+.comment .comment-content .content-every .comment-user-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comment .comment-content .content-every .comment-user-icon img {
+  width: 100%;
+}
+.comment .comment-content .content-every .comment-user-content {
+  width: 90%;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header {
+  width: 100%;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .username {
+  font-weight: 300;
+  color: #57ad68;
+  font-size: 14px;
+  padding-right: 10px;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .add-time {
+  font-size: 10px;
+  color: #999;
+  font-weight: lighter;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .praise {
+  font-size: 12px;
+  font-weight: lighter;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .praise .praise-count {
+  color: #999;
+  background: url("../images/praise.png") no-repeat right;
+  background-size: contain;
+  padding: 0 30px;
+  float: left;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .praise .praise-count:hover {
+  background: url("../images/praiseH.png") no-repeat right;
+  background-size: contain;
+  color: #ffa500;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .praise .liner {
+  width: 0;
+  border: 1px solid #999;
+  margin: 0 15px;
+  float: left;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .praise .reply {
+  float: left;
+  color: #999;
+}
+.comment .comment-content .content-every .comment-user-content .user-content-header .praise .reply:hover {
+  color: #5cb76e;
+}
+.comment .comment-content .content-every .comment-user-content .comment-text {
+  text-align: left;
+  width: 100%;
+  color: #666;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.comment .comment-content .content-every .reply-textarea-father {
+  display: none;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-textarea {
+  color: #666;
+  font-size: 14px;
+  outline: none;
+  width: 90%;
+  height: 80px;
+  padding: 20px 0 20px 15px;
+  margin: 20px 0;
+  resize: none;
+  border: 0.5px solid #78bc85;
+  border-radius: 10px;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-btn {
+  width: 95%;
+  text-align: right;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-btn button {
+  outline: none;
+  color: #fff;
+  width: 90px;
+  line-height: 36px;
+  font-size: 14px;
+  text-align: center;
+  margin-left: 20px;
+  border-radius: 18px;
+  font-weight: 100;
+  border: none;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-btn .reply-btn1 {
+  background-color: #ccc;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-btn .reply-btn1:hover {
+  background-color: #999;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-btn .reply-btn2 {
+  background-color: #78bc85;
+}
+.comment .comment-content .content-every .reply-textarea-father .reply-btn .reply-btn2:hover {
+  background-color: #57ad68;
+}
+.comment .comment-content .content-every .reply-text {
+  margin-top: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e8e8e8;
+  padding: 8px 0 8px 10px;
+  width: 95%;
+}
+.comment .comment-content .content-every .reply-text .username {
+  padding-right: 10px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: none;
+}
+.comment .comment-content .content-every .reply-text .text {
+  font-size: 12px;
+  color: #999;
+}
+.comment .more-see {
+  color: #78bc85;
+  width: 100%;
+  font-size: 14px;
+  padding: 20px 0;
+}
+.comment .over-all {
+  width: 100%;
+  font-size: 14px;
+  display: none;
+  padding: 30px 0;
+}

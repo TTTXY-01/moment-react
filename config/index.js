@@ -21,9 +21,18 @@ module.exports = {
         pathRewrite: {
           '/api': ''
         }
+      },
+      '/apis': {
+        // http://localhost:5000/api/
+        // 转换成如下效果
+        // http://pianke.me/
+        target: 'http://upload.media.aliyun.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '/apis': ''
+        }
       }
     }
-
   },
     // 生产环境配置
   build: {

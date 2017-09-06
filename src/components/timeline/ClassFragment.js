@@ -10,16 +10,17 @@ class ClassFragment extends Component {
   constructor (porps) {
     super(porps)
     this.state = {
-      data: [],
-      minIndex: 0,
-      tf: false,
-      colsH: []
+      data: [], // 请求的参数
+      minIndex: 0, // 最小的下标
+      tf: false, // 布尔状态
+      colsH: [] // 瀑布流的数组
     }
   }
+  // 定义从父级传过来的类型
   static propTypes = {
     valueTag: React.PropTypes.string
   }
-
+  // ajax请求
   ajaxData = (interFace) => {
     const time = new Date()
     // 2.根据当前时间, 进行格式化 yyyymmddHHMMss
@@ -44,7 +45,7 @@ class ClassFragment extends Component {
         })
       })
   }
-
+  // 继承父级传过来的tag
   componentWillReceiveProps (nextProps) {
     // console.log(nextProps.valueTag)
     this.setState({
@@ -53,15 +54,16 @@ class ClassFragment extends Component {
       this.ajaxData('/newTimeLine/listByTag.php?pageSize=20&tag=' + nextProps.valueTag + '&minId=')
     })
   }
+  // 挂载完成请求, 执行滚轮事件
   componentDidMount () {
     this.ajaxData('/newTimeLine/listByTag.php?pageSize=20&tag=' + this.props.valueTag + '&minId=')
     document.body.onscroll = this.scroll
   }
-
+  // 更新完成执行瀑布流
   componentDidUpdate () {
     this.waterfall('fragment-one')
   }
-
+  // 滚轮事件
   scroll = () => {
     let scrollHeight = document.documentElement.scrollHeight
     let scrollTop = document.body.scrollTop
@@ -75,7 +77,7 @@ class ClassFragment extends Component {
       })
     }
   }
-
+  // 瀑布流
   waterfall = (obj) => {
     let ones = document.getElementsByClassName(obj)
     let cols = parseInt(1200 / 280)
@@ -110,7 +112,7 @@ class ClassFragment extends Component {
         <div key={index.toString()} className='fragment-one'>
           <a target="_blank" href={'timelineinfo.html?contentid=' + item.id}>
             {
-              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.8}} src={item.coverimg} />
+              item.coverimg === '' ? <span style={{display: 'none'}}>&nbsp;</span> : <img style={{height: item.height * 0.9}} src={item.coverimg} />
             }
           </a>
           <div className='fragment-one-content'>
