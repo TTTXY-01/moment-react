@@ -7,6 +7,7 @@ import Header from '../../components/read/Header'
 import Publish from '../../components/timeline/Publish'
 import HotLabel from '../../components/timeline/HotLabel'
 import Footer from '../../components/read/Footer'
+import Up from '../../components/read/Up'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -28,6 +29,7 @@ class App extends Component {
           <HotLabel tagValue={this.tagValue} />
         </div>
         <Footer />
+        <Up />
       </div>
 
     )

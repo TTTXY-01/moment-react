@@ -10,21 +10,21 @@ class Publish extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
-      datas: [],
-      time: new Date(),
-      addLabel: true,
-      placeholder: '这一刻,你在想什么?',
-      publish: '发布碎片',
-      change: '0',
-      values: '',
-      display: true,
-      tag: '',
-      uid: '',
-      pas: '',
-      code: 1,
-      addTag: '添加标签',
-      displayImg: false
+      data: [], // 登录cookie数据
+      datas: [], // 发布数据
+      time: new Date(), // 时间
+      addLabel: true, // 添加标签显示或隐藏
+      placeholder: '这一刻,你在想什么?', // 文本框占位符
+      publish: '发布碎片', // 发布按钮
+      change: '0', // 文本框内容的长度
+      values: '', // 文本框输入的内容
+      display: true, // 添加标签下的内容的显示
+      tag: '', // 发布获取的tag
+      uid: '', // 用户名
+      pas: '', // 密码
+      code: 1, // 登录状态
+      addTag: '添加标签', // 添加标签内容
+      displayImg: false // 上传图片是否显示
     }
   }
   // 挂载完成查看cookie里是否有账号密码
@@ -207,6 +207,8 @@ class Publish extends Component {
   }
   render () {
     const day = this.state.time.getDate() > 10 ? this.state.time.getDate() : '0' + this.state.time.getDate()
+    const MonthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const months = this.state.time.getMonth()
     let allLabel = ['悄悄话', '戳心歌词', '一件钟情的句子', '电影截图+经典台词', '黑白大片', '最美摘抄', '旧书摊', '看照片猜身高', '三行情书', '给力头像都在这', '自拍狂魔', '给诗歌配图']
     let allLeabelArr = allLabel.map((item, index) => {
       return <span key={index.toString()} onClick={this.tagValue}>{item}</span>
@@ -215,7 +217,7 @@ class Publish extends Component {
       <div className='publish clear-float'>
         <div className='publish-time float-left'>
           <span>{day}</span>
-          <span>September</span>
+          <span>{MonthArray[parseInt(months)]}</span>
         </div>
         <div className='publish-content float-right'>
           <textarea value={this.state.values} onChange={this.changes} className='publish-textarea' placeholder={this.state.placeholder} />
