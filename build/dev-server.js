@@ -67,8 +67,8 @@ app.use(hotMiddleware)
 // console.log(!!a)//false
 
 const autoOpenBrowser = !!config.dev.autoOpenBrowser
-
 const url = 'http://localhost:' + port + '/homepage.html'
+
 let _resolve
 let readyPromise = new Promise(resolve => {
   _resolve = resolve

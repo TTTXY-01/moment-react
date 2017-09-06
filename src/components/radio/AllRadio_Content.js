@@ -33,25 +33,25 @@ class AllRadioContent extends Component {
         })
       })
   }
-
   componentDidMount () {
     this.ajaxData('/ting/listOfRadio.php?pageSize=12&sort=2&pageNum=' + this.state.pageNum)
     window.addEventListener('scroll', this.handleScroll.bind(this))
   }
 
   handleScroll = () => {
+    // 滚轮滚动过的距离
     let STop = document.body.scrollTop
+    // 屏幕高度
     const DHeight = document.documentElement.clientHeight
+    // 网页页面的高度
     const SHeight = document.documentElement.scrollHeight
     if (SHeight === STop + DHeight) {
       this.setState({
         pageNum: this.state.pageNum + 1
       }, () => {
-        console.log(this.state.pageNum)
         this.ajaxData('/ting/listOfRadio.php?pageSize=9&sort=2&pageNum=' + this.state.pageNum)
       })
     }
-    console.log(this.state.pageNum)
   }
 
   render () {
@@ -66,12 +66,12 @@ class AllRadioContent extends Component {
               <div className="hot_coverDiv" />
               <p className="hot_coverDiv_title">{item.desc}</p>
             </div>
-            <div className="hot_radio_introduce">
-              <p><a href="###" className="hot_radio_name">{item.title}</a></p>
-              <p><a href="###" className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
-              <p className="hot_radio_playCount">2.5m次播放</p>
-            </div>
           </a>
+          <div className="hot_radio_introduce">
+            <p><a href={'radioinfo.html?id=' + item.id} target='blank' className="hot_radio_name">{item.title}</a></p>
+            <p><a href={'user.html?uid=' + item.userinfo.uid} target='blank' className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
+            <p className="hot_radio_playCount">2.5m次播放</p>
+          </div>
         </div>
       )
     })
@@ -80,12 +80,12 @@ class AllRadioContent extends Component {
         <div className='AllRadioType_title_wrap'>
           <div className='AllRadioType_title'>
             分类:
-            <a href='###'>故事</a>
-            <a href='###'>音乐</a>
-            <a href='###'>读诗</a>
-            <a href='###'>电影</a>
-            <a href='###'>旅行</a>
-            <a href='###'>爱情</a>
+            <a href={'radioType.html?style=2'} target='blank'>故事</a>
+            <a href={'radioType.html?style=4'} target='blank'>音乐</a>
+            <a href={'radioType.html?style=6'} target='blank'>读诗</a>
+            <a href={'radioType.html?style=5'} target='blank'>电影</a>
+            <a href={'radioType.html?style=3'} target='blank'>旅行</a>
+            <a href={'radioType.html?style=1'} target='blank'>爱情</a>
           </div>
         </div>
         {hotArray}

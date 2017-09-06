@@ -39,6 +39,22 @@ class RadioDetail extends Component {
     console.log(radioid[1])
     this.ajaxData('/ting/radio.php?radioid=' + radioid[1])
   }
+  stopClick = () => {
+    // let audio = document.getElementById('theMusic')
+    // audio.pause()
+    let stopBtn = document.getElementsByClassName('radio_detail_stopBtn')[0]
+    let playBtn = document.getElementsByClassName('radio_detail_playBtn')[0]
+    stopBtn.style.display = 'none'
+    playBtn.style.display = 'block'
+  }
+  playClick = () => {
+    // let audio = document.getElementById('theMusic')
+    // audio.play()
+    let stopBtn = document.getElementsByClassName('radio_detail_stopBtn')[0]
+    let playBtn = document.getElementsByClassName('radio_detail_playBtn')[0]
+    stopBtn.style.display = 'block'
+    playBtn.style.display = 'none'
+  }
   render() {
     return (
       <div className="radio_wrap">
@@ -54,19 +70,22 @@ class RadioDetail extends Component {
               <a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>
                 <img src={this.state.userInfo.icon} />
               </a>
-              <span className="radio_detail_author_title"><a href={'user.html?uid=' + this.state.userInfo.uid}>{this.state.userInfo.uname} target='blank'</a></span>
+              <span className="radio_detail_author_title"><a href={'user.html?uid=' + this.state.userInfo.uid} target='blank'>{this.state.userInfo.uname}</a></span>
               <span className="radio_detail_others">{(this.state.data.plays / 1000000).toFixed(1)}m次播放 | {this.state.data.total}个TING</span>
             </div>
             <div className="radio_detail_introduction">{this.state.data.desc}</div>
             <div className="radio_detail_btn">
-              <div className="radio_detail_stopBtn">
+              <div className="radio_detail_stopBtn" onClick={this.stopClick}>
                 暂停电台
               </div>
-              <div className="radio_detail_playBtn">
+              <div className="radio_detail_playBtn" onClick={this.playClick}>
                 播放全部
               </div>
             </div>
           </div>
+        </div>
+        <div className="info_text_title">
+          TING | {this.state.data.total}首
         </div>
       </div>
     )
