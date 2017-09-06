@@ -47,11 +47,11 @@ class Recommendation extends Component {
             </div>
           </a>
           <div className="recommend_ting_introduce">
-            <a href="###"><p className="recommend_ting_name">{item.title}</p></a>
+            <a href={'tingInfo.html?tingid=' + item.tingid} target='blank'><p className="recommend_ting_name">{item.title}</p></a>
             <a href="###"><p className="recommend_ting_anchor">主播/{item.userinfo.uname}</p></a>
-            <span>1次播放 |</span>
-            <span> 评论:1 | </span>
-            <span> 喜欢:1</span>
+            <span>{(item.plays / 1000).toFixed(1)}次播放 |</span>
+            <span> 评论:{item.comments} | </span>
+            <span> 喜欢:{item.likes}</span>
           </div>
         </div>
       )

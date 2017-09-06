@@ -48,7 +48,7 @@
 .active
   border-right 10px solid #fafafa
   border-left 10px solid #fafafa
-// 电台种类(6种)
+// 电台种类标题(6种)
 .type_wrap
   margin 0 auto
   border 1px dashed #333
@@ -91,6 +91,46 @@
 .radio_poetry
   width 25px
   height 24px
+// 六种电台详情
+.radioType_wrap
+  width 960px
+  margin auto
+.radio_type_top
+  margin auto
+  width 960px
+  padding-top 60px
+  padding-bottom: 70px
+.radio_type_loveImg
+  width 960px
+  height 200px
+  margin auto
+  text-align center
+.radio_type_loveImg img
+  width 200px
+  height 200px
+.radioType_title_wrap
+  width 960px
+  margin auto
+  padding-top 60px
+  text-align center
+.radio_type_title
+  font-size 12px
+  color #666
+.radio_title
+  cursor pointer
+  font-weight 200
+  text-decoration none
+  padding 0 10px
+  color #999
+.radio_active
+  color black
+.radioType_ting_wrap
+  margin auto
+  width 960px
+.radioType_ting
+  display flex
+  justify-content space-between
+  flex-wrap wrap
 // 最新 top 推荐
 .connect_wrap
   padding 0 120px 0 120px
@@ -294,20 +334,23 @@
   width 1020px
   margin auto
 .AllRadioType_title
-  float: right
+  z-index 100
+  position absolute
   width 315px
   font-size 12px
-  left 780px
-  top 132px
+  left 700px
+  top 0
 .AllRadioType_title a
   text-decoration none
   padding 0 10px
   color #999
+.AllRadioType_title a:hover
+  color: 668
 // 精选/全部切换
 .radioType_title {
   padding 0 120px 0 120px
   position relative
-  z-index 10
+  z-index 100
   height 20px
   width 960px
   margin auto
@@ -410,6 +453,7 @@ radioType_title .type-active::before {
   font-size 14px
   bottom 0
 .info_detail_stopBtn
+  //display none
   background-repeat no-repeat
   background-size 30px
   background-position 12px 10px
@@ -431,6 +475,8 @@ radioType_title .type-active::before {
   border-radius 25px
   border 1px solid #57ad68
 .info_text_title
+  width 960px
+  margin auto
   padding-bottom 40px
   background-repeat no-repeat
   padding-top 70px
@@ -578,7 +624,6 @@ radioType_title .type-active::before {
 // 热门电台详情
 .radio_wrap
   margin-top 40px
-  margin-bottom 40px
 .radio_detail
   position relative
   width 960px
@@ -667,11 +712,6 @@ radioType_title .type-active::before {
   background white
 .ting_item:hover
   background rgb(239, 239, 239)
-.ting_item:hover > .ting_item_index
-  background-image url("../../assets/images/radio-play.png")
-  background-repeat no-repeat
-  background-position center
-  background-size 20px
 .ting_item:hover > .ting_item_title
   color #5cb76e
 .ting_item:hover > .ting_item_like
@@ -687,7 +727,24 @@ radioType_title .type-active::before {
   font-size 16px
   font-weight lighter
   color #999
-  //display inline-block
+.ting_item_stopBtn
+  display none
+  width 80px
+  height 80px
+  float left
+  background-image url("../../assets/images/ting-pause.png")
+  background-repeat no-repeat
+  background-position center
+  background-size 20px
+.ting_item_playBtn
+  display none
+  width 80px
+  height 80px
+  float left
+  background-image url("../../assets/images/ting-play.png")
+  background-repeat no-repeat
+  background-position center
+  background-size 20px
 .ting_item_title
   font-weight 200
   clear both
@@ -818,3 +875,7 @@ radioType_title .type-active::before {
   color white
   text-align center
   line-height 30px
+.info_commentList
+  padding 20px
+  width 960px
+  background white

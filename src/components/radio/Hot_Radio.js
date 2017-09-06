@@ -49,9 +49,9 @@ class HotRadio extends Component {
             </div>
           </a>
           <div className="hot_radio_introduce">
-            <p><a href="###" className="hot_radio_name">{item.title}</a></p>
-            <p><a href="###" className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
-            <p className="hot_radio_playCount">2.5m次播放</p>
+            <p><a href={'radioinfo.html?id=' + item.id} target='blank' className="hot_radio_name">{item.title}</a></p>
+            <p><a href={'user.html?uid=' + item.userinfo.uid} target='blank' className="hot_radio_anchor">主播/{item.userinfo.uname}</a></p>
+            <p className="hot_radio_playCount">{(item.plays / 1000000).toFixed(1)}m次播放</p>
           </div>
         </div>
       )
