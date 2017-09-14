@@ -70,11 +70,13 @@ class Header extends Component {
     }
   }
   componentDidMount () {
-    let mobile = document.cookie === '' ? '' : document.cookie.match(/mobile=\d+/g)[0].substr(7)
-    let password = document.cookie === '' ? '' : document.cookie.match(/password=\d+/g)[0].substr(9)
-    let interFace = '/user/login.php?mobile=' + mobile + '&pwd=' + password
-    if (document.cookie !== '') {
-      this.ajaxData(interFace)
+    let response = JSON.parse(localStorage.getItem('response'))
+    if (response !== null) {
+      this.setState({
+        data: response.data,
+        response: response,
+        code: response.code
+      })
     }
     this.navStyle()
   }
@@ -92,28 +94,22 @@ class Header extends Component {
     let mobile = document.querySelector('.login-mobile').value
     let password = document.querySelector('.login-password').value
     let interFace = '/user/login.php?mobile=' + mobile + '&pwd=' + password
-    document.cookie = 'mobile=' + mobile
-    document.cookie = 'password=' + password
     this.ajaxData(interFace)
   }
   // 退出账号
   logout = () => {
-    let mobile = document.cookie.match(/mobile=\d+/g)[0].substr(7)
-    let password = document.cookie.match(/password=\d+/g)[0].substr(9)
-    var date = new Date()
-    date.setTime(date.getTime() - 10000)
-    document.cookie = 'mobile=' + mobile + '; expires=' + date.toGMTString()
-    document.cookie = 'password=' + password + '; expires=' + date.toGMTString()
     this.setState({
       code: 1
     }, () => {
       document.getElementsByClassName('login-mobile')[0].value = ''
       document.getElementsByClassName('login-password')[0].value = ''
+      window.localStorage.removeItem('response')
       window.location.reload()
     })
   }
   componentDidUpdate() {
     this.navStyle()
+    window.localStorage.setItem('response', JSON.stringify(this.state.response))
   }
   render () {
     return (
